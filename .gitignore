@@ -1,16 +1,7 @@
 
-.idea/.name
+.idea/*
 
-.idea/encodings.xml
+*.pyc
 
-.idea/misc.xml
+upsilon.egg-info/*
 
-.idea/modules.xml
-
-.idea/scopes/scope_settings.xml
-
-.idea/upsilon.iml
-
-.idea/vcs.xml
-
-.idea/workspace.xml
