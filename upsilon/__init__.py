@@ -1,3 +1,3 @@
 __author__ = 'kim'
 
-from .test import test
+from .extract_features.extract_features import ExtractFeatures
