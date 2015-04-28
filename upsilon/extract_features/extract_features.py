@@ -5,7 +5,7 @@ import scipy.stats as ss
 import matplotlib.pyplot as plt
 from scipy.optimize import leastsq
 
-import period_LS_pyfft as pLS
+import period_LS_pyfftw as pLS
 
 class ExtractFeatures():
     """
