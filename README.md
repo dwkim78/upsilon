@@ -1,5 +1,7 @@
 # UPSILoN [ Under Development ]
-<center><img src="https://github.com/dwkim78/upsilon/blob/master/UPSILoN.png"></center><br>
+<div align="center">
+<img src="https://github.com/dwkim78/upsilon/blob/master/UPSILoN.png">
+</div><br>
 
 <font size="4">UPSILoN (<font color="red"><b>U</b></font>biquitous Classification 
 of <font color="red"><b>P</b></font>eriodic Variable <font color="red"><b>S</b></font>tars 
