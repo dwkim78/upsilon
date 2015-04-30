@@ -24,20 +24,21 @@ def run():
     mag = mag[index]
     err = err[index]
 
-    start = time.time()
-    e_features = ExtractFeatures(date, mag, err)
-    end = time.time()
-    print '# Initializing instance time: %.4f seconds' % (end - start)
+    for i in range(1):
+        start = time.time()
+        e_features = ExtractFeatures(date, mag, err)
+        end = time.time()
+        print '# Initializing instance time: %.4f seconds' % (end - start)
 
-    start = time.time()
-    e_features.sallow_run()
-    end = time.time()
-    print '# Shallow-run processing time: %.4f seconds' % (end - start)
+        start = time.time()
+        e_features.shallow_run()
+        end = time.time()
+        print '# Shallow-run processing time: %.4f seconds' % (end - start)
 
-    start = time.time()
-    e_features.deep_run()
-    end = time.time()
-    print '# Deep-run processing time: %.4f seconds' % (end - start)
+        start = time.time()
+        e_features.deep_run()
+        end = time.time()
+        print '# Deep-run processing time: %.4f seconds' % (end - start)
 
     features = e_features.get_features()
     for i in range(len(features[0])):

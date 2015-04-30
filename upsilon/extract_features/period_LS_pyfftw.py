@@ -88,7 +88,7 @@ def __spread__(y, yy, n, x, m):
             yy[j] = yy[j] + y*fac/(nden*(x - j))
 
 
-def fasper(x, y, ofac, hifac, MACC=4):
+def fasper(x, y, ofac, hifac, n_threads, MACC=4):
     """
     Given abscissas x (which need not be equally spaced) and ordinates
     y, and given a desired oversampling factor ofac (a typical value
@@ -115,6 +115,7 @@ def fasper(x, y, ofac, hifac, MACC=4):
             Hifac : Hifac * "average" Nyquist frequency = highest frequency
                      for which values of the Lomb normalized periodogram will
                      be calculated.
+            n_threads : number of threads to use.
             
      Returns:
             Wk1 : An array of Lomb periodogram frequencies.
@@ -141,10 +142,7 @@ def fasper(x, y, ofac, hifac, MACC=4):
     nfreqt = long(ofac*hifac*n*MACC)     #Size the FFT as next power
     nfreq = 64L                         # of 2 above nfreqt.
 
-    # Number of threads to use
-    n_threads = multiprocessing.cpu_count()
-
-    while nfreq < nfreqt: 
+    while nfreq < nfreqt:
         nfreq = 2*nfreq
 
     ndim = long(2*nfreq)

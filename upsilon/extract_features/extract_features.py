@@ -2,6 +2,8 @@ __author__ = 'kim'
 
 import numpy as np
 import scipy.stats as ss
+import multiprocessing
+
 import matplotlib.pyplot as plt
 from scipy.optimize import leastsq
 
@@ -31,17 +33,18 @@ class ExtractFeatures():
         else:
             self.err = np.ones(len(self.mag)) * np.std(self.mag)
 
+        if n_threads > multiprocessing.cpu_count():
+            n_threads = multiprocessing.cpu_count()
         self.n_threads = n_threads
 
-    def sallow_run(self):
+    def shallow_run(self):
         """
         Derive not-period-based features.
 
         :return: None
         """
-        # Number of data points before/after filtering.
-        self.n_points_raw = 0
-        self.n_points_filter = 0
+        # Number of data points
+        self.n_points = len(self.date)
 
         # Weight calculation
         self.weight = 1. / self.err
@@ -76,6 +79,9 @@ class ExtractFeatures():
         # Ratio between higher and lower amplitude than average.
         self.hl_amp_ratio = self.half_mag_amplitude_ratio(
             self.mag, self.median, self.weight)
+        # This second function's value is very similar with the above one.
+        #self.hl_amp_ratio2 = self.half_mag_amplitude_ratio2(
+        #    self.mag, self.median)
 
     def deep_run(self):
         """
@@ -84,7 +90,7 @@ class ExtractFeatures():
         :return: None
         """
         # Lomb-Scargle period finding.
-        self.getPeriodLS(self.date, self.mag)
+        self.getPeriodLS(self.date, self.mag, self.n_threads)
 
         # Features based on a phase-folded light curve
         # such as Eta, slope-percentile, etc.
@@ -106,7 +112,7 @@ class ExtractFeatures():
             self.slope_percentile(folded_date, folded_mag)
 
 
-    def getPeriodLS(self, date, mag):
+    def getPeriodLS(self, date, mag, n_threads):
         """
         Period finding using the Lomb-Scargle algorithm.
 
@@ -140,14 +146,15 @@ class ExtractFeatures():
         #------------------------------------------------------------------#
 
         # Lomb-Scargle.
-        fx, fy, nout, jmax, prob = pLS.fasper(date, mag, oversampling, hifac)
+        fx, fy, nout, jmax, prob = pLS.fasper(date, mag, oversampling, hifac,
+            n_threads)
 
         self.f = fx[jmax]
         self.period = 1. / self.f
         self.f_log10FAP = \
             np.log10(pLS.getSignificance(fx, fy, nout, oversampling)[jmax])
-        self.f_SNR1 = fy[jmax] / np.median(fy)
-        self.f_SNR2 = (fy[jmax] - np.median(fy)) / np.std(fy)
+        self.f_SNR = fy[jmax] / np.median(fy)
+        #self.f_SNR2 = (fy[jmax] - np.median(fy)) / np.std(fy)
 
         # Fit Fourier Series of order 5.
         order = 5
@@ -306,6 +313,32 @@ class ExtractFeatures():
         # Return ratio.
         return lower_weighted_std / higher_weighted_std
 
+    def half_mag_amplitude_ratio2(self, mag, avg):
+        """
+        Return ratio of amplitude of higher and lower
+        magnitudes than average.
+
+        This ratio, by definition, should be higher for EB than for others.
+
+        :param mag: an array of magnitudes.
+        :param avg: an average of magnitudes.
+        """
+
+        # For lower (fainter) magnitude than average.
+        index = np.where(mag > avg)
+        fainter_mag = mag[index]
+
+        lower_sum = np.sum((fainter_mag - avg)**2) / len(fainter_mag)
+
+        # For higher (brighter) magnitude than average.
+        index = np.where(mag <= avg)
+        brighter_mag = mag[index]
+
+        higher_sum = np.sum((avg - brighter_mag)**2) / len(brighter_mag)
+
+        # Return ratio.
+        return np.sqrt(lower_sum / higher_sum)
+
     def Eta(self, mag, std):
         """
         Return Eta feature.
@@ -364,7 +397,7 @@ class ExtractFeatures():
                     or name == 'weight' or name == 'weighted_sum'
                     or name == 'n_threads'):
                 # Filter some other unnecessary features
-                if not (name == 'f1' or name == 'f2'):
+                if not (name == 'f'):
                     feature_names.append(name)
 
         # Sort by the names.
