@@ -34,7 +34,38 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 ## Installation
 
 
-## Usage
+## Pseudo Code: How to Use UPSILoN? 
+
+The following pseudo code shows the entire processes of UPSILoN.
+
+```python
+import upsilon
+
+# Load a classification model.
+rf_model = upsilon.load_rf_model()
+
+# Extract features from each light curve and predict its class. 
+for light_curve in set_of_light_curve:
+    # Read light_curve
+    date = np.array([...])
+    mag = np.array([...])
+    mag_error = np.array([...])
+    
+    # Refine a light curve
+    ...Do it yourself...
+    
+    # Extract features
+    e_features = upsilon.ExtractFeatures(date, mag, mag_error)
+    e_features.run()
+    features, values = e_features.get_features()
+    
+    label, probability = upsilon.predict(features, values)
+    
+    print label, probability
+```
+
+
+## Details about UPSILoN Usage
 
 ### Preparation
 
@@ -99,36 +130,6 @@ label, probability = rf_model.predict(features, values)
 
 That's all! Now you know the class of your light curve, ```label```, 
 and its class probability, ```probability```, as well.
-
-### Pseudo Code
-
-The following pseudo code shows the entire processes of UPSILoN.
-
-```python
-import upsilon
-
-# Load a classification model.
-rf_model = upsilon.load_rf_model()
-
-# Extract features from each light curve and predict its class. 
-for light_curve in set_of_light_curve:
-    # Read light_curve
-    date = np.array([...])
-    mag = np.array([...])
-    mag_error = np.array([...])
-    
-    # Refine a light curve
-    ...Do it yourself...
-    
-    # Extract features
-    e_features = upsilon.ExtractFeatures(date, mag, mag_error)
-    e_features.run()
-    features, values = e_features.get_features()
-    
-    label, probability = upsilon.predict(features, values)
-    
-    print label, probability
-```
 
 ### ChangeLog
 
