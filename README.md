@@ -37,6 +37,9 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 #### v0.5 (planned)
 - add (a) Random Forest classification models.
 
+#### v 0.2.2
+- add a module estimating period uncertainty.
+
 #### v0.2.1
 - add the UPSILoN logo image.
 
