@@ -14,7 +14,7 @@ class ExtractFeatures():
     Extract variability features of a light curve.
     """
 
-    def __init__(self, date, mag, err=None, n_threads=4):
+    def __init__(self, date, mag, err=None, n_threads=4, min_period=0.03):
         """
         Initialize.
 
@@ -22,10 +22,18 @@ class ExtractFeatures():
         :param mag: An array of observed magnitude.
         :param err: An array of magnitude error. If None, std(mag) will be used.
         :param n_threads: The number of cores to use to derive periods.
+        :param min_period: The minimum period to calculate.
         :return: An array of variability features.
         """
 
         # Set basic values.
+        if not isinstance(date, np.ndarray):
+            date = np.array(date)
+        if not isinstance(mag, np.ndarray):
+            mag = np.array(mag)
+        if not isinstance(err, np.ndarray):
+            err = np.array(err)
+
         self.date = date
         self.mag = mag
         if err is not None:
@@ -33,9 +41,25 @@ class ExtractFeatures():
         else:
             self.err = np.ones(len(self.mag)) * np.std(self.mag)
 
+        n_threads = int(n_threads)
         if n_threads > multiprocessing.cpu_count():
-            n_threads = multiprocessing.cpu_count()
-        self.n_threads = n_threads
+            self.n_threads = multiprocessing.cpu_count()
+        else:
+            self.n_threads = n_threads
+
+        min_period = float(min_period)
+        if min_period <= 0:
+            self.min_period = 0.03
+        else:
+            self.min_period = min_period
+
+    def run(self):
+        """
+        Run feature extraction modules.
+        """
+
+        self.shallow_run()
+        self.deep_run()
 
     def shallow_run(self):
         """
@@ -90,7 +114,7 @@ class ExtractFeatures():
         :return: None
         """
         # Lomb-Scargle period finding.
-        self.get_period_LS(self.date, self.mag, self.n_threads)
+        self.get_period_LS(self.date, self.mag, self.n_threads, self.min_period)
 
         # Features based on a phase-folded light curve
         # such as Eta, slope-percentile, etc.
@@ -112,7 +136,7 @@ class ExtractFeatures():
             self.slope_percentile(folded_date, folded_mag)
 
 
-    def get_period_LS(self, date, mag, n_threads):
+    def get_period_LS(self, date, mag, n_threads, min_period):
         """
         Period finding using the Lomb-Scargle algorithm.
 
@@ -123,27 +147,17 @@ class ExtractFeatures():
 
         :param date: An array of observed date, in days.
         :param mag: An array of observed magnitude.
+        :param n_threads: The number of threads to use.
+        :param min_period: The minimum period to calculate.
         """
 
         # DO NOT CHANGE THESE PARAMETERS.
         oversampling = 3.
-        min_period = 0.03 # in days
         hifac = int((max(date) - min(date)) / len(date) / min_period * 2.)
 
         # Minimum hifac
         if hifac < 100:
             hifac = 100
-
-        #------------------------------------------------------------------#
-        # IF YOU DEADLY NEED TO SPEED UP, UNCOMMENT BELOW THREE LINES.     #
-        #------------------------------------------------------------------#
-        #oversampling = 2.
-        #min_period = 0.1
-        #hifac = 100
-        #------------------------------------------------------------------#
-        # THIS MIGHT MAKES THE Lomb-Scargle 200 ~ 300% FASTER.             #
-        # BUT THIS MIGHT NOT DEGRADE SHORT-PERIOD VARIABLE CLASSIFICATION. #
-        #------------------------------------------------------------------#
 
         # Lomb-Scargle.
         fx, fy, nout, jmax, prob = pLS.fasper(date, mag, oversampling, hifac,

@@ -25,6 +25,7 @@ def run():
     err = err[index]
 
     for i in range(1):
+        print '----------------------'
         start = time.time()
         e_features = ExtractFeatures(date, mag, err)
         end = time.time()
@@ -40,6 +41,7 @@ def run():
         end = time.time()
         print '# Deep-run processing time: %.4f seconds' % (end - start)
 
+    print '--------------------------'
     features = e_features.get_features()
     for i in range(len(features[0])):
         print features[0][i],features[1][i]

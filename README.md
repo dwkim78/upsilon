@@ -16,6 +16,7 @@ and [long-period variables](http://en.wikipedia.org/wiki/Long-period_variable_st
 using only single-band optical light-curves **regardless of** survey-specific characteristics 
 such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 
+
 ## Dependency
 [Python 2.7+](https://www.python.org/)
 
@@ -28,6 +29,56 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 [sklearn 0.14+](http://scikit-learn.org/stable/)
 
 [pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/)
+
+
+## Installation
+
+```
+pip install upsilon
+```
+
+## Usage
+
+### Preparation
+
+In order to extract features from a light curve, one must prepare
+three variables, each of which is an numpy array of dates in days, 
+magnitudes, and magnitude errors. For example, see the following pseudo code.
+
+```python
+date = np.array([...])
+mag = np.array([...])
+mag_error = np.array([...])
+```
+
+If necessary, these three variables must be refined prior to be ingested
+to UPSILoN. For instance, invalid values among these variables must be removed.
+
+### Extracting Features
+
+Once you have these three variables, you can extract features as:
+
+```python
+import upsilon
+e_features = upsilon.ExtractFeatures(date, mag, mag_error)
+e_features.run()
+features, values = e_features.run()
+```
+
+### Classification
+
+Before classification, one must read a Random Forest classification model as
+```python
+rf_model = upsilon.load_model()
+```
+NOTE: loading module takes ~50 seconds. You load the model only once
+during the whole classification processes. Do NOT load it multiple times.
+
+Now you can classify the light curve as
+
+```python
+class = rf_model.predict(features, values)
+```
 
 ### ChangeLog
 
