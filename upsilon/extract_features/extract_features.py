@@ -90,7 +90,7 @@ class ExtractFeatures():
         :return: None
         """
         # Lomb-Scargle period finding.
-        self.getPeriodLS(self.date, self.mag, self.n_threads)
+        self.get_period_LS(self.date, self.mag, self.n_threads)
 
         # Features based on a phase-folded light curve
         # such as Eta, slope-percentile, etc.
@@ -105,14 +105,14 @@ class ExtractFeatures():
         folded_mag = self.mag[sorted_index]
 
         # phase Eta
-        self.phase_eta = self.Eta(folded_mag, np.std(folded_mag))
+        self.phase_eta = self.eta(folded_mag, np.std(folded_mag))
 
         # Slope percentile.
         self.slope_per10, self.slope_per90 = \
             self.slope_percentile(folded_date, folded_mag)
 
 
-    def getPeriodLS(self, date, mag, n_threads):
+    def get_period_LS(self, date, mag, n_threads):
         """
         Period finding using the Lomb-Scargle algorithm.
 
@@ -151,6 +151,7 @@ class ExtractFeatures():
 
         self.f = fx[jmax]
         self.period = 1. / self.f
+        self.period_uncertainty = self.get_period_uncertainty(fx, fy, jmax)
         self.f_log10FAP = \
             np.log10(pLS.getSignificance(fx, fy, nout, oversampling)[jmax])
         self.f_SNR = fy[jmax] / np.median(fy)
@@ -228,6 +229,48 @@ class ExtractFeatures():
         self.f12_phase = self.f2_phase - self.f1_phase
         """
 
+    def get_period_uncertainty(self, fx, fy, jmax, fx_width=100):
+        """
+        Get uncertainty of a period.
+
+        The uncertainty is defined as the half width
+        of the frequencies around the peak, that becomes lower than
+        average + standard deviation of the power spectrum.
+
+        Since we may not have fine resolution around the peak,
+        we do not assume it is gaussian. So, no scaling factor
+        of 2.355 (= 2 * sqrt(2 * ln2)) is applied.
+
+        :param fx: An array of observed date, in days.
+        :param fy: An array of observed magnitude.
+        :param jmax: An array of observed magnitude.
+        :param fx_width: Width of power spectrum to calculate uncertainty.
+        :return: Period uncertainty.
+        """
+
+        # Get subset
+        fx_subset = fx[jmax-fx_width:jmax+fx_width]
+        fy_subset = fy[jmax-fx_width:jmax+fx_width]
+        fy_mean = np.median(fy_subset)
+        fy_std = np.std(fy_subset)
+
+        # Find peak
+        max_index = np.argmax(fy_subset)
+
+        # Find list whose powers become lower than average + std.
+        index = np.where(fy_subset <= fy_mean + fy_std)[0]
+
+        # Find the edge at left and right. This is the full width.
+        left_index = index[(index<max_index)][-1]
+        right_index = index[(index>max_index)][0]
+
+        # We assume the half of the full width is the period uncertainty.
+        half_width = (1./fx_subset[left_index]
+            - 1./fx_subset[right_index]) / 2.
+        period_uncertainty = half_width
+
+        return period_uncertainty
+
     def residuals(self, pars, x, y, order):
         """
         Residual of FourierSeries.
@@ -238,9 +281,9 @@ class ExtractFeatures():
         :param order: order of Fourier Series.
         """
 
-        return y - self.FourierSeries(pars, x, order)
+        return y - self.fourier_series(pars, x, order)
 
-    def FourierSeries(self, pars, x, order):
+    def fourier_series(self, pars, x, order):
         """
         Function to fit Fourier Series.
 
@@ -339,7 +382,7 @@ class ExtractFeatures():
         # Return ratio.
         return np.sqrt(lower_sum / higher_sum)
 
-    def Eta(self, mag, std):
+    def eta(self, mag, std):
         """
         Return Eta feature.
 
