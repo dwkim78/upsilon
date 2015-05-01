@@ -68,9 +68,7 @@ features, values = e_features.run()
 
 If there are no magnitude errors, you can call UPSILoN as:
 ```python
-'''
 e_features = upsilon.ExtractFeatures(date, mag)
-...
 ``` 
 In this case, UPSILoN will use a standard deviation of magnitudes as errors.
 
@@ -78,9 +76,7 @@ UPSILoN uses multiple cores to extract features. By default, UPSILoN
 uses 4 cores. If you want to increase it, do as follows:
 
 ```python
-...
 e_features = upsilon.ExtractFeatures(date, mag, mag_error, n_threads=16)
-...
 ```
 
 Using multiple cores significantly improves extracting speed.
