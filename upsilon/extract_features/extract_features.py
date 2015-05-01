@@ -45,7 +45,10 @@ class ExtractFeatures():
         if n_threads > multiprocessing.cpu_count():
             self.n_threads = multiprocessing.cpu_count()
         else:
-            self.n_threads = n_threads
+            if n_threads <= 0:
+                self.n_threads = 1
+            else:
+                self.n_threads = n_threads
 
         min_period = float(min_period)
         if min_period <= 0:
