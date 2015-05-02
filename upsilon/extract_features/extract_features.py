@@ -263,8 +263,15 @@ class ExtractFeatures():
         """
 
         # Get subset
-        fx_subset = fx[jmax-fx_width:jmax+fx_width]
-        fy_subset = fy[jmax-fx_width:jmax+fx_width]
+        start_index = jmax-fx_width
+        end_index = jmax+fx_width
+        if start_index < 0:
+            start_index = 0
+        if end_index > len(fx) - 1:
+            end_index = len(fx) - 1
+
+        fx_subset = fx[start_index:end_index]
+        fy_subset = fy[start_index:end_index]
         fy_mean = np.median(fy_subset)
         fy_std = np.std(fy_subset)
 
@@ -275,8 +282,16 @@ class ExtractFeatures():
         index = np.where(fy_subset <= fy_mean + fy_std)[0]
 
         # Find the edge at left and right. This is the full width.
-        left_index = index[(index<max_index)][-1]
-        right_index = index[(index>max_index)][0]
+        left_index = index[(index<max_index)]
+        if len(left_index) == 0:
+            left_index = 0
+        else:
+            left_index = left_index[-1]
+        right_index = index[(index>max_index)]
+        if len(right_index) == 0:
+            right_index = len(fy_subset) - 1
+        else:
+            right_index = right_index[0]
 
         # We assume the half of the full width is the period uncertainty.
         half_width = (1./fx_subset[left_index]

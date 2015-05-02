@@ -111,8 +111,9 @@ uses 4 cores. If you want to use more, do as follows:
 e_features = upsilon.ExtractFeatures(date, mag, mag_error, n_threads=8)
 ```
 
-Extracting features takes about one second per light curve using
-Macbook Air 2012 13-inch model equipped with Intel Core i5 
+Extracting features takes about one second per light curve with several
+hundreds of data points,
+using Macbook Air 2012 13-inch model equipped with Intel Core i5 
 (2 cores and total 4 threads), and 8 GBytes memory.
 
 ### Classification
@@ -133,6 +134,17 @@ label, probability = rf_model.predict(features, values)
 
 That's all! Now you know the class of your light curve, ```label```, 
 and its class probability, ```probability```, as well.
+
+### Tip
+
+By the nature of UPSILoN, it can distinguish 
+periodic variable light curves from non-varying light curves (i.e. non-variables).
+Nevertheless, since feature extracting takes lots of time,
+removal of non-varying light curves prior to running UPSILoN 
+would significantly reduces the total processing time.
+Unfortunately, there is no universal way to remove such non-varying light curves
+for many different time-series surveys, and thus UPSILoN do not provides such functionality.
+Each UPSILoN user has their own choices of what to remove.
 
 
 ## 5. UPSILoN Classification Performance
