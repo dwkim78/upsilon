@@ -17,7 +17,7 @@ using only single-band optical light-curves **regardless of** survey-specific ch
 such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 
 
-## Dependency
+## 1. Dependency
 [Python 2.7+](https://www.python.org/)
 
 [Numpy 1.8+](http://www.numpy.org/)
@@ -31,12 +31,12 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 [pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/)
 
 
-## Installation
+## 2. Installation
+- NOT YET
 
+## 3. Pseudo Code: How to Use UPSILoN? 
 
-## Pseudo Code: How to Use UPSILoN? 
-
-The following pseudo code shows the entire processes of UPSILoN.
+The following pseudo code shows the entire processes of how to use UPSILoN.
 
 ```python
 import upsilon
@@ -45,27 +45,28 @@ import upsilon
 rf_model = upsilon.load_rf_model()
 
 # Extract features from each light curve and predict its class. 
-for light_curve in set_of_light_curve:
-    # Read light_curve
+for light_curve in set_of_light_curves:
+    # Read the light curve's date (in days), magnitude, and magnitude errors.
+    ...
     date = np.array([...])
     mag = np.array([...])
     mag_error = np.array([...])
     
-    # Refine a light curve
-    ...Do it yourself...
+    # Pre-process and/or refine the light curve.
+    == Do it yourself ==
     
     # Extract features
     e_features = upsilon.ExtractFeatures(date, mag, mag_error)
     e_features.run()
     features, values = e_features.get_features()
     
-    label, probability = upsilon.predict(features, values)
-    
+    # Classify the light curve
+    label, probability = rf_model.predict(features, values)
     print label, probability
 ```
 
 
-## Details about UPSILoN Usage
+## 4. Details about UPSILoN Usage
 
 ### Preparation
 
@@ -107,10 +108,10 @@ UPSILoN uses multiple cores to extract features. By default, UPSILoN
 uses 4 cores. If you want to use more, do as follows:
 
 ```python
-e_features = upsilon.ExtractFeatures(date, mag, mag_error, n_threads=16)
+e_features = upsilon.ExtractFeatures(date, mag, mag_error, n_threads=8)
 ```
 
-Using multiple cores significantly improves feature-extraction speed.
+Using multiple cores improves feature-extraction speed.
 
 ### Classification
 
@@ -131,23 +132,36 @@ label, probability = rf_model.predict(features, values)
 That's all! Now you know the class of your light curve, ```label```, 
 and its class probability, ```probability```, as well.
 
-### ChangeLog
 
-#### v1.0 (planned)
+## 5. UPSILoN Classification Performance
+ 
+### Assessment of Classification Model
+
+### Application to Astronomical Survey
+
+#### EROS-2
+
+#### MACHO
+
+#### ASAS
+
+## 6. ChangeLog
+
+### v1.0 (planned)
 - release of the first version of UPSILoN.
 
-#### v0.5 (planned)
+### v0.5 (planned)
 - add (a) Random Forest classification models.
 
-#### v 0.2.2
+### v 0.2.2
 - add a module estimating period uncertainty.
 
-#### v0.2.1
+### v0.2.1
 - add the UPSILoN logo image.
 
-#### v0.2
+### v0.2
 - an improved period extracting module using pyFFTW and multi-threads, 
 which decreases the extracting time by ~40%.
 
-#### v0.1
+### v0.1
 - add feature extracting modules.
