@@ -111,7 +111,9 @@ uses 4 cores. If you want to use more, do as follows:
 e_features = upsilon.ExtractFeatures(date, mag, mag_error, n_threads=8)
 ```
 
-Using multiple cores improves feature-extraction speed.
+Extracting features takes about one second per light curve using
+Macbook Air 2012 13-inch model equipped with Intel Core i5 
+(2 cores and total 4 threads), and 8 GBytes memory.
 
 ### Classification
 
@@ -120,7 +122,7 @@ one must read a Random Forest classification model as
 ```python
 rf_model = upsilon.load_rf_model()
 ```
-NOTE: Loading a model takes ~50 seconds. Thus you must 
+NOTE: Loading a model takes ~30 seconds. Thus you must 
 <font color="red"><b>NOT</b></font> load it multiple times.
 
 Now you can classify the light curve as

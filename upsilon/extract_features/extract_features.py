@@ -93,7 +93,7 @@ class ExtractFeatures():
 
         # Normalization-test. Shapiro-Wilk test.
         shapiro = ss.shapiro(self.mag)
-        self.shapiro_W = shapiro[0]
+        #self.shapiro_W = shapiro[0]
         self.shapiro_log10p = np.log10(shapiro[1])
 
         # Percentile features.
@@ -132,12 +132,14 @@ class ExtractFeatures():
         folded_mag = self.mag[sorted_index]
 
         # phase Eta
-        self.phase_eta = self.eta(folded_mag, np.std(folded_mag))
+        self.phase_eta = self.eta(folded_mag, self.weighted_std)
 
         # Slope percentile.
         self.slope_per10, self.slope_per90 = \
             self.slope_percentile(folded_date, folded_mag)
 
+        # phase Cusum
+        self.phase_cusum = self.cusum(folded_mag)
 
     def get_period_LS(self, date, mag, n_threads, min_period):
         """
@@ -169,20 +171,19 @@ class ExtractFeatures():
         self.f = fx[jmax]
         self.period = 1. / self.f
         self.period_uncertainty = self.get_period_uncertainty(fx, fy, jmax)
-        self.f_log10FAP = \
+        self.period_log10FAP = \
             np.log10(pLS.getSignificance(fx, fy, nout, oversampling)[jmax])
-        self.f_SNR = fy[jmax] / np.median(fy)
-        #self.f_SNR2 = (fy[jmax] - np.median(fy)) / np.std(fy)
+        #self.f_SNR1 = fy[jmax] / np.median(fy)
+        self.period_SNR = (fy[jmax] - np.median(fy)) / np.std(fy)
 
         # Fit Fourier Series of order 5.
-        order = 5
+        order = 3
         # Initial guess of Fourier coefficients.
         p0 = np.ones(order * 2 + 1)
         date_period = (date % self.period) / self.period
         p1, success = leastsq(self.residuals, p0,
             args=(date_period, mag, order))
         #fitted_y = self.FourierSeries(p1, date_period, order)
-        #print p1
 
         #print p1, self.mean, self.median
         #plt.plot(date_period, self.mag, 'b+')
@@ -190,19 +191,15 @@ class ExtractFeatures():
 
         # Derive Fourier features for the first period.
         #Petersen, J. O., 1986, A&A
-        self.f_amp = 2. * np.sqrt(p1[1]**2 + p1[2]**2)
-        self.f_R21 = np.sqrt(p1[3]**2 + p1[4]**2) / self.f_amp
-        self.f_R31 = np.sqrt(p1[5]**2 + p1[6]**2) / self.f_amp
-        self.f_R41 = np.sqrt(p1[7]**2 + p1[8]**2) / self.f_amp
-        self.f_R51 = np.sqrt(p1[9]**2 + p1[10]**2) / self.f_amp
+        self.amplitude = np.sqrt(p1[1]**2 + p1[2]**2)
+        self.R21 = np.sqrt(p1[3]**2 + p1[4]**2) / self.amplitude
+        self.R31 = np.sqrt(p1[5]**2 + p1[6]**2) / self.amplitude
         self.f_phase = np.arctan(-p1[1] / p1[2])
-        self.f_phi21 = np.arctan(-p1[3] / p1[4]) - 2. * self.f_phase
-        self.f_phi31 = np.arctan(-p1[5] / p1[6]) - 3. * self.f_phase
-        self.f_phi41 = np.arctan(-p1[7] / p1[8]) - 4. * self.f_phase
-        self.f_phi51 = np.arctan(-p1[9] / p1[10]) - 5. * self.f_phase
+        self.phi21 = np.arctan(-p1[3] / p1[4]) - 2. * self.f_phase
+        self.phi31 = np.arctan(-p1[5] / p1[6]) - 3. * self.f_phase
 
         """
-        # Derive the second period
+        # Derive a second period.
         # Whitening a light curve.
         residual_mag = mag - fitted_y
 
@@ -439,6 +436,18 @@ class ExtractFeatures():
 
         return percentile_10, percentile_90
 
+    def cusum(self, mag):
+        """
+        Return max - min of cumulative sum.
+
+        :param mag: An array of magnitudes.
+        :return: Max - min of cumulative sum.
+        """
+
+        c = np.cumsum(mag - self.weighted_mean) / len(mag) / self.weighted_std
+
+        return np.max(c) - np.min(c)
+
     def get_features(self):
         """
         Return all features with its names.
@@ -454,10 +463,12 @@ class ExtractFeatures():
         for name in all_vars.keys():
             # Omit input variables such as date, mag, err, etc.
             if not (name == 'date' or name == 'mag' or name == 'err'
-                    or name == 'weight' or name == 'weighted_sum'
-                    or name == 'n_threads'):
-                # Filter some other unnecessary features
-                if not (name == 'f'):
+                    or name == 'n_threads' or name == 'min_period'):
+                # Filter some other unnecessary features.
+                if not (name == 'f' or name == 'f_phase'
+                        or name == 'period_log10FAP'
+                        or name == 'weight' or name == 'weighted_sum'
+                        or name == 'median' or name == 'mean' or name == 'std'):
                     feature_names.append(name)
 
         # Sort by the names.
