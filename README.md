@@ -155,7 +155,10 @@ and its class probability, ```probability```, as well.
 ### v0.5 (planned)
 - add (a) Random Forest classification models.
 
-### v 0.2.2
+### v0.2.3
+- add a module calculating a feature based on cumulative sum.
+
+### v0.2.2
 - add a module estimating period uncertainty.
 
 ### v0.2.1
