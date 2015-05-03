@@ -26,7 +26,7 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 
 [Matplotlib 1.3+](http://matplotlib.sourceforge.net/)
 
-[sklearn 0.14+](http://scikit-learn.org/stable/)
+[scikit-learn 0.14+](http://scikit-learn.org/stable/)
 
 [pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/)
 
