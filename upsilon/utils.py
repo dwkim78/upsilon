@@ -11,7 +11,7 @@ def sigma_clipping(date, mag, mag_error, threshold=3, iteration=1):
     :param mag_error: An array of magnitude errors.
     :param threshold: Threshold for sigma-clipping.
     :param iteration: The number of iteration.
-    :return: sigma-clipped array of date, mag, mag_error.
+    :return: Sigma-clipped arrays of date, mag, and mag_error.
     """
 
     # By magnitudes
