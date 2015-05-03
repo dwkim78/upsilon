@@ -84,8 +84,17 @@ Note: An array of magnitude errors is not mandatory.
 
 If necessary, these three variables must be refined prior to be ingested
 to UPSILoN. For instance, invalid values (e.g. nan, inf, etc.) among 
-these variables must be removed. One might want to perform
-sigma clipping by magnitudes and/or errors as well.
+these variables must be removed. UPSILoN only provides a sigma-clipping routine.
+You can use it as:
+
+```python
+date, mag, mag_error = upsilon.utils.sigma_clipping(date, mag, mag_error
+    threshold=3, iteration=1)
+```
+
+This removes fluctuated data points in magnitudes.
+By default, UPSILoN remove data points with 3 sigma-threshold 
+with one iteration.
 
 ### Extracting Features
 
