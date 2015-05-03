@@ -190,7 +190,7 @@ def fasper(x, y, ofac, hifac, n_threads, MACC=4):
     rwk2 = wk2.real
     iwk2 = wk2.imag
     
-    df    = 1.0/(xdif*ofac)
+    df = 1.0/(xdif*ofac)
     
     #Compute the Lomb value for each frequency
     hypo2 = 2.0*abs(wk2)

@@ -111,7 +111,7 @@ uses 4 cores. If you want to use more, do as follows:
 e_features = upsilon.ExtractFeatures(date, mag, mag_error, n_threads=8)
 ```
 
-Extracting features takes about one second per light curve with several
+Extracting features takes about one ~ two seconds per light curve with several
 hundreds of data points,
 using Macbook Air 2012 13-inch model equipped with Intel Core i5 
 (2 cores and total 4 threads), and 8 GBytes memory.
