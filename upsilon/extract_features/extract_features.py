@@ -31,12 +31,12 @@ class ExtractFeatures():
             date = np.array(date)
         if not isinstance(mag, np.ndarray):
             mag = np.array(mag)
-        if not isinstance(err, np.ndarray):
-            err = np.array(err)
 
         self.date = date
         self.mag = mag
         if err is not None:
+            if not isinstance(err, np.ndarray):
+                err = np.array(err)
             self.err = err
         else:
             self.err = np.ones(len(self.mag)) * np.std(self.mag)
