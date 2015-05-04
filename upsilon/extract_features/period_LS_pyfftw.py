@@ -53,10 +53,14 @@ Reference:
 """
 
 from numpy import *
-from numpy.fft import *
 
-import multiprocessing
-import pyfftw
+try:
+    import pyfftw
+    is_pyfftw = True
+except:
+    from numpy.fft import *
+    is_pyfftw = False
+
 
 def __spread__(y, yy, n, x, m):
     """
@@ -157,31 +161,33 @@ def fasper(x, y, ofac, hifac, n_threads, MACC=4):
     xdif = xmax - xmin
 
     #extrapolate the data into the workspaces
-    wk1 = pyfftw.n_byte_align_empty(int(ndim), 16, 'complex') * 0.
-    wk2 = pyfftw.n_byte_align_empty(int(ndim), 16, 'complex') * 0.
+    if is_pyfftw:
+        wk1 = pyfftw.n_byte_align_empty(int(ndim), 16, 'complex') * 0.
+        wk2 = pyfftw.n_byte_align_empty(int(ndim), 16, 'complex') * 0.
+    else:
+        wk1 = zeros(ndim, dtype='complex')
+        wk2 = zeros(ndim, dtype='complex')
 
-    fac    = ndim/(xdif*ofac)
+    fac = ndim/(xdif*ofac)
     fndim = ndim
-    ck    = ((x - xmin)*fac) % fndim
-    ckk    = (2.0*ck) % fndim
+    ck = ((x - xmin)*fac) % fndim
+    ckk = (2.0*ck) % fndim
     
     for j in range(0L, n):
         __spread__(y[j] - ave, wk1, ndim, ck[j], MACC)
         __spread__(1.0, wk2, ndim, ckk[j], MACC)
 
     #Take the Fast Fourier Transforms.
-    #pyfftw.interfaces.cache.enable();
-    #wk1 = pyfftw.interfaces.numpy_fft.ifft(wk1,
-    #    planner_effort='FFTW_ESTIMATE', threads=n_threads)*len(wk1)
-    #wk2 = pyfftw.interfaces.numpy_fft.ifft(wk2,
-    #    planner_effort='FFTW_ESTIMATE', threads=n_threads)*len(wk1)
-
-    fft_wk1 = pyfftw.builders.ifft(wk1, planner_effort='FFTW_ESTIMATE',
-        threads=n_threads)
-    wk1 = fft_wk1() * len(wk1)
-    fft_wk2 = pyfftw.builders.ifft(wk2, planner_effort='FFTW_ESTIMATE',
-        threads=n_threads)
-    wk2 = fft_wk2() * len(wk2)
+    if is_pyfftw:
+        fft_wk1 = pyfftw.builders.ifft(wk1, planner_effort='FFTW_ESTIMATE',
+            threads=n_threads)
+        wk1 = fft_wk1() * len(wk1)
+        fft_wk2 = pyfftw.builders.ifft(wk2, planner_effort='FFTW_ESTIMATE',
+            threads=n_threads)
+        wk2 = fft_wk2() * len(wk2)
+    else:
+        wk1 = ifft(wk1)*len(wk1)
+        wk2 = ifft(wk2)*len(wk1)
 
     wk1 = wk1[1:nout + 1]
     wk2 = wk2[1:nout + 1]

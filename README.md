@@ -28,7 +28,7 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 
 [scikit-learn 0.14+](http://scikit-learn.org/stable/)
 
-[pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/)
+[pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/) [Optional but highly recommended for multi-threads usage]
 
 
 ## 2. Installation
@@ -113,17 +113,20 @@ e_features = upsilon.ExtractFeatures(date, mag)
 ``` 
 In this case, UPSILoN will use a standard deviation of magnitudes as errors.
 
-UPSILoN uses multiple cores to extract features. By default, UPSILoN
-uses 4 cores. If you want to use more, do as follows:
+If pyFFTW is installed, UPSILoN can use multiple cores when estimating periods.
+Note that estimating periods takes at least a few thousands times more than
+estimating all other features (e.g. 2-4 seconds versus 0.001 seconds)
+without using multiple cores.
+By default, UPSILoN uses 4 cores. If you want to use more, do as follows:
 
 ```python
 e_features = upsilon.ExtractFeatures(date, mag, mag_error, n_threads=8)
 ```
 
-Extracting features takes about one ~ two seconds per light curve with several
-hundreds of data points,
-using Macbook Air 2012 13-inch model equipped with Intel Core i5 
-(2 cores and total 4 threads), and 8 GBytes memory.
+Using Macbook Air 2012 13-inch model equipped with Intel Core i5 1.8 GHz 
+(2 cores and total 4 threads) and 8 GBytes memory,
+extracting a period takes 1-2 second per light curve
+containing ~300-1000 data points.
 
 ### Classification
 
