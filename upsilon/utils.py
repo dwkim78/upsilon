@@ -39,6 +39,56 @@ def sigma_clipping(date, mag, mag_error, threshold=3, iteration=1):
 
     return date, mag, mag_error
 
+
+def plot_folded_lc(date, mag, features, values,
+        output_folder='./output/', filename='./output.png'):
+    """
+    Generate a plot of a phase-folded light-curve for a given period.
+
+    :param date: An array of dates.
+    :param mag: An array of magnitudes.
+    :param features: A list of features' name, returned from UPSILoN.
+    :param values: A list of features' value, returned from UPSILoN.
+    :param output_folder: An output folder for a generated image.
+    :param filename: An output filename for a generated image.
+    :return:
+    """
+
+    index = np.where(features=='period')
+    plot_folded_lc(date, mag, values[index], output_folder)
+
+
+def __plot_folded_lc(date, mag, period, output_folder='./output/',
+        filename='./output.png'):
+    """
+    Generate a plot of a phase-folded light-curve for a given period.
+
+    :param date: An array of dates.
+    :param mag: An array of magnitudes.
+    :param mag_error: An array of magnitude errors.
+    :param period: A period estimated by UPSILoN.
+    :param output_folder: An output folder for a generated image.
+    :param filename: An output filename for a generated image.
+    :return:
+    """
+
+    import os
+    import matplotlib.pyplot as plt
+
+    phase_date = (date % period) / period
+    plt.errorbar(phase_date, mag,  color='k', marker='.',
+        ls='None')
+    plt.title('Period: %.5f days' % period, fontsize=15)
+    plt.xlabel('Phase', fontsize=15)
+    plt.ylabel('Magnitude', fontsize=15)
+    ax = plt.gca()
+    ax.invert_yaxis()
+
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+    plt.savefig(output_folder + '/' + filename)
+
+
 if __name__ == '__main__':
     import time
     import matplotlib.pyplot as plt
@@ -52,13 +102,14 @@ if __name__ == '__main__':
     date = date[index]
     mag = mag[index]
     err = err[index]
-
-    plt.errorbar(date, mag, color='b', yerr=err, ls='None')
+    #plt.errorbar(date, mag, color='b', yerr=err, ls='None')
 
     start = time.time()
     date, mag, err = \
         sigma_clipping(date, mag, err, threshold=3, iteration=3)
     print '#Processing time:', time.time() - start
+    #plt.errorbar(date, mag, color='r', yerr=err, ls='None')
+    #plt.show()
 
-    plt.errorbar(date, mag, color='r', yerr=err, ls='None')
-    plt.show()
+    __plot_folded_lc(date, mag, 4.19044052846)
+

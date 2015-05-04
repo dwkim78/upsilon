@@ -155,8 +155,9 @@ Nevertheless, since feature extracting takes lots of time,
 removal of non-varying light curves prior to running UPSILoN 
 would significantly reduces the total processing time.
 Unfortunately, there is no universal way to remove such non-varying light curves
-for many different time-series surveys, and thus UPSILoN do not provides such functionality.
-Each UPSILoN user has their own choices of what to remove.
+for many different time-series surveys, 
+and thus UPSILoN do not provides such functionality.
+
 
 
 ## 5. UPSILoN Classification Performance

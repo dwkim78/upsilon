@@ -4,7 +4,6 @@ import numpy as np
 import scipy.stats as ss
 import multiprocessing
 
-import matplotlib.pyplot as plt
 from scipy.optimize import leastsq
 
 import period_LS_pyfftw as pLS
