@@ -6,6 +6,7 @@ import numpy as np
 from os.path import dirname
 
 from upsilon.extract_features.extract_features import ExtractFeatures
+from upsilon.datasets.base import load_EROS_lc
 
 
 def run():
@@ -15,13 +16,7 @@ def run():
     :return: None
     """
 
-    module_path = dirname(__file__)
-    print module_path
-
-    data = np.loadtxt('../datasets/lightcurves/lm0010n22323.time')
-    date = data[:, 0]
-    mag = data[:, 1]
-    err = data[:, 2]
+    date, mag, err = load_EROS_lc()
 
     index = mag < 99.999
     date = date[index]
@@ -46,7 +41,7 @@ def run():
         print '# Deep-run processing time: %.4f seconds.' % (end - start)
 
     print '-----------------------------------------------'
-    print '# Estimate features:'
+    print '# Extracted features:'
     features = e_features.get_features()
     for i in range(len(features[0])):
         print ' %s: %f' % (features[0][i], features[1][i])
