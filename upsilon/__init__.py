@@ -13,4 +13,4 @@ except:
 
 from upsilon import utils
 from upsilon.extract_features.extract_features import ExtractFeatures
-from upsilon.test.test_extract_features import run as test_extract_features
+from upsilon.test.extract_features import run as test_extract_features
