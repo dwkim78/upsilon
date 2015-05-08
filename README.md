@@ -3,7 +3,7 @@
 <img src="https://github.com/dwkim78/upsilon/blob/master/UPSILoN.png">
 </div><br>
 
-<font size="4">UPSILoN (<font color="red"><b>U</b></font>biquitous Classification 
+<font size="4">UPSILoN (A<font color="red"><b>U</b></font>tomated Classification 
 of <font color="red"><b>P</b></font>eriodic Variable <font color="red"><b>S</b></font>tars 
 using Mach<font color="red"><b>I</b></font>ne 
 <font color="red"><b>L</b></font>ear<font color="red"><b>N</b></font>ing) 

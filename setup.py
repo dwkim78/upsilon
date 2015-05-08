@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 setup(
     name='upsilon',
     version='1.0',
-    description='Ubiquitous Classification of Periodic Variable Stars Using Machine Learning',
+    description='Automated Classification of Periodic Variable Stars Using Machine Learning',
     platforms=["any"],
     packages=find_packages(),
     include_package_data=True,
