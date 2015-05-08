@@ -8,17 +8,17 @@ of <font color="red"><b>P</b></font>eriodic Variable <font color="red"><b>S</b><
 using Mach<font color="red"><b>I</b></font>ne 
 <font color="red"><b>L</b></font>ear<font color="red"><b>N</b></font>ing) 
 aims to classify periodic variable stars 
-(e.g. *[Delta Scuti](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
+(e.g. *[Delta Scuti stars](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
 [RR Lyraes](http://en.wikipedia.org/wiki/RR_Lyrae_variable),
 [Cepheids](http://en.wikipedia.org/wiki/Cepheid_variable),
 [eclipsing binaries](http://en.wikipedia.org/wiki/Binary_star#Eclipsing_binaries),
 and [long-period variables](http://en.wikipedia.org/wiki/Long-period_variable_star)*) 
-using only single-band optical light-curves **regardless of** survey-specific characteristics 
+using single-band optical light-curves **regardless of** survey-specific characteristics 
 such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 
 
 ## 1. Dependency
-[Python 2.7+](https://www.python.org/)
+[Python 2.7+](https://www.python.org/) (not tested with Python 3.0+)
 
 [Numpy 1.8+](http://www.numpy.org/)
   
@@ -71,8 +71,8 @@ for light_curve in set_of_light_curves:
 
 ### Preparation
 
-In order to extract features from a light curve, one must prepare
-three variables, each of which is an numpy array of dates in days, 
+In order to extract features from a light curve, one needs to prepare
+three variables, each of which is a numpy array of dates in days, 
 magnitudes, and magnitude errors. For example, see the following pseudo code.
 
 ```python
@@ -83,9 +83,10 @@ mag_error = np.array([...])
 
 Note: An array of magnitude errors is not mandatory. 
 
-If necessary, these three variables must be refined prior to be ingested
+If necessary, these three variables have to be refined prior to being ingested
 to UPSILoN. For instance, invalid values (e.g. nan, inf, etc.) among 
-these variables must be removed. UPSILoN only provides a sigma-clipping routine.
+these variables must be removed. 
+For refining light curves, UPSILoN only provides a sigma-clipping routine.
 You can use it as:
 
 ```python
@@ -94,8 +95,11 @@ date, mag, mag_error = upsilon.utils.sigma_clipping(date, mag, mag_error
 ```
 
 This removes fluctuated data points in magnitudes.
-By default, UPSILoN remove data points with 3 sigma-threshold 
-with one iteration.
+By default, UPSILoN removes fluctuated data points with 3 sigma-threshold with one iteration.
+
+Note: UPSILoN can extract features from any light curves having arbitrary number of
+data points. Nevertheless, for the best classification quality,
+we recommend to use light curves with more than ~100 data points.
 
 ### Extracting Features
 
@@ -108,16 +112,16 @@ e_features.run()
 features, values = e_features.get_features()
 ```
 
-If there are no magnitude errors, you can call UPSILoN as:
+If there are no magnitude errors, you can do this as well:
 ```python
 e_features = upsilon.ExtractFeatures(date, mag)
 ``` 
 In this case, UPSILoN will use a standard deviation of magnitudes as errors.
 
 If pyFFTW is installed, UPSILoN can use multiple cores when estimating periods.
-Note that estimating periods takes at least a few thousands times more than
-estimating all other features (e.g. 2-4 seconds versus 0.001 seconds)
-without using multiple cores.
+Note that, without using multiple cores, 
+estimating periods takes at least a few thousands times longer than
+estimating all other features (e.g. 2-4 seconds versus 0.001 seconds).
 By default, UPSILoN uses 4 cores. If you want to use more, do as follows:
 
 ```python
@@ -126,8 +130,7 @@ e_features = upsilon.ExtractFeatures(date, mag, mag_error, n_threads=8)
 
 Using Macbook Air 2012 13-inch model equipped with Intel Core i5 1.8 GHz 
 (2 cores and total 4 threads) and 8 GBytes memory,
-extracting a period takes 1-2 second per light curve
-containing ~300-1000 data points.
+extracting a period takes 1-2 second per light curve containing ~300-1000 data points.
 
 ### Classification
 
@@ -136,10 +139,10 @@ one must read a Random Forest classification model as
 ```python
 rf_model = upsilon.load_rf_model()
 ```
-NOTE: Loading a model takes ~30 seconds. Thus you must 
+NOTE: Loading the model takes ~30 seconds. Thus you must 
 <font color="red"><b>NOT</b></font> load it multiple times.
 
-Now you can classify the light curve as
+You are now ready to classify the light curve.
 
 ```python
 label, probability = rf_model.predict(features, values)
@@ -153,11 +156,12 @@ and its class probability, ```probability```, as well.
 By the nature of UPSILoN, it can distinguish 
 periodic variable light curves from non-varying light curves (i.e. non-variables).
 Nevertheless, since feature extracting takes lots of time,
-removal of non-varying light curves prior to running UPSILoN 
+removal of non-varying light curves before running UPSILoN 
 would significantly reduces the total processing time.
-Unfortunately, there is no universal way to remove such non-varying light curves
-for many different time-series surveys, 
-and thus UPSILoN do not provides such functionality.
+Unfortunately, it is hard to find an universal and consistent way of 
+removing such non-varying light curves from
+many time-series surveys having different characteristics, 
+so UPSILoN does not provides such functionality yet.
 
 
 
@@ -179,7 +183,10 @@ and thus UPSILoN do not provides such functionality.
 - release of the first version of UPSILoN.
 
 ### v0.5 (planned)
-- add (a) Random Forest classification models.
+- add a Random Forest classification model.
+
+### v.0.2.4
+- Bug fixed in the module estimating a period uncertainty. 
 
 ### v0.2.3
 - add a module calculating a feature based on cumulative sum.
