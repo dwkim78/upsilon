@@ -1,12 +1,11 @@
 __author__ = 'kim'
 
-import sys
 import time
-import numpy as np
-from os.path import dirname
 
 from upsilon.extract_features.extract_features import ExtractFeatures
 from upsilon.datasets.base import load_EROS_lc
+from upsilon.utils import sigma_clipping_without_error
+from upsilon.utils import sigma_clipping
 
 
 def run():
@@ -22,6 +21,11 @@ def run():
     date = date[index]
     mag = mag[index]
     err = err[index]
+
+    print len(date)
+    #date, mag, err = sigma_clipping_without_error(date, mag)
+    date, mag, err = sigma_clipping(date, mag, err)
+    print len(date)
 
     for i in range(1):
         print '-----------------------------------------------'
