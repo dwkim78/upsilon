@@ -212,7 +212,6 @@ Note that the path must be the absolute path.
 ### v.0.3
 - add a sigma clipping module
 - structure of features is changed to Python OrderedDict type.
-- 
 
 ### v.0.2.4
 - Bug fixed in the module estimating a period uncertainty. 
