@@ -165,7 +165,7 @@ so UPSILoN does not provides such functionality yet.
 
 ### Logger
 
-If you want to write logger either to console or to a disk, use 
+If you want to write log either to console or to a disk, use 
 the UPSILoN Logger class as:
 
 ```python
@@ -180,7 +180,7 @@ logger.critical('critical message')
 
 You need to generate only one logger instance, 
 not many through the whole processes.
-If you want to write a log file, generate a logger instance as follows:
+If you want to write a log file too, generate a logger instance as follows:
  
  ```python
  logger = upsilon.Logger('/PATH/TO/FILE.log').getLogger()
