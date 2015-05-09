@@ -9,6 +9,7 @@ from scipy.optimize import leastsq
 
 import period_LS_pyfftw as pLS
 
+
 class ExtractFeatures():
     """
     Extract variability features of a light curve.

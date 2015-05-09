@@ -10,9 +10,9 @@ class Logger():
     """
     def __init__(self, filepath=None):
         """
-        Initailize.
+        Initailize. Write logger to either console and/or to a disk.
 
-        :param filepath: specify a log filename with folder path.
+        :param filepath: specify a log filename with the absolute path.
             If not given, no output is written to a file.
         :return:
         """
@@ -26,7 +26,7 @@ class Logger():
             datefmt='%Y/%m/%d %H:%M:%S')
 
         # create file handler which logs even debug messages.
-        if filepath:
+        if filepath and filepath[0] == '/':
             fh = logging.FileHandler(filepath, 'w')
             fh.setLevel(logging.DEBUG)
             fh.setFormatter(formatter)

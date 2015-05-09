@@ -163,6 +163,30 @@ removing such non-varying light curves from
 many time-series surveys having different characteristics, 
 so UPSILoN does not provides such functionality yet.
 
+### Logger
+
+If you want to write logger either to console or to a disk, use 
+the UPSILoN Logger class as:
+
+```python
+logger = upsilon.Logger().getLogger()
+
+logger.debug('debug message')
+logger.info('info message')
+logger.warn('warn message')
+logger.error('error message')
+logger.critical('critical message')
+```
+
+You need to generate only one logger instance, 
+not many through the whole processes.
+If you want to write a log file, generate a logger instance as follows:
+ 
+ ```python
+ logger = upsilon.Logger('/PATH/TO/FILE.log').getLogger()
+ ```
+
+Note that the path must be the absolute path.
 
 
 ## 5. UPSILoN Classification Performance
