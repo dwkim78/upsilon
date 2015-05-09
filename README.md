@@ -179,8 +179,8 @@ so UPSILoN does not provides such functionality yet.
 
 ### Logger
 
-If you want to write log either to console or to a disk, use 
-the UPSILoN Logger class as:
+If you want to write log messages either to console or to a disk, 
+you can use the UPSILoN Logger class as:
 
 ```python
 logger = upsilon.Logger().getLogger()
@@ -192,14 +192,16 @@ logger.error('error message')
 logger.critical('critical message')
 ```
 
-You need to generate only one logger instance, 
-not many through the whole processes.
-If you want to write a log file too, generate a logger instance as follows:
+Keep in mind that you need to generate only one logger instance 
+through the whole processes, but not many.
+If you want to save log messages to a file, 
+generate a logger instance as follows:
  
  ```python
  logger = upsilon.Logger('/PATH/TO/FILE.log').getLogger()
  ```
 
+This will send log messages to both console and a log file.
 Note that the path must be the absolute path.
 
 
@@ -208,6 +210,8 @@ Note that the path must be the absolute path.
 ### Assessment of Classification Model
 
 ### Application to Astronomical Survey
+
+#### OGLE
 
 #### EROS-2
 
