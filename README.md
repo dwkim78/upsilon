@@ -132,19 +132,18 @@ e_features = upsilon.ExtractFeatures(date, mag)
 ``` 
 In this case, UPSILoN will use a standard deviation of magnitudes as errors.
 
-If pyFFTW is installed, UPSILoN can use multiple cores when estimating periods.
-Note that, without using multiple cores, 
-estimating periods takes at least a few thousands times longer than
-estimating all other features (e.g. 2-4 seconds versus 0.001 seconds).
+If pyFFTW is installed, UPSILoN utilizes multiple cores to derive a period
+because deriving a period takes a lot longer than calculating all other features.
 By default, UPSILoN uses 4 cores. If you want to use more, do as follows:
 
 ```python
 e_features = upsilon.ExtractFeatures(date, mag, err, n_threads=8)
 ```
 
-Using Macbook Air 2012 13-inch model equipped with Intel Core i5 1.8 GHz 
+Using Macbook Air 2012 equipped with Intel Core i5 1.8 GHz 
 (2 cores and total 4 threads) and 8 GBytes memory,
-extracting a period takes 1-2 second per light curve containing ~300-1000 data points.
+extracting a period takes 1-2 second per light curve 
+containing ~300-1000 data points.
 
 ### Classification
 
