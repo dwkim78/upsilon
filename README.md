@@ -33,6 +33,10 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 
 
 ## 2. Installation
+
+[ NOTE: The developement is not done yet. You may want to wait
+for the official release of UPSILoN version 1.0 ]
+
 The easiest way to install the UPSILoN package is:
 
 ```python
