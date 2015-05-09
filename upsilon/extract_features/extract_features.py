@@ -1,5 +1,6 @@
 __author__ = 'kim'
 
+import warnings
 import numpy as np
 import scipy.stats as ss
 import multiprocessing
@@ -47,6 +48,12 @@ class ExtractFeatures():
             or (len(self.date) != len(self.err)) \
             or (len(self.mag) != len(self.err)):
             raise RuntimeError('The length of date, mag, and err must be same.')
+
+        # if the number of data points is too small.
+        min_n_data = 100
+        if len(self.date) < min_n_data:
+            warnings.warn('The number of data points are less than %d.'
+                % min_n_data)
 
         n_threads = int(n_threads)
         if n_threads > multiprocessing.cpu_count():
