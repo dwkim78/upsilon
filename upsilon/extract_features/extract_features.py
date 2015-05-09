@@ -42,6 +42,12 @@ class ExtractFeatures():
         else:
             self.err = np.ones(len(self.mag)) * np.std(self.mag)
 
+        # Check length.
+        if (len(self.date) != len(self.mag)) \
+            or (len(self.date) != len(self.err)) \
+            or (len(self.mag) != len(self.err)):
+            raise RuntimeError('The length of date, mag, and err must be same.')
+
         n_threads = int(n_threads)
         if n_threads > multiprocessing.cpu_count():
             self.n_threads = multiprocessing.cpu_count()

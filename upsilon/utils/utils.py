@@ -1,6 +1,7 @@
 __author__ = 'kim'
 
 import numpy as np
+from upsilon.datasets.base import load_EROS_lc
 
 
 def sigma_clipping_without_error(date, mag, threshold=3, iteration=1):
@@ -18,17 +19,23 @@ def sigma_clipping_without_error(date, mag, threshold=3, iteration=1):
     return sigma_clipping(date, mag, mag_error, threshold, iteration)
 
 
-def sigma_clipping(date, mag, mag_error, threshold=3, iteration=1):
+def sigma_clipping(date, mag, err, threshold=3, iteration=1):
     """
     Remove any fluctuated data points by magnitudes.
 
     :param date: An array of dates.
     :param mag: An array of magnitudes.
-    :param mag_error: An array of magnitude errors.
+    :param err: An array of magnitude errors.
     :param threshold: Threshold for sigma-clipping.
     :param iteration: The number of iteration.
     :return: Sigma-clipped arrays of date, mag, and mag_error.
     """
+
+    # Check length.
+    if (len(date) != len(mag)) \
+        or (len(date) != len(err)) \
+        or (len(mag) != len(err)):
+        raise RuntimeError('The length of date, mag, and err must be same.')
 
     # By magnitudes
     for i in range(int(iteration)):
@@ -38,22 +45,9 @@ def sigma_clipping(date, mag, mag_error, threshold=3, iteration=1):
         index = (mag >= mean - threshold*std) & (mag <= mean + threshold*std)
         date = date[index]
         mag = mag[index]
-        mag_error = mag_error[index]
+        err = err[index]
 
-    '''
-    # By magnitude errors
-    for i in range(int(iteration)):
-        mean = np.median(mag_error)
-        std = np.std(mag_error)
-
-        index = (mag_error >= mean - threshold*std) & \
-            (mag_error <= mean + threshold*std)
-        date = date[index]
-        mag = mag[index]
-        mag_error = mag_error[index]
-    '''
-
-    return date, mag, mag_error
+    return date, mag, err
 
 
 def plot_folded_lc(date, mag, features, values,
@@ -109,10 +103,7 @@ if __name__ == '__main__':
     import time
     import matplotlib.pyplot as plt
 
-    data = np.loadtxt('./datasets/lightcurves/lm0010n22323.time')
-    date = data[:, 0]
-    mag = data[:, 1]
-    err = data[:, 2]
+    date, mag, err = load_EROS_lc()
 
     index = mag < 99.999
     date = date[index]

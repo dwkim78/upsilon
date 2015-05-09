@@ -65,18 +65,18 @@ for light_curve in set_of_light_curves:
     ...
     date = np.array([...])
     mag = np.array([...])
-    mag_error = np.array([...])
+    err = np.array([...])
     
     # Pre-process and/or refine the light curve.
     == Do it yourself ==
     
     # Extract features
-    e_features = upsilon.ExtractFeatures(date, mag, mag_error)
+    e_features = upsilon.ExtractFeatures(date, mag, err)
     e_features.run()
-    features, values = e_features.get_features()
+    features = e_features.get_features()
     
     # Classify the light curve
-    label, probability = rf_model.predict(features, values)
+    label, probability = rf_model.predict(features)
     print label, probability
 ```
 
@@ -92,7 +92,7 @@ magnitudes, and magnitude errors. For example, see the following pseudo code.
 ```python
 date = np.array([...])
 mag = np.array([...])
-mag_error = np.array([...])
+err = np.array([...])
 ```
 
 Note: An array of magnitude errors is not mandatory. 
@@ -104,7 +104,7 @@ For refining light curves, UPSILoN only provides a sigma-clipping routine.
 You can use it as:
 
 ```python
-date, mag, mag_error = upsilon.utils.sigma_clipping(date, mag, mag_error
+date, mag, mag_error = upsilon.utils.sigma_clipping(date, mag, err
     threshold=3, iteration=1)
 ```
 
@@ -121,9 +121,9 @@ Once you have these three variables, you can extract features as:
 
 ```python
 import upsilon
-e_features = upsilon.ExtractFeatures(date, mag, mag_error)
+e_features = upsilon.ExtractFeatures(date, mag, err)
 e_features.run()
-features, values = e_features.get_features()
+features = e_features.get_features()
 ```
 
 If there are no magnitude errors, you can do this as well:
@@ -139,7 +139,7 @@ estimating all other features (e.g. 2-4 seconds versus 0.001 seconds).
 By default, UPSILoN uses 4 cores. If you want to use more, do as follows:
 
 ```python
-e_features = upsilon.ExtractFeatures(date, mag, mag_error, n_threads=8)
+e_features = upsilon.ExtractFeatures(date, mag, err, n_threads=8)
 ```
 
 Using Macbook Air 2012 13-inch model equipped with Intel Core i5 1.8 GHz 
@@ -159,7 +159,7 @@ NOTE: Loading the model takes ~30 seconds. Thus you must
 You are now ready to classify the light curve.
 
 ```python
-label, probability = rf_model.predict(features, values)
+label, probability = rf_model.predict(features)
 ```
 
 That's all! Now you know the class of your light curve, ```label```, 
@@ -175,7 +175,7 @@ would significantly reduces the total processing time.
 Unfortunately, it is hard to find an universal and consistent way of 
 removing such non-varying light curves from
 many time-series surveys having different characteristics, 
-so UPSILoN does not provides such functionality yet.
+so UPSILoN does not provides such functionality.
 
 ### Logger
 
@@ -221,8 +221,12 @@ Note that the path must be the absolute path.
 
 ## 6. ChangeLog
 
+### v2.0 (planned)
+- implementing multi-layer classifiers, which will
+ substantially increase speed of feature extractions.
+
 ### v1.0 (planned)
-- release of the first version of UPSILoN.
+- release of the first version of UPSILoN (Kim+ 2015 in preparation).
 
 ### v0.5 (planned)
 - add a Random Forest classification model.
