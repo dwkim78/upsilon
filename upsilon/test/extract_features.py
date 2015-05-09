@@ -22,10 +22,10 @@ def run():
     mag = mag[index]
     err = err[index]
 
-    print len(date)
+    print '# Before sigma-clipping: %d data points' % len(date)
     #date, mag, err = sigma_clipping_without_error(date, mag)
     date, mag, err = sigma_clipping(date, mag, err)
-    print len(date)
+    print '# After sigma-clipping: %d data points' % len(date)
 
     for i in range(1):
         print '-----------------------------------------------'
@@ -47,8 +47,9 @@ def run():
     print '-----------------------------------------------'
     print '# Extracted features:'
     features = e_features.get_features()
-    for i in range(len(features[0])):
-        print ' %s: %f' % (features[0][i], features[1][i])
+    print features
+    for key, value in features.iteritems():
+        print ' %s: %f' % (key, value)
 
     print '----------------------------------------------'
     print '# Finished.'

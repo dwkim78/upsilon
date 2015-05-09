@@ -4,6 +4,7 @@ import numpy as np
 import scipy.stats as ss
 import multiprocessing
 
+from collections import OrderedDict
 from scipy.optimize import leastsq
 
 import period_LS_pyfftw as pLS
@@ -191,8 +192,8 @@ class ExtractFeatures():
         # Derive Fourier features for the first period.
         #Petersen, J. O., 1986, A&A
         self.amplitude = np.sqrt(p1[1]**2 + p1[2]**2)
-        self.R21 = np.sqrt(p1[3]**2 + p1[4]**2) / self.amplitude
-        self.R31 = np.sqrt(p1[5]**2 + p1[6]**2) / self.amplitude
+        self.r21 = np.sqrt(p1[3]**2 + p1[4]**2) / self.amplitude
+        self.r31 = np.sqrt(p1[5]**2 + p1[6]**2) / self.amplitude
         self.f_phase = np.arctan(-p1[1] / p1[2])
         self.phi21 = np.arctan(-p1[3] / p1[4]) - 2. * self.f_phase
         self.phi31 = np.arctan(-p1[5] / p1[6]) - 3. * self.f_phase
@@ -462,7 +463,7 @@ class ExtractFeatures():
 
         return np.max(c) - np.min(c)
 
-    def get_features(self):
+    def get_features2(self):
         """
         Return all features with its names.
 
@@ -494,3 +495,30 @@ class ExtractFeatures():
             feature_values.append(all_vars[name])
 
         return feature_names, feature_values
+
+    def get_features(self):
+        """
+        Return all features with its names.
+
+        :return: Features dictionary
+        """
+
+        features = {}
+
+        # Get all the names of features.
+        all_vars = vars(self)
+        for name in all_vars.keys():
+            # Omit input variables such as date, mag, err, etc.
+            if not (name == 'date' or name == 'mag' or name == 'err'
+                    or name == 'n_threads' or name == 'min_period'):
+                # Filter some other unnecessary features.
+                if not (name == 'f' or name == 'f_phase'
+                        or name == 'period_log10FAP'
+                        or name == 'weight' or name == 'weighted_sum'
+                        or name == 'median' or name == 'mean' or name == 'std'):
+                    features[name] = all_vars[name]
+
+        # Sort by names
+        features = OrderedDict(sorted(features.items(), key=lambda t: t[0]))
+
+        return features
