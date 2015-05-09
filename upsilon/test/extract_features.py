@@ -4,8 +4,8 @@ import time
 
 from upsilon.extract_features.extract_features import ExtractFeatures
 from upsilon.datasets.base import load_EROS_lc
-from upsilon.utils import sigma_clipping_without_error
-from upsilon.utils import sigma_clipping
+from upsilon.utils.utils import sigma_clipping_without_error
+from upsilon.utils.utils import sigma_clipping
 
 
 def run():

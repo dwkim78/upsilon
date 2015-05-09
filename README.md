@@ -185,6 +185,11 @@ so UPSILoN does not provides such functionality yet.
 ### v0.5 (planned)
 - add a Random Forest classification model.
 
+### v.0.3
+- add a sigma clipping module
+- structure of features is changed to Python OrderedDict type.
+- 
+
 ### v.0.2.4
 - Bug fixed in the module estimating a period uncertainty. 
 

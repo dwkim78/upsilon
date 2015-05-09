@@ -518,7 +518,7 @@ class ExtractFeatures():
                         or name == 'median' or name == 'mean' or name == 'std'):
                     features[name] = all_vars[name]
 
-        # Sort by names
+        # Sort by the keys (i.e. feature names).
         features = OrderedDict(sorted(features.items(), key=lambda t: t[0]))
 
         return features
