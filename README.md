@@ -235,6 +235,8 @@ Note that the path must be the absolute path.
 - structure of features is changed to Python OrderedDict type.
 - add a sigma clipping module.
 - Logger class added.
+- raise a warning if the number of measurements in a light curve is 
+less than 100.
 
 ### v.0.2.4
 - Bug fixed in the module estimating a period uncertainty. 
