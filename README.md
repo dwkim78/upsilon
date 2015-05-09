@@ -33,7 +33,17 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 
 
 ## 2. Installation
-- NOT YET
+The easiest way to install the UPSILoN package is:
+
+```python
+pip install upsilon
+```
+
+Alternatively, you can download it from the git repository as:
+
+```python
+git clone https://github.com/dwkim78/upsilon
+```
 
 ## 3. Pseudo Code: How to Use UPSILoN? 
 
