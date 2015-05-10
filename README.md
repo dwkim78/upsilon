@@ -236,6 +236,7 @@ Note that the path must be the absolute path.
 - Logger class added.
 - raise a warning if the number of measurements in a light curve is 
 less than 100.
+- other few improvements and bug fixes.
 
 ### v.0.2.4
 - Bug fixed in the module estimating a period uncertainty. 
