@@ -1,6 +1,5 @@
 __author__ = 'kim'
 
-import os
 import logging
 
 
