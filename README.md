@@ -32,8 +32,6 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
  * pyFFTW is optional but <b>highly recommended</b>
   for multi-threads usage for FFT.
 
-Note: We try to use as small number of libraries as possible 
-(e.g. not using [Pandas] (http://pandas.pydata.org/)).
 
 ## 2. Installation
 
