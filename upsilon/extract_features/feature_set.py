@@ -10,7 +10,7 @@ def get_feature_set():
     """
 
     features = ['amplitude', 'hl_amp_ratio', 'kurtosis', 'period',
-        'period_SNR', 'period_uncertainty', 'phase_cusum', 'phase_eta',
+        'period_SNR', 'phase_cusum', 'phase_eta',
         'phi21', 'phi31', 'quartile31', 'r21', 'r31', 'shapiro_w',
         'skewness', 'slope_per10', 'slope_per90', 'stetson_k']
     features.sort()
