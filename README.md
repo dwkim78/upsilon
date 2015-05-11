@@ -29,9 +29,11 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 [scikit-learn 0.14+](http://scikit-learn.org/stable/)
 
 [pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/) 
-[Optional but highly recommended for multi-threads usage for FFT]
 
-<font size="2">Note: We try to use as small number of libraries as possible 
+ * pyFFTW is optional but <font color="blue">highly recommended</font>
+  for multi-threads usage for FFT.
+
+<font size="1">Note: We try to use as small number of libraries as possible 
 (e.g. not using [Pandas] (http://pandas.pydata.org/)).</font>
 
 ## 2. Installation
