@@ -31,11 +31,13 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 [pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/) 
 [Optional but highly recommended for multi-threads usage for FFT]
 
+<font size="2">Note: We try to use as small number of libraries as possible 
+(e.g. not using [Pandas] (http://pandas.pydata.org/)).</font>
 
 ## 2. Installation
 
-[ NOTE: The developement is not done yet. You may want to wait
-for the official release of UPSILoN version 1.0 ]
+[ NOTE: The development is not done yet, and thus not ready for installation. 
+You may want to wait for the official release of UPSILoN version 1.0 ]
 
 The easiest way to install the UPSILoN package is:
 
@@ -227,13 +229,19 @@ Note that the path must be the absolute path.
 ### v1.0 (planned)
 - release of the first version of UPSILoN (Kim+ 2015 in preparation).
 
+### v0.7 (planned)
+- add dataset for tests. 
+
+### v0.6 (planned)
+- add a module for classifying a light curve.
+
 ### v0.5 (planned)
 - add a Random Forest classification model.
 
 ### v.0.3
 - structure of features is changed to Python OrderedDict type.
 - add a sigma clipping module.
-- Logger class added.
+- add a Logger class.
 - raise a warning if the number of measurements in a light curve is 
 less than 100.
 - other few improvements and bug fixes.
@@ -252,7 +260,7 @@ less than 100.
 
 ### v0.2
 - an improved period extracting module using pyFFTW and multi-threads, 
-which decreases the extracting time by ~40%.
+which substantially decreases the extracting time.
 
 ### v0.1
 - add feature extracting modules.
