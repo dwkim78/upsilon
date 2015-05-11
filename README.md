@@ -206,9 +206,9 @@ Note that the path must be the absolute path.
 
 ## 5. UPSILoN Classification Performance
  
-### Assessment of Classification Model
+### Assessment of the Random Forests Classifier
 
-### Application to Astronomical Survey
+### Application to Astronomical Surveys
 
 #### OGLE
 
