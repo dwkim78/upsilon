@@ -18,7 +18,9 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 
 
 ## 1. Dependency
-[Python 2.7+](https://www.python.org/) (not tested with Python 3.0+)
+[Python 2.7+](https://www.python.org/) 
+
+ * Not tested with Python 3.0+
 
 [Numpy 1.8+](http://www.numpy.org/)
   
@@ -33,8 +35,8 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
  * pyFFTW is optional but <font color="blue">highly recommended</font>
   for multi-threads usage for FFT.
 
-<font size="1">Note: We try to use as small number of libraries as possible 
-(e.g. not using [Pandas] (http://pandas.pydata.org/)).</font>
+Note: We try to use as small number of libraries as possible 
+(e.g. not using [Pandas] (http://pandas.pydata.org/)).
 
 ## 2. Installation
 
