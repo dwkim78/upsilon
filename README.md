@@ -107,7 +107,7 @@ For refining light curves, UPSILoN only provides a sigma-clipping routine.
 You can use it as:
 
 ```python
-date, mag, mag_error = upsilon.utils.sigma_clipping(date, mag, err
+date, mag, err = upsilon.utils.sigma_clipping(date, mag, err, 
     threshold=3, iteration=1)
 ```
 
