@@ -115,7 +115,7 @@ class ExtractFeatures():
             - np.percentile(self.mag, 25)
 
         # Stetson K.
-        self.stetsonK = self.get_stetson_k(self.mag, self.median, self.err)
+        self.stetson_k = self.get_stetson_k(self.mag, self.median, self.err)
 
         # Ratio between higher and lower amplitude than average.
         self.hl_amp_ratio = self.half_mag_amplitude_ratio(
@@ -353,10 +353,10 @@ class ExtractFeatures():
         """
 
         residual = (mag - avg) / err
-        stetsonK = np.sum(np.fabs(residual)) \
+        stetson_k = np.sum(np.fabs(residual)) \
             / np.sqrt(np.sum(residual * residual)) / np.sqrt(len(mag))
 
-        return stetsonK
+        return stetson_k
 
     def half_mag_amplitude_ratio(self, mag, avg, weight):
         """
@@ -512,7 +512,7 @@ class ExtractFeatures():
 
     def get_features(self):
         """
-        Return all features with its names.
+        Return all features with its names, sorted by the names.
 
         :return: Features dictionary
         """
