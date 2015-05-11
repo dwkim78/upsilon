@@ -143,7 +143,7 @@ e_features = upsilon.ExtractFeatures(date, mag, err, n_threads=8)
 Using Macbook Air 2012 equipped with Intel Core i5 1.8 GHz 
 (2 cores and total 4 threads) and 8 GBytes memory,
 extracting a period takes 1-2 second per light curve 
-containing ~300-1000 data points.
+containing ~200-500 data points.
 
 ### Classification
 
