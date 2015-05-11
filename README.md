@@ -22,13 +22,13 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 
  * Not tested with Python 3.0+
 
-[Numpy 1.8+](http://www.numpy.org/)
+[Numpy 1.9+](http://www.numpy.org/)
   
-[Scipy 0.14+](http://scipy.org/)
+[Scipy 0.15+](http://scipy.org/)
 
-[Matplotlib 1.3+](http://matplotlib.sourceforge.net/)
+[Matplotlib 1.4+](http://matplotlib.sourceforge.net/)
 
-[scikit-learn 0.14+](http://scikit-learn.org/stable/)
+[scikit-learn 0.16+](http://scikit-learn.org/stable/)
 
 [pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/) 
 
