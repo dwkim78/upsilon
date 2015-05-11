@@ -3,18 +3,15 @@
 <img src="https://github.com/dwkim78/upsilon/blob/master/UPSILoN.png">
 </div><br>
 
-<font size="4">UPSILoN (A<font color="red"><b>U</b></font>tomated Classification 
-of <font color="red"><b>P</b></font>eriodic Variable <font color="red"><b>S</b></font>tars 
-using Mach<font color="red"><b>I</b></font>ne 
-<font color="red"><b>L</b></font>ear<font color="red"><b>N</b></font>ing) 
-aims to classify periodic variable stars 
+UPSILoN (A<b>U</b>tomated Classification of <b>P</b>eriodic Variable <b>S</b>tars 
+using Mach<b>I</b>ne <b>L</b>ear<b>N</b>ing) aims to classify periodic variable stars 
 (e.g. *[Delta Scuti stars](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
 [RR Lyraes](http://en.wikipedia.org/wiki/RR_Lyrae_variable),
 [Cepheids](http://en.wikipedia.org/wiki/Cepheid_variable),
 [eclipsing binaries](http://en.wikipedia.org/wiki/Binary_star#Eclipsing_binaries),
 and [long-period variables](http://en.wikipedia.org/wiki/Long-period_variable_star)*) 
 using single-band optical light-curves **regardless of** survey-specific characteristics 
-such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
+such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
 
 
 ## 1. Dependency
@@ -32,7 +29,7 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).</font>
 
 [pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/) 
 
- * pyFFTW is optional but <font color="blue">highly recommended</font>
+ * pyFFTW is optional but <b>highly recommended</b>
   for multi-threads usage for FFT.
 
 Note: We try to use as small number of libraries as possible 
@@ -159,7 +156,7 @@ one must read a Random Forest classification model as
 rf_model = upsilon.load_rf_model()
 ```
 NOTE: Loading the model takes ~30 seconds. Thus you must 
-<font color="red"><b>NOT</b></font> load it multiple times.
+<b>NOT</b> load it multiple times.
 
 You are now ready to classify the light curve.
 
