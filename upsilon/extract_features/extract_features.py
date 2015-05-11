@@ -1,15 +1,18 @@
 __author__ = 'kim'
 
 import warnings
+import multiprocessing
+from collections import OrderedDict
+
 import numpy as np
 import scipy.stats as ss
-import multiprocessing
-
-from collections import OrderedDict
 from scipy.optimize import leastsq
 
 import period_LS_pyfftw as pLS
 
+from feature_set import get_feature_set
+
+feature_names_list = get_feature_set()
 
 class ExtractFeatures():
     """
@@ -107,8 +110,8 @@ class ExtractFeatures():
 
         # Normalization-test. Shapiro-Wilk test.
         shapiro = ss.shapiro(self.mag)
-        #self.shapiro_W = shapiro[0]
-        self.shapiro_log10p = np.log10(shapiro[1])
+        self.shapiro_w = shapiro[0]
+        #self.shapiro_log10p = np.log10(shapiro[1])
 
         # Percentile features.
         self.quartile31 = np.percentile(self.mag, 75) \
@@ -523,14 +526,8 @@ class ExtractFeatures():
         all_vars = vars(self)
         for name in all_vars.keys():
             # Omit input variables such as date, mag, err, etc.
-            if not (name == 'date' or name == 'mag' or name == 'err'
-                    or name == 'n_threads' or name == 'min_period'):
-                # Filter some other unnecessary features.
-                if not (name == 'f' or name == 'f_phase'
-                        or name == 'period_log10FAP'
-                        or name == 'weight' or name == 'weighted_sum'
-                        or name == 'median' or name == 'mean' or name == 'std'):
-                    features[name] = all_vars[name]
+            if name in feature_names_list:
+                features[name] = all_vars[name]
 
         # Sort by the keys (i.e. feature names).
         features = OrderedDict(sorted(features.items(), key=lambda t: t[0]))
