@@ -11,8 +11,10 @@ from scipy.optimize import leastsq
 import period_LS_pyfftw as pLS
 
 from feature_set import get_feature_set
+from feature_set import get_feature_set_all
 
 feature_names_list = get_feature_set()
+feature_names_list_all = get_feature_set_all()
 
 class ExtractFeatures():
     """
@@ -516,6 +518,7 @@ class ExtractFeatures():
     def get_features(self):
         """
         Return all features with its names, sorted by the names.
+        Only return features that are used to train and predict.
 
         :return: Features dictionary
         """
@@ -525,8 +528,28 @@ class ExtractFeatures():
         # Get all the names of features.
         all_vars = vars(self)
         for name in all_vars.keys():
-            # Omit input variables such as date, mag, err, etc.
             if name in feature_names_list:
+                features[name] = all_vars[name]
+
+        # Sort by the keys (i.e. feature names).
+        features = OrderedDict(sorted(features.items(), key=lambda t: t[0]))
+
+        return features
+
+    def get_features_all(self):
+        """
+        Return all features with its names, regardless of being used for train and prediction.
+        Sorted by the names.
+
+        :return: Features dictionary
+        """
+
+        features = {}
+
+        # Get all the names of features.
+        all_vars = vars(self)
+        for name in all_vars.keys():
+            if name in feature_names_list_all:
                 features[name] = all_vars[name]
 
         # Sort by the keys (i.e. feature names).

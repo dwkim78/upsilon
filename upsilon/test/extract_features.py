@@ -48,7 +48,7 @@ def run():
         logger.info('Deep-run processing time: %.4f seconds' % (end - start))
 
     logger.info('Extracted features:')
-    features = e_features.get_features()
+    features = e_features.get_features_all()
     for key, value in features.iteritems():
         logger.info('   %s: %f' % (key, value))
 
