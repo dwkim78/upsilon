@@ -228,6 +228,9 @@ Note that the path must be the absolute path.
 ### v1.0 (planned)
 - release of the first version of UPSILoN (Kim+ 2015 in preparation).
 
+### v0.8 (planned)
+- add an optimized Random Forests classification model.
+
 ### v0.7 (planned)
 - add dataset for tests. 
 
@@ -235,7 +238,7 @@ Note that the path must be the absolute path.
 - add a module for classifying a light curve.
 
 ### v0.5 (planned)
-- add a Random Forest classification model.
+- add a preliminary Random Forests classification model.
 
 ### v.0.3
 - structure of features is changed to Python OrderedDict type.
