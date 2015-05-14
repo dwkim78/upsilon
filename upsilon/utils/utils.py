@@ -50,22 +50,20 @@ def sigma_clipping(date, mag, err, threshold=3, iteration=1):
     return date, mag, err
 
 
-def plot_folded_lc(date, mag, features, values,
+def plot_folded_lc(date, mag, features,
         output_folder='./output/', filename='./output.png'):
     """
     Generate a plot of a phase-folded light-curve for a given period.
 
     :param date: An array of dates.
     :param mag: An array of magnitudes.
-    :param features: A list of features' name, returned from UPSILoN.
-    :param values: A list of features' value, returned from UPSILoN.
+    :param features: Features, returned from UPSILoN.
     :param output_folder: An output folder for a generated image.
     :param filename: An output filename for a generated image.
     :return:
     """
 
-    index = np.where(features=='period')
-    plot_folded_lc(date, mag, values[index], output_folder)
+    plot_folded_lc(date, mag, features['period'], output_folder)
 
 
 def __plot_folded_lc(date, mag, period, output_folder='./output/',
@@ -83,7 +81,11 @@ def __plot_folded_lc(date, mag, period, output_folder='./output/',
     """
 
     import os
-    import matplotlib.pyplot as plt
+    import sys
+    try:
+        import matplotlib.pyplot as plt
+    except:
+        raise RuntimeError('No Matplotlib detected')
 
     phase_date = (date % period) / period
     plt.errorbar(phase_date, mag,  color='k', marker='.',
