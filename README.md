@@ -144,6 +144,18 @@ Using Macbook Air 2012 equipped with Intel Core i5 1.8 GHz
 extracting a period takes 1-2 second per light curve 
 containing ~200-500 data points.
 
+After extracting features, you may want to check if the derived period
+is in a range of period alias (e.g. one day, sidereal day, one month, etc).
+UPSILoN provides a simple module to check it as:
+
+```python
+is_alias = upsilon.IsPeriodAlias(25.512)
+```
+
+If ```is_alias``` is ```True```, then the period is possibly an alias.
+In such case, one must be careful to classify the light curve,
+since classification could be wrong.   
+
 ### Classification
 
 Before predicting a class, 
