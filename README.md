@@ -141,7 +141,7 @@ e_features = upsilon.ExtractFeatures(date, mag, err, n_threads=8)
 
 Using Macbook Air 2012 equipped with Intel Core i5 1.8 GHz 
 (2 cores and total 4 threads) and 8 GBytes memory,
-extracting a period takes 1-2 second per light curve 
+extracting a period takes 1-2 seconds per light curve 
 containing ~200-500 data points.
 
 After extracting features, you may want to check if the derived period
@@ -179,7 +179,7 @@ and its class probability, ```probability```, as well.
 
 By the nature of UPSILoN, it can distinguish 
 periodic variable light curves from non-varying light curves (i.e. non-variables).
-Nevertheless, since feature extracting takes lots of time,
+Nevertheless, since feature extraction takes lots of time,
 removal of non-varying light curves before running UPSILoN 
 would significantly reduces the total processing time.
 Unfortunately, it is hard to find an universal and consistent way of 
@@ -221,21 +221,17 @@ Note that the path must be the absolute path.
 
 ### Application to Astronomical Surveys
 
-#### OGLE
-
-#### EROS-2
-
 #### MACHO
 
 #### ASAS
 
 ## 6. ChangeLog
 
-### v3.0 (planned)
+### v?.0 (planned)
 - provide a module to train a custom-classification model
 based on features from users' own dataset.
 
-### v2.0 (planned)
+### v?.0 (planned)
 - implementing multi-layer classifiers, which will
  substantially increase speed of feature extractions.
 
