@@ -231,6 +231,10 @@ Note that the path must be the absolute path.
 
 ## 6. ChangeLog
 
+### v3.0 (planned)
+- provide a module to train a custom-classification model
+based on features from users' own dataset.
+
 ### v2.0 (planned)
 - implementing multi-layer classifiers, which will
  substantially increase speed of feature extractions.
@@ -250,7 +254,10 @@ Note that the path must be the absolute path.
 ### v0.5 (planned)
 - add a preliminary Random Forests classification model.
 
-### v.0.3
+### v0.3.1
+- add a module to check if a given period is an alias or not.
+
+### v0.3
 - structure of features is changed to Python OrderedDict type.
 - add a sigma clipping module.
 - add a Logger class.
