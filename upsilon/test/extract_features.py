@@ -26,6 +26,14 @@ def run():
     mag = mag[index]
     err = err[index]
 
+    '''
+    import numpy as np
+    np.random.seed(1024)
+    date = np.random.randn(1000) + 1000.
+    mag = np.random.randn(1000) + 20.
+    err = np.array([1.] * len(mag))
+    '''
+
     logger.info('Before sigma-clipping: %d data points' % len(date))
     #date, mag, err = sigma_clipping_without_error(date, mag)
     date, mag, err = sigma_clipping(date, mag, err)
