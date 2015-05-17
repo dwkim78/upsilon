@@ -5,12 +5,13 @@
 
 UPSILoN (A<b>U</b>tomated Classification of <b>P</b>eriodic Variable <b>S</b>tars 
 using Mach<b>I</b>ne <b>L</b>ear<b>N</b>ing) aims to classify periodic variable stars 
-(e.g. *[Delta Scuti stars](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
+such as [Delta Scuti stars](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
 [RR Lyraes](http://en.wikipedia.org/wiki/RR_Lyrae_variable),
 [Cepheids](http://en.wikipedia.org/wiki/Cepheid_variable),
-[eclipsing binaries](http://en.wikipedia.org/wiki/Binary_star#Eclipsing_binaries),
-and [long-period variables](http://en.wikipedia.org/wiki/Long-period_variable_star)*) 
-using single-band optical light-curves **regardless of** survey-specific characteristics 
+[eclipsing binaries](http://en.wikipedia.org/wiki/Binary_star#Eclipsing_binaries), and
+[long-period variables](http://en.wikipedia.org/wiki/Long-period_variable_star) 
+(i.e. superclasses), and their subclasses (e.g. RR Lyrae ab, c, d, and e types) 
+using optical-band light curves **regardless of** survey-specific characteristics 
 such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
 
 
@@ -219,11 +220,25 @@ Note that the path must be the absolute path.
  
 ### Assessment of the Random Forests Classifier
 
-### Application to Astronomical Surveys
+The UPSILoN classifier was trained on the OGLE 
+([Udalski et al. 1997] (http://adsabs.harvard.edu/abs/1997AcA....47..319U)) 
+and EROS-2 periodic variables 
+([Kim et al. 2014] (http://adsabs.harvard.edu/abs/2014A%26A...566A..43K)).
+The hyper parameters of the classifier were tuned
+using grid-search and cross-validation techniques.
 
-#### MACHO
+The classifier trained using only superclasses shows 99% recall and precision
+whereas the classifier trained on subclasses shows 80% recall and precision.
+The confusion in the subclass classifier was mainly caused by
+mis-classification within superclasses.
 
-#### ASAS
+The following figures show classification quality of these two classifiers.
+Note that UPSILoN provides the classifier trained on subclasses.
+
+
+For the comprehensive experiments using MACHO and ASAS light curves,
+see Kim et al. 2015 (in preparation).
+
 
 ## 6. ChangeLog
 
