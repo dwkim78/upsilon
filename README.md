@@ -237,15 +237,30 @@ using grid-search and cross-validation techniques.
 The classifier trained using only superclasses shows 99% recall and precision
 whereas the classifier trained on subclasses shows 80% recall and precision.
 The confusion in the subclass classifier was mainly caused by
-mis-classification within superclasses.
-
+mis-classification within superclasses. 
 The following figures show classification quality of these two classifiers.
-Note that UPSILoN provides the classifier trained on subclasses.
+In the figures, each cell is divided by the sum of the row where
+the cell belongs to. Thus brighter the cell, higher the recall.
 
+<div align="center">
+<img src="https://github.com/dwkim78/upsilon/blob/master/datasets/images/model_map_superclass.png">
+<br>[ Map of confusion matrix of the superclass model ]
+<br>
+<img src="https://github.com/dwkim78/upsilon/blob/master/datasets/images/model_map_subclass.github.png">
+<br>[ Map of confusion matrix of the subclass model ]
+</div><br>
 
+UPSILoN provides the classifier trained using all the subclasses.
 For the comprehensive experiments using MACHO and ASAS light curves,
 see Kim et al. 2015 (in preparation).
 
+Note that we provide the random forests model trained with 100 trees
+and randomly selected 10 features whereas in Kim et al. 2015 (in preparation),
+we used 500 trees with randomly selected 12 features.
+The reason is only because GitHub does not allow a file larger than 100 MB.
+The size of the model with 500 trees and 12 features is 260 MB. 
+Nevertheless, the F1 score difference between these two models
+is 0.001, which is negligible.
 
 ## 6. ChangeLog
 
@@ -269,8 +284,8 @@ based on features from users' own dataset.
 ### v0.6 (planned)
 - add a module for classifying a light curve.
 
-### v0.5 (planned)
-- add a preliminary Random Forests classification model.
+### v0.5
+- add a Random Forests classification model.
 
 ### v0.3.1
 - add a module to check if a given period is an alias or not.
