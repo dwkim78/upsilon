@@ -243,10 +243,10 @@ In the figures, each cell is divided by the sum of the row where
 the cell belongs to. Thus brighter the cell, higher the recall.
 
 <div align="center">
-<img src="https://github.com/dwkim78/upsilon/blob/master/datasets/images/model_map_superclass.png">
+<img src="https://github.com/dwkim78/upsilon/blob/master/upsilon/datasets/images/model_map_superclass.png">
 <br>[ Map of confusion matrix of the superclass model ]
 <br>
-<img src="https://github.com/dwkim78/upsilon/blob/master/datasets/images/model_map_subclass.github.png">
+<img src="https://github.com/dwkim78/upsilon/blob/master/upsilon/datasets/images/model_map_subclass.github.png">
 <br>[ Map of confusion matrix of the subclass model ]
 </div><br>
 
