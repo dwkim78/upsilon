@@ -44,7 +44,7 @@ The easiest way to install the UPSILoN package is:
 pip install upsilon
 ```
 
-Or, install from the git repository is:
+Or, you can install it from the git repository as:
  
 ```python
 git install git+https://github.com/dwkim78/upsilon.git
