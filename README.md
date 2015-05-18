@@ -74,6 +74,10 @@ At the end of log messages, you must see the line something like:
 yyyy/mm/dd hh:mm:ss INFO - Classified as CEPH_1O with the class probability 0.90
 ```
 
+If the light curve is not classified as a Cepheid variables,
+and if the class probability is not 0.90, something might be wrong.
+In that case, please contact with me.
+
 ## 4. Pseudo Code: How to Use UPSILoN? 
 
 The following pseudo code shows the entire processes of how to use UPSILoN.
