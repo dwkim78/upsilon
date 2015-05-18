@@ -29,3 +29,21 @@ def load_EROS_lc(filename='lm0010n22323.time'):
     return date, mag, err
 
 
+def load_rf_model():
+    """
+    Return the UPSILoN random forests classifier trained using OGLE and
+    EROS periodic variables (Kim et al. 2015).
+    :return: the UPSILoN random forests classifier.
+    """
+
+    import gzip
+    try:
+        import cPickle as pickle
+    except:
+        import pickle
+
+    module_path = dirname(__file__)
+    file_path = join(module_path, 'models/rf.model.sub.github.gz')
+    clf = pickle.load(gzip.open(file_path, 'rb'))
+
+    return clf

@@ -2,7 +2,6 @@
 #        lm0010n22323   14.826  0.075 924.69 603.81  15.230  0.105 872.66 646.01
 #
 # Cepheid variable.
-# Period = 4.19117419 days, using astroML (n_eval=5000, n_retry=3, n_save=50)
 #
 #   date      MagR    ErMagR MagB    ErMagB
    294.91026  14.877  0.029  15.299  0.035 

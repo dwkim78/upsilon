@@ -56,7 +56,25 @@ Alternatively, you can download all the necessary files from the git repository 
 git clone https://github.com/dwkim78/upsilon
 ```
 
-## 3. Pseudo Code: How to Use UPSILoN? 
+## 3. Test
+
+To check if the UPSILoN library is successfully installed, type the 
+following code:
+
+```python
+import upsilon
+upsilon.test_predict()
+```
+
+This code reads a sample light curve of a Cepheid variable, 
+extracts features, and classify it.
+At the end of log messages, you must see the line something like:
+
+```python
+2015/05/19 00:59:04 INFO - Classified as CEPH_1O with the class probability 0.90
+```
+
+## 4. Pseudo Code: How to Use UPSILoN? 
 
 The following pseudo code shows the entire processes of how to use UPSILoN.
 
@@ -83,12 +101,12 @@ for light_curve in set_of_light_curves:
     features = e_features.get_features()
     
     # Classify the light curve
-    label, probability = rf_model.predict(features)
+    label, probability = upsilon.predict(rf_model, features)
     print label, probability
 ```
 
 
-## 4. Details about UPSILoN Usage
+## 5. Details about UPSILoN Usage
 
 ### Preparation
 
@@ -171,13 +189,13 @@ one must read a Random Forest classification model as
 ```python
 rf_model = upsilon.load_rf_model()
 ```
-NOTE: Loading the model takes ~40 seconds. Thus you must 
-<b>NOT</b> load it multiple times.
+NOTE: Loading the model takes ~6 seconds. Be careful not to
+load it multiple times.
 
 You are now ready to classify the light curve.
 
 ```python
-label, probability = rf_model.predict(features)
+label, probability = upsilon.predict(rf_model, features)
 ```
 
 That's all! Now you know the class of your light curve, ```label```, 
@@ -223,7 +241,7 @@ This will send log messages to both console and a log file.
 Note that the path must be the absolute path.
 
 
-## 5. UPSILoN Classification Quality
+## 6. UPSILoN Classification Quality
 
 The UPSILoN classifier was trained on the OGLE 
 ([Udalski et al. 1997] (http://adsabs.harvard.edu/abs/1997AcA....47..319U)) 
@@ -260,7 +278,7 @@ The size of the model with 500 trees and 12 features is 260 MB.
 Nevertheless, the F1 score difference between these two models
 is 0.001, which is negligible.
 
-## 6. ChangeLog
+## ChangeLog
 
 ### v?.0 (planned)
 - provide a module to train a customized classification model
@@ -273,7 +291,7 @@ based on features from users' own dataset.
 ### v1.0 (planned)
 - release of the first version of UPSILoN (Kim+ 2015 in preparation).
 
-### v0.6 (planned)
+### v0.6
 - add dataset for tests.
 - add a module testing the classification model using the dataset.
 - add a module for classifying a light curve.
