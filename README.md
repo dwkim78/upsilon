@@ -8,6 +8,7 @@ using Mach<b>I</b>ne <b>L</b>ear<b>N</b>ing) aims to classify periodic variable 
 such as [Delta Scuti stars](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
 [RR Lyraes](http://en.wikipedia.org/wiki/RR_Lyrae_variable),
 [Cepheids](http://en.wikipedia.org/wiki/Cepheid_variable),
+[Type II Cepheids] (http://en.wikipedia.org/wiki/Type_II_Cepheid),
 [eclipsing binaries](http://en.wikipedia.org/wiki/Binary_star#Eclipsing_binaries), and
 [long-period variables](http://en.wikipedia.org/wiki/Long-period_variable_star) 
 (i.e. superclasses), and their subclasses (e.g. RR Lyrae ab, c, d, and e types) 
@@ -43,7 +44,13 @@ The easiest way to install the UPSILoN package is:
 pip install upsilon
 ```
 
-Alternatively, you can download it from the git repository as:
+Or, install from the git repository is:
+ 
+```python
+git install git+https://github.com/dwkim78/upsilon.git
+```
+
+Alternatively, you can download all the necessary files from the git repository as:
 
 ```python
 git clone https://github.com/dwkim78/upsilon
