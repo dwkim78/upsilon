@@ -11,7 +11,7 @@ setup(
     license='MIT',
     author='Dae-Won Kim',
     author_email='dwkim78@gmail.com',
-    install_requires=['numpy>=1.9', 'scikit-learn>=0.16', 'scipy>=0.15',
+    install_requires=['numpy>=1.9', 'scikit-learn>=0.16.1', 'scipy>=0.15',
         #'pyfftw>=0.9.2',
         ]
 )
