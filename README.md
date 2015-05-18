@@ -70,8 +70,8 @@ This code reads a sample light curve of a Cepheid variable,
 extracts features, and classify it.
 At the end of log messages, you must see the line something like:
 
-```python
-2015/05/19 00:59:04 INFO - Classified as CEPH_1O with the class probability 0.90
+```
+yyyy/mm/dd hh:mm:ss INFO - Classified as CEPH_1O with the class probability 0.90
 ```
 
 ## 4. Pseudo Code: How to Use UPSILoN? 
