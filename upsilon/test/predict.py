@@ -20,6 +20,7 @@ def run():
 
     logger = Logger().getLogger()
 
+    logger.info('Read a light curve')
     date, mag, err = load_EROS_lc()
 
     index = mag < 99.999
@@ -27,34 +28,17 @@ def run():
     mag = mag[index]
     err = err[index]
 
-    '''
-    import numpy as np
-    np.random.seed(1024)
-    date = np.random.randn(1000) + 1000.
-    mag = np.random.randn(1000) + 20.
-    err = np.array([1.] * len(mag))
-    '''
-
-    logger.info('Before sigma-clipping: %d data points' % len(date))
+    logger.info('   Before sigma-clipping: %d data points' % len(date))
     #date, mag, err = sigma_clipping_without_error(date, mag)
     date, mag, err = sigma_clipping(date, mag, err)
-    logger.info('After sigma-clipping: %d data points' % len(date))
+    logger.info('   After sigma-clipping: %d data points' % len(date))
 
     for i in range(1):
         start = time.time()
         e_features = ExtractFeatures(date, mag, err)
+        e_features.run()
         end = time.time()
-        logger.info('Initializing time: %.4f seconds' % (end - start))
-
-        start = time.time()
-        e_features.shallow_run()
-        end = time.time()
-        logger.info('Shallow-run processing time: %.4f seconds' % (end - start))
-
-        start = time.time()
-        e_features.deep_run()
-        end = time.time()
-        logger.info('Deep-run processing time: %.4f seconds' % (end - start))
+        logger.info('Feature extracting time: %.4f seconds' % (end - start))
 
     logger.info('Extracted features:')
     features = e_features.get_features_all()
@@ -68,7 +52,7 @@ def run():
     logger.info('Classified as %s with the class probability %.2f' %
         (label, prob))
 
-    logger.info('Finished')
+    logger.handlers = []
 
 if __name__ == '__main__':
     run()
