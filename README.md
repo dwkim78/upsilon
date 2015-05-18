@@ -253,7 +253,7 @@ For the comprehensive experiments using MACHO and ASAS light curves,
 see Kim et al. 2015 (in preparation).
 
 Note that we provide the random forests model trained with 100 trees
-and randomly selected 10 features whereas in Kim et al. 2015 (in preparation),
+and randomly selected 10 features whereas, in Kim et al. 2015 (in preparation),
 we used 500 trees with randomly selected 12 features.
 The reason is only because GitHub does not allow a file larger than 100 MB.
 The size of the model with 500 trees and 12 features is 260 MB. 
@@ -263,27 +263,23 @@ is 0.001, which is negligible.
 ## 6. ChangeLog
 
 ### v?.0 (planned)
-- provide a module to train a custom-classification model
+- provide a module to train a customized classification model
 based on features from users' own dataset.
 
 ### v?.0 (planned)
 - implementing multi-layer classifiers, which will
- substantially increase speed of feature extractions.
+ substantially reduce feature extracting time.
 
 ### v1.0 (planned)
 - release of the first version of UPSILoN (Kim+ 2015 in preparation).
 
-### v0.8 (planned)
-- add an optimized Random Forests classification model.
-
-### v0.7 (planned)
-- add dataset for tests. 
-
 ### v0.6 (planned)
+- add dataset for tests.
+- add a module testing the classification model using the dataset.
 - add a module for classifying a light curve.
 
 ### v0.5
-- add a Random Forests classification model.
+- add a random forests classification model.
 
 ### v0.3.1
 - add a module to check if a given period is an alias or not.
