@@ -223,9 +223,7 @@ This will send log messages to both console and a log file.
 Note that the path must be the absolute path.
 
 
-## 5. UPSILoN Classification Performance
- 
-### Assessment of the Random Forests Classifier
+## 5. UPSILoN Classification Quality
 
 The UPSILoN classifier was trained on the OGLE 
 ([Udalski et al. 1997] (http://adsabs.harvard.edu/abs/1997AcA....47..319U)) 
@@ -244,10 +242,10 @@ the cell belongs to. Thus brighter the cell, higher the recall.
 
 <div align="center">
 <img src="https://github.com/dwkim78/upsilon/blob/master/upsilon/datasets/images/model_map_superclass.png">
-<br>[ Map of confusion matrix of the superclass model ]
+<br>[ Map of the confusion matrix of the superclass model ]
 <br>
 <img src="https://github.com/dwkim78/upsilon/blob/master/upsilon/datasets/images/model_map_subclass.github.png">
-<br>[ Map of confusion matrix of the subclass model ]
+<br>[ Map of the confusion matrix of the subclass model ]
 </div><br>
 
 UPSILoN provides the classifier trained using all the subclasses.
