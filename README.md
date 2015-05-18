@@ -295,6 +295,9 @@ based on features from users' own dataset.
 ### v1.0 (planned)
 - release of the first version of UPSILoN (Kim+ 2015 in preparation).
 
+### v0.7 (ongoing)
+- code improvements, bug fixes, tests, etc.
+
 ### v0.6
 - add dataset for tests.
 - add a module testing the classification model using the dataset.
