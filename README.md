@@ -193,8 +193,8 @@ one must read a Random Forest classification model as
 ```python
 rf_model = upsilon.load_rf_model()
 ```
-NOTE: Loading the model takes ~6 seconds. Be careful not to
-load it multiple times.
+NOTE: Loading the model takes 5-20 seconds depending on machines. 
+Thus, be careful not to load it multiple times.
 
 You are now ready to classify the light curve.
 
