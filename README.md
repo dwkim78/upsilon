@@ -1,4 +1,4 @@
-# UPSILoN [ Under Development ]
+# UPSILoN
 <div align="center">
 <img src="https://github.com/dwkim78/upsilon/blob/master/UPSILoN.png">
 </div><br>
