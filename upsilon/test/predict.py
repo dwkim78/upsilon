@@ -49,7 +49,8 @@ def run():
     rf_model = load_rf_model()
 
     label, prob = predict(rf_model, features)
-    logger.info('Classified as %s with the class probability %.2f' %
+    logger.info('Classify the light curve')
+    logger.info('   Classified as %s with the class probability %.2f' %
         (label, prob))
 
     logger.handlers = []
