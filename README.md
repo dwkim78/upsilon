@@ -305,11 +305,7 @@ because the uncompressed random forests model file could consumes
 ## ChangeLog
 
 ### v?.0 (planned)
-- provide a module to train a customized classification model
-based on features from users' own dataset.
-
-### v?.0 (planned)
-- implementing multi-layer classifiers, which will
+- implementing multilayer classifiers, which will
  substantially reduce feature extracting time.
 
 ### v1.0 (soon)
