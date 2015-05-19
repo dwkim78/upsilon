@@ -12,7 +12,7 @@ such as [Delta Scuti stars](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
 [eclipsing binaries](http://en.wikipedia.org/wiki/Binary_star#Eclipsing_binaries), and
 [long-period variables](http://en.wikipedia.org/wiki/Long-period_variable_star) 
 (i.e. superclasses), and their subclasses (e.g. RR Lyrae ab, c, d, and e types) 
-using optical-band light curves **regardless of** survey-specific characteristics 
+using well-sampled optical-band light curves **regardless of** survey-specific characteristics 
 such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
 
 
@@ -139,11 +139,6 @@ This removes fluctuated data points in magnitudes.
 By default, the module removes fluctuated data points 
 with 3 sigma-threshold with one iteration.
 
-Note: UPSILoN can extract features from any light curves having arbitrary number of
-data points. Nevertheless, for the best classification quality,
-we recommend to use light curves with more than ~100 data points
-that have been observed more than three months.
-
 
 ### Extracting Features
 
@@ -188,6 +183,14 @@ since classification could be wrong.
 Note that we also included additional aliases empirically
 determined based on the OGLE and EROS-2 dataset 
 ([Kim et al. 2014] (http://adsabs.harvard.edu/abs/2014A%26A...566A..43K)).
+
+
+Note: UPSILoN can extract features from any light curves having arbitrary number of
+data points. Nevertheless, for the best classification quality,
+we recommend to use light curves with more than ~100 data points
+that have been observed more than three months.
+See Kim et al. 2015 (in preparation) for details.
+
 
 ### Classification
 
@@ -286,7 +289,8 @@ we used 500 trees with randomly selected 12 features.
 The reason is only because GitHub does not allow to upload 
 a file larger than 100 MB.
 The size of the model with 500 trees and 12 features is 260 MB. 
-Nevertheless, the F1 score difference between these two models
+Nevertheless, the [F1 score] (http://en.wikipedia.org/wiki/F1_score)
+ difference between these two models
 is 0.001, which is negligible. 
 
 
