@@ -1,1 +1,3 @@
-include datasets/*
+include datasets/images/*
+include datasets/lightcurves/*
+include datasets/models/*
