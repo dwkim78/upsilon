@@ -205,6 +205,7 @@ and its class probability, ```probability```, as well.
 
 ### Tip
 
+
 By the nature of UPSILoN, it can distinguish 
 periodic variable light curves from non-varying light curves (i.e. non-variables).
 Nevertheless, since feature extraction takes lots of time,
@@ -214,6 +215,7 @@ Unfortunately, it is hard to find an universal and consistent way of
 removing such non-varying light curves from
 many time-series surveys having different characteristics, 
 so UPSILoN does not provides such functionality.
+
 
 ### Logger
 
@@ -281,7 +283,15 @@ a file larger than 100 MB.
 The size of the model with 500 trees and 12 features is 260 MB. 
 Nevertheless, the F1 score difference between these two models
 is 0.001, which is negligible. 
- 
+
+
+## Minimum Requirements
+
+Although UPSILoN can be run at any modest machines,
+we recommend to run it at the machine equipped with at least ~2 GB memory
+because the uncompressed random forests model file could consumes
+~1 GB memory.
+
 
 ## ChangeLog
 
