@@ -186,7 +186,7 @@ determined based on the OGLE and EROS-2 dataset
 
 
 Note: UPSILoN can extract features from any light curves having arbitrary number of
-data points. Nevertheless, for the best classification quality,
+data points. However, for the best classification quality,
 we recommend to use light curves with more than ~100 data points
 that have been observed more than three months.
 See Kim et al. 2015 (in preparation) for details.
@@ -286,12 +286,11 @@ see Kim et al. 2015 (in preparation).
 Note that we provide the random forests model trained with 100 trees
 and randomly selected 10 features whereas, in Kim et al. 2015 (in preparation),
 we used 500 trees with randomly selected 12 features.
+The [F1 score] (http://en.wikipedia.org/wiki/F1_score)
+difference between these two models is 0.001, which is negligible. 
 The reason is only because GitHub does not allow to upload 
 a file larger than 100 MB.
-The size of the model with 500 trees and 12 features is 260 MB. 
-Nevertheless, the [F1 score] (http://en.wikipedia.org/wiki/F1_score)
- difference between these two models
-is 0.001, which is negligible. 
+The size of the model with 500 trees and 12 features is 260 MB.
 
 
 ## Minimum Requirements
