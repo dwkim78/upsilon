@@ -1,6 +1,6 @@
 # UPSILoN
 <div align="center">
-<img src="https://github.com/dwkim78/upsilon/blob/master/UPSILoN.png">
+<img src="https://github.com/dwkim78/upsilon/blob/master/upsilon/datasets/images/UPSILoN.png">
 </div><br>
 
 UPSILoN (A<b>U</b>tomated Classification of <b>P</b>eriodic Variable <b>S</b>tars 
