@@ -35,7 +35,7 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
 
 ## 2. Installation
 
-[WARNING: UPSILoN is under alpha-test phase now.
+[WARNING: UPSILoN is under the beta-test phase now.
 Thus be careful to use it and if you find any bug, please contact with me.
 In addition ```pip``` installation is not supported yet.]
 
