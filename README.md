@@ -35,8 +35,9 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
 
 ## 2. Installation
 
-[ NOTE: The development is not done yet, and thus not ready for installation. 
-You may want to wait for the official release of UPSILoN version 1.0 ]
+[WARNING: UPSILoN is under alpha-test phase now.
+Thus be careful to use it and if you find any bug, please contact with me.
+In addition ```pip``` installation is not supported yet.]
 
 The easiest way to install the UPSILoN package is:
 
