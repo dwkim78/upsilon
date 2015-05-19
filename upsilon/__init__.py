@@ -19,8 +19,6 @@ from upsilon.extract_features.is_period_alias import is_period_alias as IsPeriod
 from upsilon.extract_features.feature_set import get_feature_set
 
 from upsilon.datasets.base import load_rf_model
-
-from upsilon.test.extract_features import run as test_extract_feature
-from upsilon.test.predict import run as test_predict
-
 from upsilon.predict.predict import predict
+
+from upsilon.test.predict import run as test_predict
