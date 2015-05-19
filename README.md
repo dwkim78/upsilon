@@ -136,11 +136,14 @@ date, mag, err = upsilon.utils.sigma_clipping(date, mag, err,
 ```
 
 This removes fluctuated data points in magnitudes.
-By default, UPSILoN removes fluctuated data points with 3 sigma-threshold with one iteration.
+By default, the module removes fluctuated data points 
+with 3 sigma-threshold with one iteration.
 
 Note: UPSILoN can extract features from any light curves having arbitrary number of
 data points. Nevertheless, for the best classification quality,
-we recommend to use light curves with more than ~100 data points.
+we recommend to use light curves with more than ~100 data points
+that have been observed more than three months.
+
 
 ### Extracting Features
 
