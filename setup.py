@@ -7,7 +7,6 @@ setup(
     platforms=['any'],
     packages=find_packages(),
     include_package_data=True,
-    #package_data={'': ['datasets/images/*']},
     url='https://github.com/dwkim78/upsilon',
     license='MIT',
     author='Dae-Won Kim',
