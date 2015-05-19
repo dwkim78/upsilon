@@ -271,16 +271,19 @@ the cell belongs to. Thus brighter the cell, higher the recall.
 </div><br>
 
 UPSILoN provides the classifier trained using all the subclasses.
-For the comprehensive experiments using MACHO and ASAS light curves,
+For the comprehensive experiments using 
+the original and re-sampled MACHO and ASAS light curves,
 see Kim et al. 2015 (in preparation).
 
 Note that we provide the random forests model trained with 100 trees
 and randomly selected 10 features whereas, in Kim et al. 2015 (in preparation),
 we used 500 trees with randomly selected 12 features.
-The reason is only because GitHub does not allow a file larger than 100 MB.
+The reason is only because GitHub does not allow to upload 
+a file larger than 100 MB.
 The size of the model with 500 trees and 12 features is 260 MB. 
 Nevertheless, the F1 score difference between these two models
-is 0.001, which is negligible.
+is 0.001, which is negligible. 
+ 
 
 ## ChangeLog
 
