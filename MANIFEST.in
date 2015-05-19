@@ -1,3 +1,3 @@
-include datasets/images/*
-include datasets/lightcurves/*
-include datasets/models/*
+recursive-include datasets/images/ *
+recursive-include datasets/lightcurves *
+recursive-include datasets/models *
