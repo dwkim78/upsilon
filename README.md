@@ -297,7 +297,7 @@ The size of the model with 500 trees and 12 features is 260 MB.
 
 Although UPSILoN could be run at any machines,
 we recommend to run it at machines equipped with at least ~2 GB memory
-because the uncompressed random forests model file could consumes
+because the uncompressed random forests model file could consume
 a large amount of memory.
 
 
