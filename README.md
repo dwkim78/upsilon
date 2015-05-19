@@ -308,7 +308,7 @@ based on features from users' own dataset.
 - implementing multi-layer classifiers, which will
  substantially reduce feature extracting time.
 
-### v1.0 (planned)
+### v1.0 (soon)
 - release of the first version of UPSILoN (Kim+ 2015 in preparation).
 
 ### v0.7 (ongoing)
