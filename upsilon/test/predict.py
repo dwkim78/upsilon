@@ -40,7 +40,7 @@ def run():
         end = time.time()
         logger.info('Feature extracting time: %.4f seconds' % (end - start))
 
-    logger.info('Extracted features:')
+    logger.info('Extracted features (17 of these are used to predict a class):')
     features = e_features.get_features_all()
     for key, value in features.iteritems():
         logger.info('   %s: %f' % (key, value))
