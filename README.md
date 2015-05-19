@@ -150,7 +150,6 @@ that have been observed more than three months.
 Once you have these three variables, you can extract features as:
 
 ```python
-import upsilon
 e_features = upsilon.ExtractFeatures(date, mag, err)
 e_features.run()
 features = e_features.get_features()
@@ -163,7 +162,7 @@ e_features = upsilon.ExtractFeatures(date, mag)
 In this case, UPSILoN will use a standard deviation of magnitudes as errors.
 
 If pyFFTW is installed, UPSILoN utilizes multiple cores to derive a period
-because deriving a period takes a lot longer than calculating all other features.
+because the period estimation takes a lot longer than calculating all other features.
 By default, UPSILoN uses 4 cores. If you want to use more, do as follows:
 
 ```python
@@ -185,7 +184,10 @@ is_alias = upsilon.IsPeriodAlias(25.512)
 
 If ```is_alias``` is ```True```, then the period is possibly an alias.
 In such case, one must be careful to classify the light curve,
-since classification could be wrong.   
+since classification could be wrong.
+Note that we also included additional aliases empirically
+determined based on the OGLE and EROS-2 dataset 
+([Kim et al. 2014] (http://adsabs.harvard.edu/abs/2014A%26A...566A..43K)).
 
 ### Classification
 
@@ -217,12 +219,12 @@ would significantly reduces the total processing time.
 Unfortunately, it is hard to find an universal and consistent way of 
 removing such non-varying light curves from
 many time-series surveys having different characteristics, 
-so UPSILoN does not provides such functionality.
+so UPSILoN does not provides such functionality (yet).
 
 
 ### Logger
 
-If you want to write log messages either to console or to a disk, 
+If you want to write log messages either to console or to disk, 
 you can use the UPSILoN Logger class as:
 
 ```python
@@ -255,12 +257,12 @@ The UPSILoN classifier was trained on the OGLE
 and EROS-2 periodic variables 
 ([Kim et al. 2014] (http://adsabs.harvard.edu/abs/2014A%26A...566A..43K)).
 The hyper parameters of the classifier were tuned
-using grid-search and cross-validation techniques.
+using grid-search and 10-fold cross-validation.
 
 The classifier trained using only superclasses shows 99% recall and precision
 whereas the classifier trained on subclasses shows 80% recall and precision.
 The confusion in the subclass classifier was mainly caused by
-mis-classification within superclasses. 
+misclassification within superclasses. 
 The following figures show classification quality of these two classifiers.
 In the figures, each cell is divided by the sum of the row where
 the cell belongs to. Thus brighter the cell, higher the recall.
@@ -291,7 +293,7 @@ is 0.001, which is negligible.
 ## Minimum Requirements
 
 Although UPSILoN can be run at any modest machines,
-we recommend to run it at the machine equipped with at least ~2 GB memory
+we recommend to run it at machines equipped with at least ~2 GB memory
 because the uncompressed random forests model file could consumes
 ~1 GB memory.
 
