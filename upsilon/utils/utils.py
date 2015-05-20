@@ -4,21 +4,6 @@ import numpy as np
 from upsilon.datasets.base import load_EROS_lc
 
 
-def sigma_clipping_without_error(date, mag, threshold=3, iteration=1):
-    """
-    Remove any fluctuated data points by magnitudes.
-
-    :param date: An array of dates.
-    :param mag: An array of magnitudes.
-    :param threshold: Threshold for sigma-clipping.
-    :param iteration: The number of iteration.
-    :return: Sigma-clipped arrays of date, mag, and mag_error.
-    """
-
-    mag_error = np.ones(len(date)) * np.std(mag)
-    return sigma_clipping(date, mag, mag_error, threshold, iteration)
-
-
 def sigma_clipping(date, mag, err, threshold=3, iteration=1):
     """
     Remove any fluctuated data points by magnitudes.

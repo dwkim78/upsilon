@@ -4,7 +4,6 @@ import time
 
 from upsilon.extract_features.extract_features import ExtractFeatures
 from upsilon.datasets.base import load_EROS_lc
-from upsilon.utils.utils import sigma_clipping_without_error
 from upsilon.utils.utils import sigma_clipping
 from upsilon.utils.logger import Logger
 
@@ -35,7 +34,6 @@ def run():
     '''
 
     logger.info('Before sigma-clipping: %d data points' % len(date))
-    #date, mag, err = sigma_clipping_without_error(date, mag)
     date, mag, err = sigma_clipping(date, mag, err)
     logger.info('After sigma-clipping: %d data points' % len(date))
 

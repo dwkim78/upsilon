@@ -6,7 +6,6 @@ from upsilon.datasets.base import load_EROS_lc
 from upsilon.datasets.base import load_rf_model
 from upsilon.predict.predict import predict
 
-from upsilon.utils.utils import sigma_clipping_without_error
 from upsilon.utils.utils import sigma_clipping
 from upsilon.utils.logger import Logger
 
