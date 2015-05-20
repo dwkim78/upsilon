@@ -169,12 +169,11 @@ For details about these features, see Kim et al. 2015 (in preparation).
 
 | Key | Description |
 |----:|:------------|
-| period |  Period   |
-| period_SNR |  Period signal-to-noise ration   |
 | amplitude |  Amplitude from the Fourier decomposition  |
 | hl_amp_ratio |  Ratio of higher and lower magnitudes than the average | 
 | kurtosis |  Kurtosis   |
-| skewness |  Skewness   |
+| period |  Period   |
+| period_SNR |  Period signal-to-noise ration   |
 | phase_cusum |  Cumulative sum over a phased-foled ligit curve  |
 | phase_eta |  Eta over a phased-foled ligit curve   |
 | phi21 |  2nd and 1st phase difference from the Fourier decomposition   |
@@ -183,6 +182,7 @@ For details about these features, see Kim et al. 2015 (in preparation).
 | r21 |  2nd and 1st amplitude difference from the Fourier decomposition   |
 | r31 |  3nd and 1st amplitude difference from the Fourier decomposition   |
 | shapiro_w |  Shapiro-Wilk test statistics  |
+| skewness |  Skewness   |
 | slope_per10 |  10% percentile of slopes of a phase-folded light curve   |
 | slope_per90 |  90% percentile of slopes of a phase-folded light curve   |
 | stetson_k |  Stetson K  |
