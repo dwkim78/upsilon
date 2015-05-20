@@ -198,9 +198,9 @@ e_features = upsilon.ExtractFeatures(date, mag, err, n_threads=8)
 ```
 
 Using Macbook Air 2012 equipped with Intel Core i5 1.8 GHz 
-(2 cores and total 4 threads) and 8 GBytes memory,
+(2 cores and total 4 threads) and 8 GB memory,
 extracting a period takes 1-2 seconds per light curve 
-containing ~200-500 data points.
+containing several hundreds of data points.
 
 After extracting features, you may want to check if the derived period
 is in a range of period alias (e.g. one day, sidereal day, one month, etc).
