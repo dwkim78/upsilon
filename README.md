@@ -128,8 +128,6 @@ mag = np.array([...])
 err = np.array([...])
 ```
 
-Note: An array of magnitude errors is not mandatory. 
-
 If necessary, these three variables have to be refined prior to being ingested
 to UPSILoN. For instance, invalid values (e.g. nan, inf, etc.) among 
 these variables must be removed. 
@@ -156,7 +154,7 @@ e_features.run()
 features = e_features.get_features()
 ```
 
-If there are no magnitude errors, you can do this as well:
+If there are no magnitude errors, you can do as follows:
 ```python
 e_features = upsilon.ExtractFeatures(date, mag)
 ``` 
