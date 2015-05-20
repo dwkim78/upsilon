@@ -162,6 +162,11 @@ e_features = upsilon.ExtractFeatures(date, mag)
 ``` 
 In this case, UPSILoN will use a standard deviation of magnitudes as errors.
 
+```e_features``` is an OrderedDict variable containing 
+the names of features (i.e. key) and values of the features (i.e. value),
+sorted by the names.
+
+
 If pyFFTW is installed, UPSILoN utilizes multiple cores to derive a period
 because the period estimation takes a lot longer than calculating all other features.
 By default, UPSILoN uses 4 cores. If you want to use more, do as follows:
