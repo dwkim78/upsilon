@@ -15,6 +15,12 @@ such as [Delta Scuti stars](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
 using well-sampled optical-band light curves **regardless of** survey-specific characteristics 
 such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
 
+Note: In principle, UPSILoN can classify 
+any light curves having arbitrary number of data points. 
+However, for the best classification quality,
+we recommend to use light curves with more than ~100 data points,
+and have been observed longer than three months.
+
 
 ## 1. Dependency
 [Python 2.7+](https://www.python.org/) 
@@ -183,13 +189,6 @@ since classification could be wrong.
 Note that we also included additional aliases empirically
 determined based on the OGLE and EROS-2 dataset 
 ([Kim et al. 2014] (http://adsabs.harvard.edu/abs/2014A%26A...566A..43K)).
-
-
-Note: UPSILoN can extract features from any light curves having arbitrary number of
-data points. However, for the best classification quality,
-we recommend to use light curves with more than ~100 data points
-that have been observed more than three months.
-See Kim et al. 2015 (in preparation) for details.
 
 
 ### Classification
