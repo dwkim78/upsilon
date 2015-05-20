@@ -162,7 +162,7 @@ e_features = upsilon.ExtractFeatures(date, mag)
 ``` 
 In this case, UPSILoN will use a standard deviation of magnitudes as errors.
 
-```e_features``` is an OrderedDict variable containing 
+The returned ```features``` is an OrderedDict variable containing 
 the names of features (i.e. key) and values of the features (i.e. value),
 sorted by the names. The following table shows a list of the keys.
 For details about these features, see Kim et al. 2015 (in preparation).
@@ -187,6 +187,8 @@ For details about these features, see Kim et al. 2015 (in preparation).
 | slope_per90 |  90% percentile of slopes of a phase-folded light curve   |
 | stetson_k |  Stetson K  |
 
+The ```features``` variable contains more features than showing in the table,
+but only the ones showing above are used for classification.
 
 If pyFFTW is installed, UPSILoN utilizes multiple cores to derive a period
 because the period estimation takes a lot longer than calculating all other features.
