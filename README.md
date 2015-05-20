@@ -164,7 +164,28 @@ In this case, UPSILoN will use a standard deviation of magnitudes as errors.
 
 ```e_features``` is an OrderedDict variable containing 
 the names of features (i.e. key) and values of the features (i.e. value),
-sorted by the names.
+sorted by the names. The following table shows a list of the keys.
+For details about these features, see Kim et al. 2015 (in preparation).
+
+| Key | Description |
+|----:|:------------|
+| period |  Period   |
+| period_SNR |  Period signal-to-noise ration   |
+| amplitude |  Amplitude from the Fourier decomposition  |
+| hl_amp_ratio |  Ratio of higher and lower magnitudes than the average | 
+| kurtosis |  Kurtosis   |
+| skewness |  Skewness   |
+| phase_cusum |  Cumulative sum over a phased-foled ligit curve  |
+| phase_eta |  Eta over a phased-foled ligit curve   |
+| phi21 |  2nd and 1st phase difference from the Fourier decomposition   |
+| phi31 |  3rd and 1st phase difference from the Fourier decomposition    |
+| quartile31 |  3rd quartile - 1st quartile   |
+| r21 |  2nd and 1st amplitude difference from the Fourier decomposition   |
+| r31 |  3nd and 1st amplitude difference from the Fourier decomposition   |
+| shapiro_w |  Shapiro-Wilk test statistics  |
+| slope_per10 |  10% percentile of slopes of a phase-folded light curve   |
+| slope_per90 |  90% percentile of slopes of a phase-folded light curve   |
+| stetson_k |  Stetson K  |
 
 
 If pyFFTW is installed, UPSILoN utilizes multiple cores to derive a period
@@ -185,7 +206,7 @@ is in a range of period alias (e.g. one day, sidereal day, one month, etc).
 UPSILoN provides a simple module to check it as:
 
 ```python
-is_alias = upsilon.IsPeriodAlias(25.512)
+is_alias = upsilon.IsPeriodAlias(features['period'])
 ```
 
 If ```is_alias``` is ```True```, then the period is possibly an alias.
