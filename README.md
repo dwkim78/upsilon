@@ -310,7 +310,7 @@ Note that we provide the random forests model trained with 100 trees
 and randomly selected 10 features whereas, in Kim et al. 2015 (in preparation),
 we used 500 trees with randomly selected 12 features.
 The [F1 score] (http://en.wikipedia.org/wiki/F1_score)
-difference between these two models is less than 0.001, which is negligible. 
+difference between these two models is less than 0.001, which is insignificant. 
 The reason is only because GitHub does not allow to upload 
 a file larger than 100 MB.
 The size of the model with 500 trees and 12 features is 260 MB.
