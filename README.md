@@ -286,7 +286,7 @@ The hyper parameters of the classifier were tuned
 using grid-search and 10-fold cross-validation.
 
 The classifier trained using only superclasses shows 99% recall and precision
-whereas the classifier trained on subclasses shows 80% recall and precision.
+whereas the classifier trained on subclasses shows 83% recall and precision.
 The confusion in the subclass classifier was mainly caused by
 misclassification within superclasses. 
 The following figures show classification quality of these two classifiers.
