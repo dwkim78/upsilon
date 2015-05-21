@@ -42,8 +42,8 @@ and have been observed longer than three months.
 ## 2. Installation
 
 [WARNING: UPSILoN is under the beta-test phase now.
-Thus be careful to use it and if you find any bug, please contact with me.
-In addition ```pip``` installation is not supported yet.]
+You may want to wait for the official release of UPSILoN version 1.0.
+In addition, ```pip``` installation is not supported yet.]
 
 The easiest way to install the UPSILoN package is:
 
@@ -325,9 +325,6 @@ a large amount of memory.
 
 
 ## ChangeLog
-
-### v?.0 (planned)
-- add a new plug-in layer for improving EB subclass classification.
 
 ### v?.0 (planned)
 - implementing multilayer classifiers, which will
