@@ -330,6 +330,9 @@ a large amount of memory.
 ## ChangeLog
 
 ### v?.0 (planned)
+- add a new plug-in layer for improving EB subclass classification.
+
+### v?.0 (planned)
 - implementing multilayer classifiers, which will
  substantially reduce feature extracting time.
 
