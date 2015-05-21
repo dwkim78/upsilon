@@ -185,9 +185,6 @@ For details about these features, see Kim et al. 2015 (in preparation).
 | slope_per90 |  90% percentile of slopes of a phase-folded light curve   |
 | stetson_k |  Stetson K  |
 
-The ```features``` variable contains more features than 
-the ones showing in the table,
-but only the above features are used for classification.
 
 If pyFFTW is installed, UPSILoN utilizes multiple cores to derive a period
 because the period estimation takes a lot longer than calculating all other features.
