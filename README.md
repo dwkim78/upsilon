@@ -38,6 +38,8 @@ and have been observed longer than three months.
  * pyFFTW is optional but <b>highly recommended</b>
   for multi-threads usage for FFT.
 
+These libraries (except pyFFTW) will be automatically installed 
+if your machines do not have them yet.
 
 ## 2. Installation
 
