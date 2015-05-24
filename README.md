@@ -41,10 +41,6 @@ and have been observed longer than three months.
 
 ## 2. Installation
 
-[WARNING: UPSILoN is under the beta-test phase now.
-You may want to wait for the official release of UPSILoN version 1.0.
-In addition, ```pip``` installation is not supported yet.]
-
 The easiest way to install the UPSILoN package is:
 
 ```python
