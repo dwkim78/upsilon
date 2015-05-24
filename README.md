@@ -60,7 +60,7 @@ downloading the package might take some time.
 
 If you do not want to install/upgrade the dependencies,
 execute the above commend with the ```--no-deps``` option.
-UPSILoN possibly works with older version of Python, Numpy, and Scipy 
+UPSILoN possibly works with older version of Python, Numpy, and Scipy, 
 but you must have the latest version of scikit-learn (i.e. 0.16.1+).
 
 
