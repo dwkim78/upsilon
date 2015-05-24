@@ -36,7 +36,9 @@ and have been observed longer than three months.
 [pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/) 
 
  * pyFFTW is optional but <b>highly recommended</b>
-  for multi-threads usage for FFT.
+  for multi-threads usage for FFT. 
+  You will need to install [FFTW] (http://www.fftw.org/)
+  as well prior to installation of pyFFTW.
 
 These libraries (except pyFFTW) will be automatically installed 
 if your machines do not have them yet.
