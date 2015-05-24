@@ -329,7 +329,7 @@ a large amount of memory.
 
 ## ChangeLog
 
-### v?.0 (planned)
+### v2.0 (planned)
 - implementing multilayer classifiers, which will
  substantially reduce feature extracting time.
 
