@@ -61,7 +61,9 @@ python setup.py install
 ```
 
 Since the UPSILoN package contains a Random Forest classifier (~40 MB), 
-downloading the package might takes some time.
+downloading the package might takes some time. UPSILoN possibly works
+with older version of Python, Numpy, and Scipy but you must have
+the latest version of scikit-learn (i.e. 0.16.1+).
 
 ## 3. Test
 
