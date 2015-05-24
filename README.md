@@ -42,6 +42,9 @@ and have been observed longer than three months.
 
 These libraries (except pyFFTW) will be automatically installed 
 if your machines do not have them yet.
+UPSILoN possibly works
+with older version of Python, Numpy, and Scipy but you must have
+the latest version of scikit-learn (i.e. 0.16.1+).
 
 ## 2. Installation
 
@@ -61,9 +64,7 @@ python setup.py install
 ```
 
 Since the UPSILoN package contains a Random Forest classifier (~40 MB), 
-downloading the package might takes some time. UPSILoN possibly works
-with older version of Python, Numpy, and Scipy but you must have
-the latest version of scikit-learn (i.e. 0.16.1+).
+downloading the package might takes some time.
 
 ## 3. Test
 
