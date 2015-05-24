@@ -42,6 +42,9 @@ and have been observed longer than three months.
 
 These libraries (except pyFFTW) will be automatically installed 
 if your machines do not have them yet.
+In the case you encounter errors during the installation of the dependencies,
+try to install them individually. Your machine may not
+have other necessary libraries that are required by the dependencies.
 
 
 ## 2. Installation
@@ -59,9 +62,7 @@ If you do not want to install/upgrade the dependencies,
 execute the above commend with the ```--no-deps``` option.
 UPSILoN possibly works with older version of Python, Numpy, and Scipy 
 but you must have the latest version of scikit-learn (i.e. 0.16.1+).
-In the case you encounter errors during the installation of the dependencies,
-try to install them individually. Your machine may not
-have other necessary libraries that are required by the dependencies.
+
 
 Alternatively, you can download the UPSILoN package from the Git repository as:
 
