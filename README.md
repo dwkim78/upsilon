@@ -56,6 +56,9 @@ cd upsilon
 python setup.py install
 ```
 
+Since the UPSILoN package contains a Random Forest classifier (~40 MB), 
+downloading the package might takes some time.
+
 ## 3. Test
 
 To check if the UPSILoN library is successfully installed, type the 
