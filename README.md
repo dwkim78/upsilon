@@ -380,3 +380,9 @@ which substantially decreases the extracting time.
 
 ### v0.1
 - add feature extracting modules.
+
+
+## Contact
+
+Dae-Won Kim, email: dwkim78 at gmail.com)
+Webpage: https://sites.google.com/site/dwkim78/
