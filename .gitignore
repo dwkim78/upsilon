@@ -6,3 +6,5 @@
 upsilon.egg-info/*
 
 output/*
+
+dist/*
