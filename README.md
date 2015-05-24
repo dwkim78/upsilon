@@ -329,10 +329,14 @@ a large amount of memory.
 - implementing multilayer classifiers, which will
  substantially reduce feature extracting time.
 
-### v1.0 (soon)
+### v1.0.1 (ongoing)
+- bug fixes, code improvements, etc.
+
+
+### v1.0
 - release of the first version of UPSILoN (Kim+ 2015 in preparation).
 
-### v0.7 (ongoing)
+### v0.7
 - code improvements, bug fixes, tests, etc.
 
 ### v0.6
