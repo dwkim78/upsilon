@@ -383,6 +383,6 @@ which substantially decreases the extracting time.
 
 
 ## Contact
+Dae-Won Kim, email: dwkim78 at gmail.com
 
-Dae-Won Kim, email: dwkim78 at gmail.com)
 Webpage: https://sites.google.com/site/dwkim78/
