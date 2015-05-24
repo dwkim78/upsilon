@@ -61,6 +61,9 @@ The easiest way to install the UPSILoN package is:
 pip install upsilon
 ```
 
+Since the UPSILoN package contains a Random Forest classifier (~40 MB), 
+downloading the package might takes some time.
+
 Alternatively, you can download all the necessary files from the git repository as:
 
 ```python
@@ -70,8 +73,8 @@ cd upsilon
 python setup.py install
 ```
 
-Since the UPSILoN package contains a Random Forest classifier (~40 MB), 
-downloading the package might takes some time.
+You can edit ```setup.py```, if you do not want to update 
+Python, Numpy and Scipy.
 
 ## 3. Test
 
