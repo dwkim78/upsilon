@@ -248,7 +248,7 @@ would significantly reduces the total processing time.
 Unfortunately, it is hard to find an universal and consistent way of 
 removing such non-varying light curves from
 many time-series surveys having different characteristics, 
-so UPSILoN does not provides such functionality (yet).
+so UPSILoN does not provides such functionality yet (planned for version 2.0).
 
 
 ### Logger
