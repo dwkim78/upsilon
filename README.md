@@ -62,9 +62,9 @@ pip install upsilon
 ```
 
 Since the UPSILoN package contains a Random Forest classifier (~40 MB), 
-downloading the package might takes some time.
+downloading the package might take some time.
 
-Alternatively, you can download all the necessary files from the git repository as:
+Alternatively, you can download the UPSILoN package from this Git repository as:
 
 ```python
 git clone https://github.com/dwkim78/upsilon
@@ -74,7 +74,7 @@ python setup.py install
 ```
 
 You can edit ```setup.py```, if you do not want to update 
-Python, Numpy and Scipy.
+Python, Numpy and Scipy (i.e. edit the ```install_requires``` variable).
 
 ## 3. Test
 
