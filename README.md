@@ -42,9 +42,16 @@ and have been observed longer than three months.
 
 These libraries (except pyFFTW) will be automatically installed 
 if your machines do not have them yet.
-UPSILoN possibly works
-with older version of Python, Numpy, and Scipy but you must have
-the latest version of scikit-learn (i.e. 0.16.1+).
+
+UPSILoN possibly works with older version of Python, Numpy, and Scipy 
+but you must have the latest version of scikit-learn (i.e. 0.16.1+).
+
+
+In the case you have encounter errors installing these libraries,
+try to install them individually. Your machine may not
+have neccessary other libraries that the above libraries require.
+
+
 
 ## 2. Installation
 
