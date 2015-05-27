@@ -20,6 +20,9 @@ any light curves having arbitrary number of data points.
 However, for the best classification quality,
 we recommend to use light curves with more than ~100 data points,
 and have been observed longer than three months.
+Improvement of classification quality for light curves containing
+small numbers of data points is ongoing. 
+See [ChangeLog] (https://github.com/dwkim78/upsilon#changelog). 
 
 
 ## 1. Dependency
