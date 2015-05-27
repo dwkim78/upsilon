@@ -346,8 +346,9 @@ a large amount of memory.
 - implementing multilayer classifiers, which will
  substantially reduce feature extracting time.
 
-### v1.0.1 (ongoing)
+### v1.1 (ongoing)
 - bug fixes, code improvements, etc.
+- model improvements for light curves having small number of data points. 
 
 
 ### v1.0
