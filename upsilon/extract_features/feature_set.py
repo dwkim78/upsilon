@@ -10,9 +10,9 @@ def get_feature_set():
     """
 
     features = ['amplitude', 'hl_amp_ratio', 'kurtosis', 'period',
-        'period_SNR', 'phase_cusum', 'phase_eta',
-        'phi21', 'phi31', 'quartile31', 'r21', 'r31', 'shapiro_w',
-        'skewness', 'slope_per10', 'slope_per90', 'stetson_k']
+        'phase_cusum', 'phase_eta', 'phi21', 'phi31', 'quartile31',
+        'r21', 'r31', 'shapiro_w', 'skewness', 'slope_per10',
+        'slope_per90', 'stetson_k']
     features.sort()
 
     return features
@@ -28,6 +28,7 @@ def get_feature_set_all():
     features = get_feature_set()
 
     features.append('n_points')
+    features.append('period_SNR')
     features.append('period_log10FAP')
     features.append('period_uncertainty')
     features.append('weighted_mean')

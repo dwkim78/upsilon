@@ -20,9 +20,6 @@ any light curves having arbitrary number of data points.
 However, for the best classification quality,
 we recommend to use light curves with more than ~100 data points,
 and have been observed longer than three months.
-Improvement of classification quality for light curves containing
-small numbers of data points is ongoing. 
-See [ChangeLog] (https://github.com/dwkim78/upsilon#changelog). 
 
 
 ## 1. Dependency
@@ -58,7 +55,13 @@ The easiest way to install the UPSILoN package is:
 pip install upsilon
 ```
 
-Since the UPSILoN package contains a Random Forest classifier (~40 MB), 
+Or,
+
+```python
+pip install git+https://github.com/dwkim78/upsilon
+```
+
+Since the UPSILoN package contains a Random Forest classifier (~50 MB), 
 downloading the package might take some time.
 
 If you do not want to install/upgrade the dependencies,
@@ -94,11 +97,11 @@ extracts features, and classify it.
 At the end of log messages, you must see the line something like:
 
 ```
-yyyy/mm/dd hh:mm:ss INFO - Classified as CEPH_1O with the class probability 0.96
+yyyy/mm/dd hh:mm:ss INFO - Classified as CEPH_1O with the class probability 0.92
 ```
 
 If the light curve is not classified as a Cepheid variable,
-or if the class probability is not 0.96, something might be wrong.
+or if the class probability is not 0.92, something might be wrong.
 In that case, please contact with me.
 
 ## 4. Pseudo Code: How to Use UPSILoN? 
@@ -190,7 +193,6 @@ For details about these features, see Kim et al. 2015 (in preparation).
 | hl_amp_ratio |  Ratio of higher and lower magnitudes than the average | 
 | kurtosis |  Kurtosis   |
 | period |  Period   |
-| period_SNR |  Period signal-to-noise ration   |
 | phase_cusum |  Cumulative sum over a phased-foled ligit curve  |
 | phase_eta |  Eta over a phased-foled ligit curve   |
 | phi21 |  2nd and 1st phase difference from the Fourier decomposition   |
@@ -304,8 +306,8 @@ and EROS-2 periodic variables
 The hyper parameters of the classifier were tuned
 using grid-search and 10-fold cross-validation.
 
-The classifier trained using only superclasses shows 99% recall and precision
-whereas the classifier trained on subclasses shows 83% recall and precision.
+The classifier trained using only superclasses shows 98% recall and precision
+whereas the classifier trained on subclasses shows 81% recall and precision.
 The confusion in the subclass classifier was mainly caused by
 misclassification within superclasses. 
 The following figures show classification quality of these two classifiers.
@@ -327,12 +329,12 @@ see Kim et al. 2015 (in preparation).
 
 Note that we provide the random forests model trained with 100 trees
 and randomly selected 10 features whereas, in Kim et al. 2015 (in preparation),
-we used 500 trees with randomly selected 12 features.
+we used 700 trees with randomly selected 10 features.
 The [F1 score] (http://en.wikipedia.org/wiki/F1_score)
-difference between these two models is less than 0.001, which is insignificant. 
+difference between these two models is less than 0.003, which is insignificant. 
 The reason is only because GitHub does not allow to upload 
 a file larger than 100 MB.
-The size of the model with 500 trees and 12 features is 260 MB.
+The size of the model with 700 trees and 10 features is 360 MB.
 
 
 ## Minimum Requirements
@@ -349,7 +351,11 @@ a large amount of memory.
 - implementing multilayer classifiers, which will
  substantially reduce feature extracting time.
 
-### v1.1 (ongoing)
+### v1.1.1 (ongoing)
+- bug fixes, code improvements, etc.
+
+
+### v1.1.0
 - bug fixes, code improvements, etc.
 - model improvements for light curves having small number of data points. 
 
