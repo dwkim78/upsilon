@@ -55,7 +55,7 @@ class ExtractFeatures():
             raise RuntimeError('The length of date, mag, and err must be same.')
 
         # if the number of data points is too small.
-        min_n_data = 100
+        min_n_data = 80
         if len(self.date) < min_n_data:
             warnings.warn('The number of data points are less than %d.'
                 % min_n_data)

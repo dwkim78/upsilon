@@ -18,8 +18,7 @@ such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
 Note: In principle, UPSILoN can classify 
 any light curves having arbitrary number of data points. 
 However, for the best classification quality,
-we recommend to use light curves with more than ~100 data points,
-and have been observed longer than three months.
+we recommend to use light curves with more than ~80 data points.
 
 
 ## 1. Dependency
@@ -389,7 +388,7 @@ a large amount of memory.
 - add a sigma clipping module.
 - add a Logger class.
 - raise a warning if the number of measurements in a light curve is 
-less than 100.
+less than 80.
 - other few improvements and bug fixes.
 
 ### v.0.2.4
