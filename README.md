@@ -81,6 +81,8 @@ python setup.py install
 
 You can edit ```setup.py```, if you do not want to update 
 Python, Numpy and Scipy (i.e. edit the ```install_requires``` variable).
+Note that downloading the Git repository will take longer
+since it downloads the entire git history including the ".git" folder.
 
 ## 3. Test
 
