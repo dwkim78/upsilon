@@ -324,9 +324,11 @@ the cell belongs to. Thus brighter the cell, higher the recall.
 </div><br>
 
 UPSILoN provides the classifier trained using all the subclasses.
-For the comprehensive experiments using 
-the original and re-sampled MACHO, LINEAR and ASAS light curves,
+For the comprehensive experiments using the MACHO, LINEAR and ASAS dataset,
 see Kim et al. 2015 (in preparation).
+In brief, the UPSILoN classifier shows 
+0.94, 0.92 and 0.85 [F1 score] (http://en.wikipedia.org/wiki/F1_score)
+for each dataset, respectively.
 
 Note that we provide the random forests model trained with 100 trees
 and randomly selected 10 features whereas, in Kim et al. 2015 (in preparation),
