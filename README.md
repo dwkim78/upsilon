@@ -325,7 +325,7 @@ the cell belongs to. Thus brighter the cell, higher the recall.
 
 UPSILoN provides the classifier trained using all the subclasses.
 For the comprehensive experiments using 
-the original and re-sampled MACHO and ASAS light curves,
+the original and re-sampled MACHO, LINEAR and ASAS light curves,
 see Kim et al. 2015 (in preparation).
 
 Note that we provide the random forests model trained with 100 trees
