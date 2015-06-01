@@ -233,7 +233,11 @@ If ```is_alias``` is ```True```, then the period is possibly an alias.
 In such case, one must be careful to classify the light curve,
 since classification could be wrong.
 Note that we also included additional aliases empirically
-determined based on the OGLE and EROS-2 dataset 
+determined based on the 
+[OGLE] (http://ogle.astrouw.edu.pl/) 
+and 
+[EROS-2] (http://eros.in2p3.fr/) 
+dataset 
 ([Kim et al. 2014] (http://adsabs.harvard.edu/abs/2014A%26A...566A..43K)).
 
 
@@ -300,9 +304,12 @@ Note that the path must be the absolute path.
 
 ## 6. UPSILoN Classification Quality
 
-The UPSILoN classifier was trained on the OGLE 
+The UPSILoN classifier was trained on the 
+[OGLE] (http://ogle.astrouw.edu.pl/) 
 ([Udalski et al. 1997] (http://adsabs.harvard.edu/abs/1997AcA....47..319U)) 
-and EROS-2 periodic variables 
+and 
+[EROS-2] (http://eros.in2p3.fr/) 
+periodic variables 
 ([Kim et al. 2014] (http://adsabs.harvard.edu/abs/2014A%26A...566A..43K)).
 The hyper parameters of the classifier were tuned
 using grid-search and 10-fold cross-validation.
@@ -324,7 +331,11 @@ the cell belongs to. Thus brighter the cell, higher the recall.
 </div><br>
 
 UPSILoN provides the classifier trained using all the subclasses.
-For the comprehensive experiments using the MACHO, LINEAR and ASAS dataset,
+For the comprehensive experiments using the 
+[MACHO] (http://wwwmacho.anu.edu.au/), 
+[LINEAR] (http://neo.jpl.nasa.gov/programs/linear.html) and 
+[ASAS] (http://www.astrouw.edu.pl/asas/)  
+dataset,
 see Kim et al. 2015 (in preparation).
 In brief, the UPSILoN classifier shows 
 0.94, 0.92 and 0.85 [F1 score] (http://en.wikipedia.org/wiki/F1_score)
