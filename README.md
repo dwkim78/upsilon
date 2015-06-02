@@ -355,8 +355,8 @@ The [F1 score] (http://en.wikipedia.org/wiki/F1_score)
 difference between these two models is less than 0.003, which is insignificant. 
 The reason is because 1) GitHub does not allow to upload 
 a file larger than 100 MB, and 2) reading a larger file takes longer.
-The size of the model with 700 trees and 10 features is 360 MB.
-Note that the model file is gzipped and written in a binary format.
+The size of the model with 700 trees and 10 features is 360 MB,
+which is gzipped and written in a binary format.
 Thus the uncompressed size is much larger (i.e. by a factor of ~10).
 
 
