@@ -339,6 +339,15 @@ In brief, the UPSILoN classifier shows
 0.94, 0.92 and 0.85 [F1 score] (http://en.wikipedia.org/wiki/F1_score)
 for each dataset, respectively.
 
+
+In Kim et al. 2015 (in preparation), we also present experiment results
+using resampled light curves of the MACHO and ASAS dataset 
+for different number of data points from 20 to 300
+over different observation duration from 30 days to several years.
+In brief, UPSILoN successfully classifies the resampled light curves
+for the most of the cases.
+
+
 Note that we provide the random forests model trained with 100 trees
 and randomly selected 10 features whereas, in Kim et al. 2015 (in preparation),
 we used 700 trees with randomly selected 10 features.
