@@ -363,6 +363,9 @@ a large amount of memory.
 
 ## ChangeLog
 
+### v?.? (?)
+- provide web-based classifier for a small set of light curves.
+
 ### v2.0 (planned)
 - implementing multilayer classifiers, which will
  substantially reduce feature extracting time.
