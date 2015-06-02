@@ -370,9 +370,6 @@ a large amount of memory.
 - implementing multilayer classifiers, which will
  substantially reduce feature extracting time.
 
-### v1.2.0 (planned)
-- improving feature extraction speed. 
-
 ### v1.1.1 (ongoing)
 - bug fixes, code improvements, etc.
 
