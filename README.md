@@ -334,9 +334,7 @@ UPSILoN provides the classifier trained using all the subclasses.
 For the comprehensive experiments using the 
 [MACHO] (http://wwwmacho.anu.edu.au/), 
 [LINEAR] (http://neo.jpl.nasa.gov/programs/linear.html) and 
-[ASAS] (http://www.astrouw.edu.pl/asas/)  
-dataset,
-see Kim et al. 2015 (in preparation).
+[ASAS] (http://www.astrouw.edu.pl/asas/) dataset, see Kim et al. 2015 (in preparation).
 In brief, the UPSILoN classifier shows 
 0.94, 0.92 and 0.85 [F1 score] (http://en.wikipedia.org/wiki/F1_score)
 for each dataset, respectively.
