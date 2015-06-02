@@ -195,7 +195,7 @@ class ExtractFeatures():
         #self.f_SNR1 = fy[jmax] / np.median(fy)
         self.period_SNR = (fy[jmax] - np.median(fy)) / np.std(fy)
 
-        # Fit Fourier Series of order 5.
+        # Fit Fourier Series of order 3.
         order = 3
         # Initial guess of Fourier coefficients.
         p0 = np.ones(order * 2 + 1)
