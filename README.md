@@ -268,10 +268,11 @@ periodic variable light curves from non-varying light curves (i.e. non-variables
 Nevertheless, since feature extraction takes lots of time,
 removal of non-varying light curves before running UPSILoN 
 would significantly reduces the total processing time.
-Unfortunately, it is hard to find an universal and consistent way of 
-removing such non-varying light curves from
-many time-series surveys having different characteristics, 
-so UPSILoN does not provides such functionality yet (planned for version 2.0).
+In addition, it is fundamentally difficult to find an universal and consistent way of 
+removing such non-varying light curves of
+many time-series surveys having different characteristics (e.g. systemaric trends, too noisy data, etc).
+Thus, UPSILoN can exclude some of non-variables during classification but not all of them.
+In Kim et al. 2015 (in preparation), we give a tip how to further remove such non-variables.
 
 
 ### Logger
