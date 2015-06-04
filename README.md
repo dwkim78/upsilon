@@ -16,11 +16,17 @@ using well-sampled optical-band light curves **regardless of** survey-specific c
 such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
 
 
-Note: In principle, UPSILoN can classify 
+<b>Note</b>: UPSILoN mainly consists of two parts, one
+is extracting variability features from a light curve, and 
+another is classifying a light curve.
+UPSILoN, thus, returns extracted features, 
+a predicted class, and a class probability.
+
+
+<b>Note</b>: In principle, UPSILoN can classify 
 any light curves having arbitrary number of data points. 
 However, for the best classification quality,
 we recommend to use light curves with more than ~80 data points.
-
 
 
 ## 1. Dependency
