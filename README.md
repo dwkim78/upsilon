@@ -250,8 +250,8 @@ dataset
 
 
 In fact, UPSILoN estimates more features than listed above but just does
-not use those extra features to predict a class. If you want to get them,
-do as follows:
+not use those extra features to predict a class. If you want to get 
+the entire set of the features, do as follows:
 
 ```python
 features = e_features.get_features_all()
