@@ -241,6 +241,28 @@ dataset
 ([Kim et al. 2014] (http://adsabs.harvard.edu/abs/2014A%26A...566A..43K)).
 
 
+In fact, UPSILoN estimates more features than listed above but just does
+not use those extra features to predict. If you want to get them, do:
+
+```python
+features = e_features.get_features_all()
+```
+
+The additional features are:
+
+| Key | Description |
+|----:|:------------|
+| period_SNR | SNR of period derived using a periodogram |
+| period_log10FAP | False alarm probability of period |
+| period_uncertainty | Period uncertainty based on a periodogram |
+| weighted_mean | Weighted mean magnitude |
+| weighted_std | Weighted standard deviation of magnitudes |
+
+You can also ingest this ```features``` into
+the UPSILoN classifier explained in the next section.
+UPSILoN automatically removes unnecessary features while predicting a class. 
+
+
 ### Classification
 
 Before predicting a class, 
