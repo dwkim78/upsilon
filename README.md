@@ -16,7 +16,7 @@ using well-sampled optical-band light curves **regardless of** survey-specific c
 such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
 
 
-<b>Note</b>: UPSILoN mainly consists of two parts, one
+UPSILoN mainly consists of two parts, one
 is extracting variability features from a light curve, and 
 another is classifying a light curve.
 UPSILoN, thus, returns extracted features, 
