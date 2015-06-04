@@ -15,10 +15,12 @@ such as [Delta Scuti stars](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
 using well-sampled optical-band light curves **regardless of** survey-specific characteristics 
 such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
 
+
 Note: In principle, UPSILoN can classify 
 any light curves having arbitrary number of data points. 
 However, for the best classification quality,
 we recommend to use light curves with more than ~80 data points.
+
 
 
 ## 1. Dependency
@@ -265,6 +267,11 @@ the UPSILoN classifier explained in the next section.
 UPSILoN automatically removes unnecessary features while predicting a class. 
 
 
+<b>Note</b>: You are welcome to suggest new additional features
+if it is not computationally time-consuming. The list of additional
+features will be updated accordingly.
+
+
 ### Classification
 
 Before predicting a class, 
@@ -406,7 +413,6 @@ a large amount of memory.
 
 ### v1.1.1 (ongoing)
 - bug fixes, code improvements, etc.
-
 
 ### v1.1.0
 - bug fixes, code improvements, etc.
