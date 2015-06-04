@@ -242,7 +242,8 @@ dataset
 
 
 In fact, UPSILoN estimates more features than listed above but just does
-not use those extra features to predict. If you want to get them, do:
+not use those extra features to predict a class. If you want to get them,
+do as follows:
 
 ```python
 features = e_features.get_features_all()
@@ -252,6 +253,7 @@ The additional features are:
 
 | Key | Description |
 |----:|:------------|
+| n_points | The number of data points in a light curve |
 | period_SNR | SNR of period derived using a periodogram |
 | period_log10FAP | False alarm probability of period |
 | period_uncertainty | Period uncertainty based on a periodogram |

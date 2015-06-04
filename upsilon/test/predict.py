@@ -49,6 +49,9 @@ def run():
         if key != 'n_points':
             logger.info('   %s %s: %f' % ('(+)' if key in used_features else '(-)',
                 key, value))
+        else:
+            logger.info('   %s %s: %d' % ('(+)' if key in used_features else '(-)',
+                key, value))
 
     logger.info('Load the UPSILoN classifier')
     rf_model = load_rf_model()
