@@ -301,17 +301,21 @@ and its class probability, ```probability```, as well.
 
 
 By the nature of UPSILoN, it can distinguish 
-periodic variable light curves from non-varying light curves (i.e. non-variables).
+periodic variable light curves from non-variables.
 Nevertheless, since feature extraction takes lots of time,
-removal of non-varying light curves before running UPSILoN 
+removal of non-variable light curves before running UPSILoN 
 would significantly reduces the total processing time.
 
 
-In addition, it is fundamentally difficult to find an universal and consistent way of 
-removing such non-varying light curves of
-many time-series surveys having different characteristics (e.g. systemaric trends, too noisy data, etc).
-Thus, UPSILoN can exclude some of non-variables during classification but not all of them.
-In Kim et al. 2015 (in preparation), we give a tip how to further remove such non-variables.
+In addition, it is fundamentally difficult to 
+find an universal and consistent way of 
+removing such non-variable light curves from
+many time-series surveys due to their different survey characteristics 
+(e.g. systematic trends, too noisy data, etc).
+Thus, UPSILoN can exclude some of non-variables during classification 
+but not all of them.
+In Kim et al. 2015 (in preparation), 
+we give a tip how to further remove such non-variables.
 
 
 ### Logger
