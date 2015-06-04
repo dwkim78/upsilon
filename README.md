@@ -130,10 +130,7 @@ for light_curve in set_of_light_curves:
     date = np.array([...])
     mag = np.array([...])
     err = np.array([...])
-    
-    # Pre-process and/or refine the light curve.
-    == Do it yourself ==
-    
+        
     # Extract features
     e_features = upsilon.ExtractFeatures(date, mag, err)
     e_features.run()
