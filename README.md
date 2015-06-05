@@ -399,6 +399,7 @@ a file larger than 100 MB, and 2) reading a larger file takes longer.
 The size of the model with 700 trees and 10 features is 360 MB,
 which is gzipped and written in a binary format.
 Thus the uncompressed size is much larger (i.e. by a factor of ~10).
+If you want to use the 360 MB model file, please contact with me.
 
 
 ## Minimum Requirements
