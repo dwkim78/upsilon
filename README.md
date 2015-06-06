@@ -12,8 +12,8 @@ such as [Delta Scuti stars](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
 [eclipsing binaries](http://en.wikipedia.org/wiki/Binary_star#Eclipsing_binaries), and
 [long-period variables](http://en.wikipedia.org/wiki/Long-period_variable_star) 
 (i.e. superclasses), and their subclasses (e.g. RR Lyrae ab, c, d, and e types) 
-using well-sampled optical-band light curves 
-any astronomical time-series surveys
+using well-sampled light curves from 
+any astronomical time-series surveys in optical bands
 **regardless of** their survey-specific characteristics 
 such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
 
