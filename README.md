@@ -12,7 +12,9 @@ such as [Delta Scuti stars](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
 [eclipsing binaries](http://en.wikipedia.org/wiki/Binary_star#Eclipsing_binaries), and
 [long-period variables](http://en.wikipedia.org/wiki/Long-period_variable_star) 
 (i.e. superclasses), and their subclasses (e.g. RR Lyrae ab, c, d, and e types) 
-using well-sampled optical-band light curves **regardless of** survey-specific characteristics 
+using well-sampled optical-band light curves 
+any astronomical time-series surveys
+**regardless of** their survey-specific characteristics 
 such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
 
 
@@ -476,3 +478,8 @@ which substantially decreases the extracting time.
 Dae-Won Kim, email: dwkim78 at gmail.com
 
 Webpage: https://sites.google.com/site/dwkim78/
+
+#### Keywords
+
+astronomy - periodic variables - light curves - time-series survey - 
+machine learning - classification

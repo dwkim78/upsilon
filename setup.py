@@ -19,6 +19,8 @@ setup(
     install_requires=['numpy>=1.9', 'scikit-learn>=0.16.1', 'scipy>=0.15',
         #'pyfftw>=0.9.2',
     ],
+    keywords=['astronomy', 'periodic variables', 'light curves',
+        'time-series survey', 'machine learning', 'classification'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Science/Research',
