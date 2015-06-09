@@ -481,5 +481,5 @@ Webpage: https://sites.google.com/site/dwkim78/
 
 #### Keywords
 
-astronomy - periodic variables - light curves - time-series survey - 
-machine learning - classification
+astronomy - periodic variables - light curves - variability features - 
+time-series survey - machine learning - classification

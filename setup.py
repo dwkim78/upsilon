@@ -20,7 +20,8 @@ setup(
         #'pyfftw>=0.9.2',
     ],
     keywords=['astronomy', 'periodic variables', 'light curves',
-        'time-series survey', 'machine learning', 'classification'],
+        'variability features', 'time-series survey', 'machine learning',
+        'classification'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Science/Research',
