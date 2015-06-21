@@ -388,7 +388,7 @@ using resampled light curves of the MACHO and ASAS dataset
 for different number of data points from 20 to 300,
 over different observation duration from 30 days to several years.
 In brief, UPSILoN successfully classifies the resampled light curves
-for the most of the cases.
+as long as the light curves contains more or equal to 80 data points.
 
 
 Note that we provide the random forests model trained with 100 trees
