@@ -37,6 +37,7 @@ we recommend to use light curves with more than ~80 data points.
 4. [How to Use UPSILoN](#4-pseudo-code-how-to-use-upsilon)
 5. [Detailed Usage](#5-details-about-upsilon-usage)
 6. [UPSILoN Classification Quality](#6-upsilon-classification-quality)
+
 * [Minimum Requirements](#minimum-requirements) 
 * [ChangeLog](#changelog)
 
