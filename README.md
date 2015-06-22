@@ -30,6 +30,15 @@ any light curves having arbitrary number of data points.
 However, for the best classification quality,
 we recommend to use light curves with more than ~80 data points.
 
+## Index
+1. [Dependency](#1-dependency)
+2. [Installation](#2-installation)
+3. [Test the Installation](#3-test)
+4. [How to Use UPSILoN](#4-pseudo-code-how-to-use-upsilon)
+5. [Detailed Usage](#5-details-about-upsilon-usage)
+6. [UPSILoN Classification Quality](#6-upsilon-classification-quality)
+* [Minimum Requirements](#minimum-requirements) 
+* [ChangeLog](#changelog)
 
 ## 1. Dependency
 [Python 2.7+](https://www.python.org/) 
