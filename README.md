@@ -38,8 +38,10 @@ we recommend to use light curves with more than ~80 data points.
 5. [Detailed Usage](#5-details-about-upsilon-usage)
 6. [UPSILoN Classification Quality](#6-upsilon-classification-quality)
 
+
 * [Minimum Requirements](#minimum-requirements) 
 * [ChangeLog](#changelog)
+
 
 ## 1. Dependency
 [Python 2.7+](https://www.python.org/) 
