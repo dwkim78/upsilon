@@ -129,6 +129,12 @@ class ExtractFeatures():
         #self.hl_amp_ratio2 = self.half_mag_amplitude_ratio2(
         #    self.mag, self.median)
 
+        # Cusum
+        self.cusum = self.get_cusum(self.mag)
+
+        # Eta
+        self.eta = self.get_eta(self.mag, self.weighted_std)
+
     def deep_run(self):
         """
         Derive period-based features.
@@ -151,14 +157,14 @@ class ExtractFeatures():
         folded_mag = self.mag[sorted_index]
 
         # phase Eta
-        self.phase_eta = self.eta(folded_mag, self.weighted_std)
+        self.phase_eta = self.get_eta(folded_mag, self.weighted_std)
 
         # Slope percentile.
         self.slope_per10, self.slope_per90 = \
             self.slope_percentile(folded_date, folded_mag)
 
         # phase Cusum
-        self.phase_cusum = self.cusum(folded_mag)
+        self.phase_cusum = self.get_cusum(folded_mag)
 
     def get_period_LS(self, date, mag, n_threads, min_period):
         """
@@ -422,7 +428,7 @@ class ExtractFeatures():
         # Return ratio.
         return np.sqrt(lower_sum / higher_sum)
 
-    def eta(self, mag, std):
+    def get_eta(self, mag, std):
         """
         Return Eta feature.
 
@@ -462,7 +468,7 @@ class ExtractFeatures():
 
         return percentile_10, percentile_90
 
-    def cusum(self, mag):
+    def get_cusum(self, mag):
         """
         Return max - min of cumulative sum.
 

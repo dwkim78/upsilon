@@ -201,8 +201,8 @@ For details about these features, see Kim et al. 2015 (in preparation).
 | hl_amp_ratio |  Ratio of higher and lower magnitudes than the average | 
 | kurtosis |  Kurtosis   |
 | period |  Period   |
-| phase_cusum |  Cumulative sum over a phased-foled ligit curve  |
-| phase_eta |  Eta over a phased-foled ligit curve   |
+| phase_cusum |  Cumulative sum index over a phase-foled ligit curve  |
+| phase_eta |  Eta over a phase-foled ligit curve   |
 | phi21 |  2nd and 1st phase difference from the Fourier decomposition   |
 | phi31 |  3rd and 1st phase difference from the Fourier decomposition    |
 | quartile31 |  3rd quartile - 1st quartile   |
@@ -260,6 +260,8 @@ The additional features are:
 
 | Key | Description |
 |----:|:------------|
+| cusum |  Cumulative sum index  |
+| eta |  Eta index   |
 | n_points | The number of data points in a light curve |
 | period_SNR | SNR of period derived using a periodogram |
 | period_log10FAP | False alarm probability of period |
@@ -421,8 +423,9 @@ a large amount of memory.
 - implementing multilayer classifiers, which will
  substantially reduce feature extracting time.
 
-### v1.1.1 (ongoing)
+### v1.1.5
 - bug fixes, code improvements, etc.
+- Two additional features added, "eta" and "cusum".
 
 ### v1.1.0
 - bug fixes, code improvements, etc.

@@ -27,6 +27,8 @@ def get_feature_set_all():
 
     features = get_feature_set()
 
+    features.append('cusum')
+    features.append('eta')
     features.append('n_points')
     features.append('period_SNR')
     features.append('period_log10FAP')
