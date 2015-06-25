@@ -436,15 +436,16 @@ a large amount of memory.
 
 ### v1.1.5
 - bug fixes, code improvements, etc.
-- Two additional features added, "eta" and "cusum".
+- Two additional features added, "cusum" and "eta".
 
 ### v1.1.0
 - bug fixes, code improvements, etc.
 - model improvements for light curves having small number of data points. 
 
 
-### v1.0
+### v1.0 (2015/05/24)
 - release of the first version of UPSILoN (Kim+ 2015 in preparation).
+- first upload to [pypi](https://pypi.python.org/pypi/upsilon).
 
 ### v0.7
 - code improvements, bug fixes, tests, etc.
