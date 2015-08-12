@@ -306,8 +306,7 @@ and its class probability, ```probability```, as well.
 | Key | Description |
 |----:|:------------|
 | 0 | Successful classification |
-| 1 | Suspicious classification because 
-1) period is in period alias, or 2) period SNR is lower than 20 |
+| 1 | Suspicious classification because 1) period is in period alias, or 2) period SNR is lower than 20 |
 
 
 ### Tip
