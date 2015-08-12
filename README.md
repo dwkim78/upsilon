@@ -1,7 +1,15 @@
-# UPSILoN
+# UPSILoN 1.2.0
 <div align="center">
 <img src="https://github.com/dwkim78/upsilon/blob/master/upsilon/datasets/images/UPSILoN.png">
 </div><br>
+
+
+<b>Important Note</b>: If you upgrade to the version 1.2.0 from 
+the previous version,
+please read [Detailed Usage](#5-details-about-upsilon-usage).
+There are some changes in the outputs of the predict functions.
+See [ChangeLog](#changelog) for the summary.
+
 
 UPSILoN (A<b>U</b>tomated Classification of <b>P</b>eriodic Variable <b>S</b>tars 
 using Mach<b>I</b>ne <b>L</b>ear<b>N</b>ing) aims to classify periodic variable stars 
@@ -25,10 +33,11 @@ UPSILoN, thus, returns extracted features,
 a predicted class, and a class probability.
 
 
-<b>Note</b>: In principle, UPSILoN can classify 
+In principle, UPSILoN can classify 
 any light curves having arbitrary number of data points. 
 However, for the best classification quality,
 we recommend to use light curves with more than ~80 data points.
+ 
 
 ## Index
 1. [Dependency](#1-dependency)
@@ -40,6 +49,7 @@ we recommend to use light curves with more than ~80 data points.
 
 - [Minimum Requirements](#minimum-requirements) 
 - [ChangeLog](#changelog)
+- [Citation](#citation)
 
 
 ## 1. Dependency
@@ -205,26 +215,35 @@ The returned ```features``` is an OrderedDict variable containing
 the names of features (i.e. key) and values of the features (i.e. value),
 sorted by the names. The following table shows a list of the keys.
 For details about these features, see Kim et al. 2015 (in preparation).
+Among these features, only 16 marked with (+) are used to predict a class.
+Other features marked with (-) are additional features.
 
 | Key | Description |
 |----:|:------------|
-| amplitude |  Amplitude from the Fourier decomposition  |
-| hl_amp_ratio |  Ratio of higher and lower magnitudes than the average | 
-| kurtosis |  Kurtosis   |
-| period |  Period   |
-| phase_cusum |  Cumulative sum index over a phase-foled ligit curve  |
-| phase_eta |  Eta over a phase-foled ligit curve   |
-| phi21 |  2nd and 1st phase difference from the Fourier decomposition   |
-| phi31 |  3rd and 1st phase difference from the Fourier decomposition    |
-| quartile31 |  3rd quartile - 1st quartile   |
-| r21 |  2nd and 1st amplitude difference from the Fourier decomposition   |
-| r31 |  3nd and 1st amplitude difference from the Fourier decomposition   |
-| shapiro_w |  Shapiro-Wilk test statistics  |
-| skewness |  Skewness   |
-| slope_per10 |  10% percentile of slopes of a phase-folded light curve   |
-| slope_per90 |  90% percentile of slopes of a phase-folded light curve   |
-| stetson_k |  Stetson K  |
-
+| amplitude (+) |  Amplitude from the Fourier decomposition  |
+| hl_amp_ratio (+) |  Ratio of higher and lower magnitudes than the average | 
+| kurtosis (+) |  Kurtosis   |
+| period (+) |  Period   |
+| phase_cusum (+) |  Cumulative sum index over a phase-foled ligit curve  |
+| phase_eta (+) |  Eta over a phase-foled ligit curve   |
+| phi21 (+) |  2nd and 1st phase difference from the Fourier decomposition   |
+| phi31 (+) |  3rd and 1st phase difference from the Fourier decomposition    |
+| quartile31 (+) |  3rd quartile - 1st quartile   |
+| r21 (+) |  2nd and 1st amplitude difference from the Fourier decomposition   |
+| r31 (+) |  3nd and 1st amplitude difference from the Fourier decomposition   |
+| shapiro_w (+) |  Shapiro-Wilk test statistics  |
+| skewness (+) |  Skewness   |
+| slope_per10 (+) |  10% percentile of slopes of a phase-folded light curve   |
+| slope_per90 (+) |  90% percentile of slopes of a phase-folded light curve   |
+| stetson_k (+) |  Stetson K  |
+| cusum (-) |  Cumulative sum index  |
+| eta (-) |  Eta index   |
+| n_points (-) | The number of data points in a light curve |
+| period_SNR (-) | SNR of period derived using a periodogram |
+| period_log10FAP (-) | False alarm probability of period |
+| period_uncertainty (-) | Period uncertainty based on a periodogram |
+| weighted_mean (-) | Weighted mean magnitude |
+| weighted_std (-) | Weighted standard deviation of magnitudes |
 
 If pyFFTW is installed, UPSILoN utilizes multiple cores to derive a period
 because the period estimation takes a lot longer than calculating all other features.
@@ -257,33 +276,7 @@ and
 [EROS-2] (http://eros.in2p3.fr/) 
 dataset 
 ([Kim et al. 2014] (http://adsabs.harvard.edu/abs/2014A%26A...566A..43K)).
-
-
-In fact, UPSILoN estimates more features than listed above but just does
-not use those extra features to predict a class. If you want to get 
-the entire set of the features, do as follows:
-
-```python
-features = e_features.get_features_all()
-```
-
-The additional features are:
-
-| Key | Description |
-|----:|:------------|
-| cusum |  Cumulative sum index  |
-| eta |  Eta index   |
-| n_points | The number of data points in a light curve |
-| period_SNR | SNR of period derived using a periodogram |
-| period_log10FAP | False alarm probability of period |
-| period_uncertainty | Period uncertainty based on a periodogram |
-| weighted_mean | Weighted mean magnitude |
-| weighted_std | Weighted standard deviation of magnitudes |
-
-You can also ingest this ```features``` into
-the UPSILoN classifier explained in the next section.
-UPSILoN automatically removes unnecessary features while predicting a class. 
-
+ 
 
 <b>Note</b>: You are welcome to suggest new additional features
 if it is not computationally time-consuming. The list of additional
@@ -303,11 +296,19 @@ Thus, be careful not to load it multiple times.
 You are now ready to classify the light curve.
 
 ```python
-label, probability = upsilon.predict(rf_model, features)
+label, probability, flag = upsilon.predict(rf_model, features)
 ```
 
 That's all! Now you know the class of your light curve, ```label```, 
 and its class probability, ```probability```, as well.
+```flag``` is defined as follows:
+
+| Key | Description |
+|----:|:------------|
+| 0 | Successful classification |
+| 1 | Suspicious classification because 
+1) period is in period alias, or 2) period SNR is lower than 20 |
+
 
 ### Tip
 
@@ -427,12 +428,19 @@ a large amount of memory.
 
 ## ChangeLog
 
-### v?.?.? (?)
+### v.?.?.? (planned)
 - provide web-based classifier for a small set of light curves.
-
-### v2.0.0 (planned)
 - implementing multilayer classifiers, which will
  substantially reduce feature extracting time.
+
+### v.1.2.0 (2015/08/12)
+- changes in the feature returning and class predicting modules.
+    - See [Detailed Usage](#5-details-about-upsilon-usage) for details.
+    - upsilon.predict now returns an additional value, which is:
+        - flag = 0 if classification is successful,
+        - flag = 1 if the period_SNR is lower than 20, or
+        if the period is in the range of period alias.
+        Classification result, thus, could be incorrect.
 
 ### v1.1.5
 - bug fixes, code improvements, etc.
@@ -487,6 +495,12 @@ which substantially decreases the extracting time.
 
 ### v0.1
 - add feature extracting modules.
+
+
+## Citation
+
+If you use UPSILoN in publication, we would appreciate citations to the paper, 
+Kim+ 2015 in preparation.
 
 
 ## Contact

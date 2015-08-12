@@ -515,12 +515,13 @@ class ExtractFeatures():
 
     def get_features(self):
         """
-        Return all features with its names, sorted by the names.
-        Only return features that are used to train and predict.
+        Return all features with its names, regardless of being used for train and prediction.
+        Sorted by the names.
 
         :return: Features dictionary
         """
 
+        '''
         features = {}
 
         # Get all the names of features.
@@ -533,6 +534,9 @@ class ExtractFeatures():
         features = OrderedDict(sorted(features.items(), key=lambda t: t[0]))
 
         return features
+        '''
+
+        return self.get_features_all()
 
     def get_features_all(self):
         """

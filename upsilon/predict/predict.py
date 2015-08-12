@@ -1,5 +1,6 @@
 __author__ = 'kim'
 
+from upsilon.extract_features.is_period_alias import is_period_alias
 
 def predict(rf_model, features):
     """
@@ -26,6 +27,11 @@ def predict(rf_model, features):
     # Note that we're classifying a single source, so [0] need tobe added.
     probabilities = rf_model.predict_proba(filtered_features)[0]
 
-    # Return class and probability.
-    max_index = np.where(probabilities==np.max(probabilities))
-    return classes[max_index][0], probabilities[max_index][0]
+    # Classification flag.
+    flag = 0
+    if features['period_SNR'] < 20. or is_period_alias(features['period']):
+        flag = 1
+
+    # Return class, probability, and flag.
+    max_index = np.where(probabilities == np.max(probabilities))
+    return classes[max_index][0], probabilities[max_index][0], flag
