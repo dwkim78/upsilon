@@ -326,7 +326,7 @@ many time-series surveys due to their different survey characteristics
 (e.g. systematic trends, too noisy data, etc).
 Thus, UPSILoN can exclude some of non-variables during classification 
 but not all of them.
-In Kim et al. 2015 (in preparation), 
+In  Kim & Bailer-Jones (2015, submitted), 
 we give a tip how to further remove such non-variables.
 
 
@@ -390,7 +390,8 @@ UPSILoN provides the classifier trained using all the subclasses.
 For the comprehensive experiments using the 
 [MACHO] (http://wwwmacho.anu.edu.au/), 
 [LINEAR] (http://neo.jpl.nasa.gov/programs/linear.html) and 
-[ASAS] (http://www.astrouw.edu.pl/asas/) dataset, see Kim et al. 2015 (in preparation).
+[ASAS] (http://www.astrouw.edu.pl/asas/) dataset, 
+see  Kim & Bailer-Jones (2015, submitted).
 In brief, the UPSILoN classifier shows 
 0.94, 0.92 and 0.85 [F1 score] (http://en.wikipedia.org/wiki/F1_score)
 for each dataset, respectively.
@@ -405,7 +406,7 @@ as long as the light curves contain more than or equal to 80 data points.
 
 
 Note that we provide the random forests model trained with 100 trees
-and randomly selected 10 features whereas, in Kim et al. 2015 (in preparation),
+and randomly selected 10 features whereas, in Kim & Bailer-Jones (2015, submitted),
 we used 700 trees with randomly selected 10 features.
 The [F1 score] (http://en.wikipedia.org/wiki/F1_score)
 difference between these two models is less than 0.003, which is insignificant. 
@@ -451,7 +452,7 @@ a large amount of memory.
 
 
 ### v1.0 (2015/05/24)
-- release of the first version of UPSILoN (Kim+ 2015 in preparation).
+- release of the first version of UPSILoN (Kim & Bailer-Jones submitted).
 - first upload to [pypi](https://pypi.python.org/pypi/upsilon).
 
 ### v0.7
@@ -499,7 +500,7 @@ which substantially decreases the extracting time.
 ## Citation
 
 If you use UPSILoN in publication, we would appreciate citations to the paper, 
-Kim+ 2015 in preparation.
+Kim & Bailer-Jones (2015, submitted).
 
 
 ## Contact
