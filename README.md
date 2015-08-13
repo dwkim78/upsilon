@@ -160,8 +160,8 @@ for light_curve in set_of_light_curves:
     features = e_features.get_features()
     
     # Classify the light curve
-    label, probability = upsilon.predict(rf_model, features)
-    print label, probability
+    label, probability, flag = upsilon.predict(rf_model, features)
+    print label, probability, flag
 ```
 
 
