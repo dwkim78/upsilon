@@ -23,7 +23,7 @@ such as [Delta Scuti stars](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
 using well-sampled light curves from 
 any astronomical time-series surveys in optical bands
 **regardless of** their survey-specific characteristics 
-such as color, magnitude, sampling rate, etc (Kim+ 2015 in preparation).
+such as color, magnitude, sampling rate, etc (Kim & Bailer-Jones 2015, submitted).
 
 
 UPSILoN mainly consists of two parts, one
@@ -214,7 +214,7 @@ In this case, UPSILoN will use a standard deviation of magnitudes as errors.
 The returned ```features``` is an OrderedDict variable containing 
 the names of features (i.e. key) and values of the features (i.e. value),
 sorted by the names. The following table shows a list of the keys.
-For details about these features, see Kim et al. 2015 (in preparation).
+For details about these features, see Kim & Bailer-Jones (2015, submitted).
 Among these features, only 16 marked with (+) are used to predict a class.
 Other features marked with (-) are additional features.
 
@@ -397,7 +397,7 @@ In brief, the UPSILoN classifier shows
 for each dataset, respectively.
 
 
-In Kim et al. 2015 (in preparation), we also present experiment results
+In Kim & Bailer-Jones (2015, submitted), we also present experiment results
 using resampled light curves of the MACHO and ASAS dataset 
 for different number of data points from 20 to 300,
 over different observation duration from 30 days to several years.
