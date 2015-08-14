@@ -319,15 +319,29 @@ removal of non-variable light curves before running UPSILoN
 would significantly reduces the total processing time.
 
 
-In addition, it is fundamentally difficult to 
-find an universal and consistent way of 
+In addition, note that it remains fundamentally difficult 
+to find an universal and consistent way of 
 removing such non-variable light curves from
-many time-series surveys due to their different survey characteristics 
-(e.g. systematic trends, too noisy data, etc).
-Thus, UPSILoN can exclude some of non-variables during classification 
-but not all of them.
-In  Kim & Bailer-Jones (2015, submitted), 
-we give a tip how to further remove such non-variables.
+individual time-series surveys on account of the diverse survey characteristics 
+(e.g. systematic trends, variable noise levels, etc).
+
+
+Although UPSILoN does not use a period SNR
+for classification because it is somewhat correlated with 
+the number of data points in light curves,
+it could be a powerful feature to discriminate non-variable sources from others
+if one uses it carefully. From our previous work 
+([Kim et al. 2014] (http://adsabs.harvard.edu/abs/2014A%26A...566A..43K)), 
+we empirically found that  almost all of the non-variables 
+have period SNR lower than 20 regardless of
+the number of data points, 
+whereas variables except DSCT have period SNRs generally higher than 20.
+Thus if 1) UPSILoN is applied to
+well-sampled light curves consisting of more than a few hundreds of data points,
+and 2) DSCT classification is not important,
+then the variable candidates with period SNR lower than 20 can be discarded
+(i.e. the value of ```flag``` is 1).
+
 
 
 ### Logger
