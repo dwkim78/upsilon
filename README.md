@@ -453,7 +453,7 @@ a large amount of memory.
 ### v1.2.0 (2015/08/12)
 - changes in the feature returning and class predicting modules.
     - See [Detailed Usage](#5-details-about-upsilon-usage) for details.
-    - upsilon.predict now returns an additional value, which is:
+    - upsilon.predict(...) now returns an additional value, which is:
         - flag = 0 if classification is successful,
         - flag = 1 if the period_SNR is lower than 20, or
         if the period is in the range of period alias.
