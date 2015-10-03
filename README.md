@@ -1,11 +1,11 @@
-# UPSILoN 1.2.0
+# UPSILoN 1.2.1
 <div align="center">
 <img src="https://github.com/dwkim78/upsilon/blob/master/upsilon/datasets/images/UPSILoN.png">
 </div><br>
 
 
-<b>Important Note</b>: If you upgrade to the version 1.2.0 from 
-the previous version,
+<b>Important Note</b>: If you upgrade to the version >= 1.2.0 from 
+the previous version (i.e. <= 1.1.5),
 please read [Detailed Usage](#5-details-about-upsilon-usage).
 There are some changes in the outputs of the predict functions.
 See [ChangeLog](#changelog) for the summary.
