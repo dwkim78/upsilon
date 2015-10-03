@@ -450,6 +450,9 @@ a large amount of memory.
 - implementing multilayer classifiers, which will
  substantially reduce feature extracting time.
 
+### v.1.2.1 (2015/10/03)
+- The logger class prints milliseconds as well.
+
 ### v1.2.0 (2015/08/12)
 - changes in the feature returning and class predicting modules.
     - See [Detailed Usage](#5-details-about-upsilon-usage) for details.
