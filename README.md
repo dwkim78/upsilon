@@ -394,7 +394,7 @@ misclassification within superclasses.
 The following figures show classification quality of the subclass classifier.
 Each cell shows the fraction of objects of that true class (rows) 
 assigned to the predicted classes (columns) on a gray scale.
-Thus the values on the leading diagonal are the recall rate 
+Thus the values on the leading diagonal are the recall rate. 
 We show the number only if it is larger than or equal to 0.01.
 
 <div align="center">
