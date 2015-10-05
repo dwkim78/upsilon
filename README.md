@@ -391,14 +391,13 @@ The classifier trained using only superclasses shows 98% recall and precision
 whereas the classifier trained on subclasses shows 81% recall and precision.
 The confusion in the subclass classifier was mainly caused by
 misclassification within superclasses. 
-The following figures show classification quality of these two classifiers.
-In the figures, each cell is divided by the sum of the row where
-the cell belongs to. Thus brighter the cell, higher the recall.
+The following figures show classification quality of the subclass classifier.
+Each cell shows the fraction of objects of that true class (rows) 
+assigned to the predicted classes (columns) on a gray scale.
+Thus the values on the leading diagonal are the recall rate 
+We show the number only if it is larger than or equal to 0.01.
 
 <div align="center">
-<img src="https://github.com/dwkim78/upsilon/blob/master/upsilon/datasets/images/model_map_superclass.png">
-<br>[ Map of the confusion matrix of the superclass model ]
-<br>
 <img src="https://github.com/dwkim78/upsilon/blob/master/upsilon/datasets/images/model_map_subclass.github.png">
 <br>[ Map of the confusion matrix of the subclass model ]
 </div><br>
