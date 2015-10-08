@@ -403,14 +403,21 @@ We show the number only if it is larger than or equal to 0.01.
 </div><br>
 
 UPSILoN provides the classifier trained using all the subclasses.
-For the comprehensive experiments using the 
-[MACHO] (http://wwwmacho.anu.edu.au/), 
-[LINEAR] (http://neo.jpl.nasa.gov/programs/linear.html) and 
+For the comprehensive experiments on classification performance 
+using the [MACHO] (http://wwwmacho.anu.edu.au/), 
+[LINEAR] (http://neo.jpl.nasa.gov/programs/linear.html),
+[Hipparcos] (http://www.rssd.esa.int/index.php?project=HIPPARCOS)
 [ASAS] (http://www.astrouw.edu.pl/asas/) dataset, 
-see  Kim & Bailer-Jones (2015, submitted).
+see Kim & Bailer-Jones (2015, submitted).
 In brief, the UPSILoN classifier shows 
-0.94, 0.92 and 0.85 [F1 score] (http://en.wikipedia.org/wiki/F1_score)
-for each dataset, respectively.
+0.94, 0.92, and 0.85 [F1 score] (http://en.wikipedia.org/wiki/F1_score)
+for MACHO, LINEAR, and ASAS, respectively.
+In the case of the Hipparcos dataset, it contains
+many other types of variable stars that are not
+in the UPSILoN training set. 
+In brief, UPSILoN classes such as CEPH F, CEPH 1O, and EB ESD
+can be contaminated by those types.
+For details, see Kim & Bailer-Jones (2015, submitted). 
 
 
 In Kim & Bailer-Jones (2015, submitted), we also present experiment results
@@ -425,13 +432,16 @@ Note that we provide the random forests model trained with 100 trees
 and randomly selected 10 features whereas, in Kim & Bailer-Jones (2015, submitted),
 we used 700 trees with randomly selected 10 features.
 The [F1 score] (http://en.wikipedia.org/wiki/F1_score)
-difference between these two models is less than 0.003, which is insignificant. 
-The reason is because 1) GitHub does not allow to upload 
+difference between these two models is less than 0.003, which is insignificant
+given that the classification uncertainty estimated during cross-validation is 0.005. 
+The reason why we provide the 100 trees model is 
+because 1) GitHub does not allow to upload 
 a file larger than 100 MB, and 2) reading a larger file takes longer.
 The size of the model with 700 trees and 10 features is 360 MB,
 which is gzipped and written in a binary format.
 Thus the uncompressed size is much larger (i.e. by a factor of ~10).
-If you want to use the 360 MB model file, please contact with me.
+If you want to use the 360 MB model filefor your research, 
+please contact with me.
 
 
 ## Minimum Requirements
