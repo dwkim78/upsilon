@@ -406,8 +406,8 @@ UPSILoN provides the classifier trained using all the subclasses.
 For the comprehensive experiments on classification performance 
 using the [MACHO] (http://wwwmacho.anu.edu.au/), 
 [LINEAR] (http://neo.jpl.nasa.gov/programs/linear.html),
-[Hipparcos] (http://www.rssd.esa.int/index.php?project=HIPPARCOS)
-[ASAS] (http://www.astrouw.edu.pl/asas/) dataset, 
+[ASAS] (http://www.astrouw.edu.pl/asas/),
+[Hipparcos] (http://www.rssd.esa.int/index.php?project=HIPPARCOS) datasets,
 see Kim & Bailer-Jones (2015, submitted).
 In brief, the UPSILoN classifier shows 
 0.94, 0.92, and 0.85 [F1 score] (http://en.wikipedia.org/wiki/F1_score)
@@ -416,7 +416,7 @@ In the case of the Hipparcos dataset, it contains
 many other types of variable stars that are not
 in the UPSILoN training set. 
 In brief, UPSILoN classes such as CEPH F, CEPH 1O, and EB ESD
-can be contaminated by those types.
+can be contaminated by those other variability types.
 For details, see Kim & Bailer-Jones (2015, submitted). 
 
 
