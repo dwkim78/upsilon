@@ -413,8 +413,9 @@ In brief, the UPSILoN classifier shows
 0.94, 0.92, and 0.85 [F1 score] (http://en.wikipedia.org/wiki/F1_score)
 for MACHO, LINEAR, and ASAS, respectively.
 In the case of the Hipparcos dataset, it contains
-many other types of variable stars that are not
-in the UPSILoN training set. 
+many other types of variable stars that are not 
+in the UPSILoN training set, and thus it could
+be served as the worst-case scenario.
 In brief, UPSILoN classes such as CEPH F, CEPH 1O, and EB ESD
 can be contaminated by those other variability types.
 For details, see Kim & Bailer-Jones (2015, submitted). 
@@ -440,7 +441,7 @@ a file larger than 100 MB, and 2) reading a larger file takes longer.
 The size of the model with 700 trees and 10 features is 360 MB,
 which is gzipped and written in a binary format.
 Thus the uncompressed size is much larger (i.e. by a factor of ~10).
-If you want to use the 360 MB model filefor your research, 
+If you want to use the 360 MB model file for your research, 
 please contact with me.
 
 
