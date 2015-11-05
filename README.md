@@ -456,6 +456,8 @@ a large amount of memory.
 ## ChangeLog
 
 ### v?.?.? (planned)
+- add additional variability types to the training set, 
+either to classify or exclude them (not determined yet).
 - provide web-based classifier for a small set of light curves.
 - implementing multilayer classifiers, which will
  substantially reduce feature extracting time.
