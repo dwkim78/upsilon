@@ -532,7 +532,8 @@ which substantially decreases the extracting time.
 ## Citation
 
 If you use UPSILoN in publication, we would appreciate citations to the paper, 
-Kim & Bailer-Jones (2015, submitted).
+Kim & Bailer-Jones (2015, submitted), which is based on the UPSILoN 
+version 1.2.1.
 
 
 ## Contact
