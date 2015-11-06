@@ -414,16 +414,17 @@ In brief, the UPSILoN classifier shows
 for MACHO, LINEAR, and ASAS, respectively.
 In the case of the Hipparcos dataset, it contains
 many other types of variable stars that are not 
-in the UPSILoN training set, and thus it could
-be served as the worst-case scenario.
-In brief, UPSILoN classes such as CEPH F, CEPH 1O, and EB ESD
+in the UPSILoN training set, and thus it is a suitable
+dataset to see how much those other types could degrade
+UPSILoN classification performance.
+In brief, UPSILoN classes such as DSCT, CEPH F, CEPH 1O, and EB ESD
 can be contaminated by those other variability types.
 For details, see Kim & Bailer-Jones (2015, submitted). 
 
 
 In Kim & Bailer-Jones (2015, submitted), we also present experiment results
 using resampled light curves of the MACHO and ASAS dataset 
-for different number of data points from 20 to 300,
+for different number of data points from 30 to 300,
 over different observation duration from 30 days to several years.
 In brief, UPSILoN successfully classifies the resampled light curves
 as long as the light curves contain more than or equal to 80 data points.
@@ -434,7 +435,8 @@ and randomly selected 10 features whereas, in Kim & Bailer-Jones (2015, submitte
 we used 700 trees with randomly selected 10 features.
 The [F1 score] (http://en.wikipedia.org/wiki/F1_score)
 difference between these two models is less than 0.003, which is insignificant
-given that the classification uncertainty estimated during cross-validation is 0.005. 
+given that the classification uncertainty estimated during 
+the cross-validation phase is 0.005. 
 The reason why we provide the 100 trees model is 
 because 1) GitHub does not allow to upload 
 a file larger than 100 MB, and 2) reading a larger file takes longer.
