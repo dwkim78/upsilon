@@ -466,7 +466,8 @@ either to classify or exclude them (not determined yet).
 
 ### v.1.3.0 (planned)
 - Updated the classification model accordingly to 
-the scikit-learn updates (version 0.17). 
+the scikit-learn updates (version 0.17) in order to
+remove deprecated warnings.
 
 ### v.1.2.1 (2015/10/03)
 - The logger class prints milliseconds as well.
