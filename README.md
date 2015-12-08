@@ -23,7 +23,8 @@ such as [Delta Scuti stars](http://en.wikipedia.org/wiki/Delta_Scuti_variable),
 using well-sampled light curves from 
 any astronomical time-series surveys in optical bands
 **regardless of** their survey-specific characteristics 
-such as color, magnitude, sampling rate, etc (Kim & Bailer-Jones 2015, submitted).
+such as color, magnitude, sampling rate, etc 
+(<a href="http://arxiv.org/abs/1512.01611">Kim & Bailer-Jones 2015</a>).
 
 
 UPSILoN mainly consists of two parts, one
@@ -214,7 +215,8 @@ In this case, UPSILoN will use a standard deviation of magnitudes as errors.
 The returned ```features``` is an OrderedDict variable containing 
 the names of features (i.e. key) and values of the features (i.e. value),
 sorted by the names. The following table shows a list of the keys.
-For details about these features, see Kim & Bailer-Jones (2015, submitted).
+For details about these features, 
+see <a href="http://arxiv.org/abs/1512.01611">Kim & Bailer-Jones 2015</a>.
 Among these features, only 16 marked with (+) are used to predict a class.
 Other features marked with (-) are additional features.
 
@@ -408,7 +410,7 @@ using the [MACHO] (http://wwwmacho.anu.edu.au/),
 [LINEAR] (http://neo.jpl.nasa.gov/programs/linear.html),
 [ASAS] (http://www.astrouw.edu.pl/asas/),
 [Hipparcos] (http://www.rssd.esa.int/index.php?project=HIPPARCOS) datasets,
-see Kim & Bailer-Jones (2015, submitted).
+see <a href="http://arxiv.org/abs/1512.01611">Kim & Bailer-Jones 2015</a>.
 In brief, the UPSILoN classifier shows 
 0.94, 0.92, and 0.85 [F1 score] (http://en.wikipedia.org/wiki/F1_score)
 for MACHO, LINEAR, and ASAS, respectively.
@@ -419,10 +421,10 @@ dataset to see how much those other types could degrade
 UPSILoN classification performance.
 In brief, UPSILoN classes such as DSCT, CEPH F, CEPH 1O, and EB ESD
 can be contaminated by those other variability types.
-For details, see Kim & Bailer-Jones (2015, submitted). 
 
 
-In Kim & Bailer-Jones (2015, submitted), we also present experiment results
+In see <a href="http://arxiv.org/abs/1512.01611">Kim & Bailer-Jones 2015</a>, 
+we also present experiment results
 using resampled light curves of the MACHO and ASAS dataset 
 for different number of data points from 30 to 300,
 over different observation duration from 30 days to several years.
@@ -431,7 +433,8 @@ as long as the light curves contain more than or equal to 80 data points.
 
 
 Note that we provide the random forests model trained with 100 trees
-and randomly selected 10 features whereas, in Kim & Bailer-Jones (2015, submitted),
+and randomly selected 10 features whereas, 
+in <a href="http://arxiv.org/abs/1512.01611">Kim & Bailer-Jones 2015</a>,
 we used 700 trees with randomly selected 10 features.
 The [F1 score] (http://en.wikipedia.org/wiki/F1_score)
 difference between these two models is less than 0.003, which is insignificant
@@ -491,7 +494,7 @@ remove a deprecated warning.
 
 
 ### v1.0 (2015/05/24)
-- release of the first version of UPSILoN (Kim & Bailer-Jones submitted).
+- release of the first version of UPSILoN.
 - first upload to [pypi](https://pypi.python.org/pypi/upsilon).
 
 ### v0.7
@@ -539,8 +542,8 @@ which substantially decreases the extracting time.
 ## Citation
 
 If you use UPSILoN in publication, we would appreciate citations to the paper, 
-Kim & Bailer-Jones (2015, submitted), which is based on the UPSILoN 
-version 1.2.1.
+see <a href="http://arxiv.org/abs/1512.01611">Kim & Bailer-Jones 2015</a>, 
+which is based on the UPSILoN version 1.2.1.
 
 
 ## Contact
