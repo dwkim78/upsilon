@@ -423,7 +423,7 @@ In brief, UPSILoN classes such as DSCT, CEPH F, CEPH 1O, and EB ESD
 can be contaminated by those other variability types.
 
 
-In see <a href="http://arxiv.org/abs/1512.01611">Kim & Bailer-Jones 2015</a>, 
+In <a href="http://arxiv.org/abs/1512.01611">Kim & Bailer-Jones 2015</a>, 
 we also present experiment results
 using resampled light curves of the MACHO and ASAS dataset 
 for different number of data points from 30 to 300,
@@ -542,7 +542,7 @@ which substantially decreases the extracting time.
 ## Citation
 
 If you use UPSILoN in publication, we would appreciate citations to the paper, 
-see <a href="http://arxiv.org/abs/1512.01611">Kim & Bailer-Jones 2015</a>, 
+<a href="http://arxiv.org/abs/1512.01611">Kim & Bailer-Jones 2015</a>, 
 which is based on the UPSILoN version 1.2.1.
 
 
