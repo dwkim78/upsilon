@@ -5,6 +5,6 @@ long-period variables (i.e. superclasses), and their subclasses
 (e.g. RR Lyrae ab, c, d, and e types) using well-sampled light curves from
 any astronomical time-series surveys in optical bands regardless of
 their survey-specific characteristics such as color, magnitude, sampling rate,
-etc (Kim & Bailer-Jones 2015, submitted).
+etc (Kim & Bailer-Jones 2015, A&A accepted, http://arxiv.org/abs/1512.01611).
 
 Visit https://github.com/dwkim78/upsilon for details.
