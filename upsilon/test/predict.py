@@ -58,8 +58,9 @@ def run():
     logger.info('Load the UPSILoN classifier')
     rf_model = load_rf_model()
 
-    label, prob, flag = predict(rf_model, features_all)
     logger.info('Classify the light curve')
+    label, prob, flag = predict(rf_model, features_all)
+
     logger.info('   Classified as %s with the class probability %.2f' %
         (label, prob))
     logger.info('   Classification flag: %d', flag)

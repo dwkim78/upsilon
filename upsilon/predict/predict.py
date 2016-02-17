@@ -21,6 +21,7 @@ def predict(rf_model, features):
     filtered_features = []
     for i in range(len(cols)):
         filtered_features.append(features[cols[i]])
+    filtered_features = np.array(filtered_features).reshape(1, -1)
 
     # Classify.
     classes = rf_model.classes_
