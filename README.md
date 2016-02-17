@@ -1,4 +1,4 @@
-# UPSILoN 1.2.1
+# UPSILoN 1.2.2
 <div align="center">
 <img src="https://github.com/dwkim78/upsilon/blob/master/upsilon/datasets/images/UPSILoN.png">
 </div><br>
@@ -308,8 +308,7 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
 ### v?.?.? (planned)
 - add additional variability types to the training set, either to classify or exclude them (not determined yet).
 - provide web-based classifier for a small set of light curves.
-- implementing multilayer classifiers, which will
- substantially reduce feature extracting time.
+- implementing multilayer classifiers, which will substantially reduce feature extracting time.
 
 ### v.1.2.2 (2016/02/17)
 - update the predict module according to the scikit-learn update (version 0.17), in order to remove the deprecated warning of "passing 1d arrays".
