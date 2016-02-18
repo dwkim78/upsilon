@@ -311,7 +311,7 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
 - implementing multilayer classifiers, which will substantially reduce feature extracting time.
 
 ### v.1.2.3 (2016/02/18)
-- scikit-learn dependency update to 0.17.   
+- scikit-learn dependency updated to 0.17.   
 
 ### v.1.2.2 (2016/02/17)
 - update the predict module according to the scikit-learn update (version 0.17), in order to remove the deprecated warning of "passing 1d arrays".
