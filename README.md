@@ -39,7 +39,7 @@ In principle, UPSILoN can classify any light curves having arbitrary number of d
   
 [Scipy 0.15+](http://scipy.org/)
 
-[scikit-learn 0.16.1+](http://scikit-learn.org/stable/)
+[scikit-learn 0.17+](http://scikit-learn.org/stable/)
 
 [pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/) 
 
@@ -64,7 +64,7 @@ pip install git+https://github.com/dwkim78/upsilon
 
 Since the UPSILoN package contains a Random Forest classifier (~50 MB), downloading the package might take some time.
 
-If you do not want to install/upgrade the dependencies, execute the above commend with the ```--no-deps``` option. UPSILoN possibly works with older version of Python, Numpy, and Scipy, but you must have the latest version of scikit-learn (i.e. 0.16.1+).
+If you do not want to install/upgrade the dependencies, execute the above commend with the ```--no-deps``` option. UPSILoN possibly works with older version of Python, Numpy, and Scipy, but you must have the latest version of scikit-learn (i.e. 0.17+).
 
 
 Alternatively, you can download the UPSILoN package from the Git repository as:
@@ -309,6 +309,9 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
 - add additional variability types to the training set, either to classify or exclude them (not determined yet).
 - provide web-based classifier for a small set of light curves.
 - implementing multilayer classifiers, which will substantially reduce feature extracting time.
+
+### v.1.2.3 (2016/02/18)
+- scikit-learn dependency update to 0.17.   
 
 ### v.1.2.2 (2016/02/17)
 - update the predict module according to the scikit-learn update (version 0.17), in order to remove the deprecated warning of "passing 1d arrays".
