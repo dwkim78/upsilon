@@ -1,4 +1,4 @@
-# UPSILoN 1.2.2
+# UPSILoN 1.2.3
 <div align="center">
 <img src="https://github.com/dwkim78/upsilon/blob/master/upsilon/datasets/images/UPSILoN.png">
 </div><br>
