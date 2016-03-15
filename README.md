@@ -305,10 +305,11 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
 
 ## ChangeLog
 
-### v?.?.? (planned)
+### v?.?.? (TBC)
+- add a complementary classification model of other machine learning algorithm (e.g. Deep Neural Network).
 - add additional variability types to the training set, either to classify or exclude them (not determined yet).
 - provide web-based classifier for a small set of light curves.
-- implementing multilayer classifiers, which will substantially reduce feature extracting time.
+- implementing multilayer classifiers, which might reduce feature extracting time.
 
 ### v.1.2.3 (2016/02/18)
 - scikit-learn dependency updated to 0.17.   
