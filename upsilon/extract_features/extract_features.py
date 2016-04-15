@@ -51,16 +51,16 @@ class ExtractFeatures:
             self.err = np.ones(len(self.mag)) * np.std(self.mag)
 
         # Check length.
-        if (len(self.date) != len(self.mag)) \
-            or (len(self.date) != len(self.err)) \
-            or (len(self.mag) != len(self.err)):
+        if (len(self.date) != len(self.mag)) or \
+           (len(self.date) != len(self.err)) or \
+           (len(self.mag) != len(self.err)):
             raise RuntimeError('The length of date, mag, and err must be same.')
 
         # if the number of data points is too small.
         min_n_data = 80
         if len(self.date) < min_n_data:
             warnings.warn('The number of data points are less than %d.'
-                % min_n_data)
+                          % min_n_data)
 
         n_threads = int(n_threads)
         if n_threads > multiprocessing.cpu_count():
@@ -103,8 +103,8 @@ class ExtractFeatures:
 
         # Weighted mean and std.
         self.weighted_mean = np.sum(self.mag * self.weight) / self.weighted_sum
-        self.weighted_std = np.sqrt(np.sum((self.mag - self.weighted_mean)**2 \
-            * self.weight) / self.weighted_sum)
+        self.weighted_std = np.sqrt(np.sum((self.mag - self.weighted_mean) ** 2 \
+                                           * self.weight) / self.weighted_sum)
 
         # Skewness and kurtosis.
         self.skewness = ss.skew(self.mag)
@@ -113,11 +113,11 @@ class ExtractFeatures:
         # Normalization-test. Shapiro-Wilk test.
         shapiro = ss.shapiro(self.mag)
         self.shapiro_w = shapiro[0]
-        #self.shapiro_log10p = np.log10(shapiro[1])
+        # self.shapiro_log10p = np.log10(shapiro[1])
 
         # Percentile features.
         self.quartile31 = np.percentile(self.mag, 75) \
-            - np.percentile(self.mag, 25)
+                          - np.percentile(self.mag, 25)
 
         # Stetson K.
         self.stetson_k = self.get_stetson_k(self.mag, self.median, self.err)
@@ -126,7 +126,7 @@ class ExtractFeatures:
         self.hl_amp_ratio = self.half_mag_amplitude_ratio(
             self.mag, self.median, self.weight)
         # This second function's value is very similar with the above one.
-        #self.hl_amp_ratio2 = self.half_mag_amplitude_ratio2(
+        # self.hl_amp_ratio2 = self.half_mag_amplitude_ratio2(
         #    self.mag, self.median)
 
         # Cusum
@@ -189,14 +189,14 @@ class ExtractFeatures:
 
         # Lomb-Scargle.
         fx, fy, nout, jmax, prob = pLS.fasper(date, mag, oversampling, hifac,
-            n_threads)
+                                              n_threads)
 
         self.f = fx[jmax]
         self.period = 1. / self.f
         self.period_uncertainty = self.get_period_uncertainty(fx, fy, jmax)
         self.period_log10FAP = \
             np.log10(pLS.getSignificance(fx, fy, nout, oversampling)[jmax])
-        #self.f_SNR1 = fy[jmax] / np.median(fy)
+        # self.f_SNR1 = fy[jmax] / np.median(fy)
         self.period_SNR = (fy[jmax] - np.median(fy)) / np.std(fy)
 
         # Fit Fourier Series of order 3.
@@ -205,18 +205,18 @@ class ExtractFeatures:
         p0 = np.ones(order * 2 + 1)
         date_period = (date % self.period) / self.period
         p1, success = leastsq(self.residuals, p0,
-            args=(date_period, mag, order))
-        #fitted_y = self.FourierSeries(p1, date_period, order)
+                              args=(date_period, mag, order))
+        # fitted_y = self.FourierSeries(p1, date_period, order)
 
-        #print p1, self.mean, self.median
-        #plt.plot(date_period, self.mag, 'b+')
-        #plt.show()
+        # print p1, self.mean, self.median
+        # plt.plot(date_period, self.mag, 'b+')
+        # plt.show()
 
         # Derive Fourier features for the first period.
-        #Petersen, J. O., 1986, A&A
-        self.amplitude = np.sqrt(p1[1]**2 + p1[2]**2)
-        self.r21 = np.sqrt(p1[3]**2 + p1[4]**2) / self.amplitude
-        self.r31 = np.sqrt(p1[5]**2 + p1[6]**2) / self.amplitude
+        # Petersen, J. O., 1986, A&A
+        self.amplitude = np.sqrt(p1[1] ** 2 + p1[2] ** 2)
+        self.r21 = np.sqrt(p1[3] ** 2 + p1[4] ** 2) / self.amplitude
+        self.r31 = np.sqrt(p1[5] ** 2 + p1[6] ** 2) / self.amplitude
         self.f_phase = np.arctan(-p1[1] / p1[2])
         self.phi21 = np.arctan(-p1[3] / p1[4]) - 2. * self.f_phase
         self.phi31 = np.arctan(-p1[5] / p1[6]) - 3. * self.f_phase
@@ -286,8 +286,8 @@ class ExtractFeatures:
         """
 
         # Get subset
-        start_index = jmax-fx_width
-        end_index = jmax+fx_width
+        start_index = jmax - fx_width
+        end_index = jmax + fx_width
         if start_index < 0:
             start_index = 0
         if end_index > len(fx) - 1:
@@ -305,20 +305,20 @@ class ExtractFeatures:
         index = np.where(fy_subset <= fy_mean + fy_std)[0]
 
         # Find the edge at left and right. This is the full width.
-        left_index = index[(index<max_index)]
+        left_index = index[(index < max_index)]
         if len(left_index) == 0:
             left_index = 0
         else:
             left_index = left_index[-1]
-        right_index = index[(index>max_index)]
+        right_index = index[(index > max_index)]
         if len(right_index) == 0:
             right_index = len(fy_subset) - 1
         else:
             right_index = right_index[0]
 
         # We assume the half of the full width is the period uncertainty.
-        half_width = (1./fx_subset[left_index]
-            - 1./fx_subset[right_index]) / 2.
+        half_width = (1. / fx_subset[left_index]
+                      - 1. / fx_subset[right_index]) / 2.
         period_uncertainty = half_width
 
         return period_uncertainty
@@ -348,7 +348,7 @@ class ExtractFeatures:
         sum = pars[0]
         for i in range(order):
             sum += pars[i * 2 + 1] * np.sin(2 * np.pi * (i + 1) * x) \
-                + pars[i * 2 + 2] * np.cos(2 * np.pi * (i + 1) * x)
+                   + pars[i * 2 + 2] * np.cos(2 * np.pi * (i + 1) * x)
 
         return sum
 
@@ -364,7 +364,7 @@ class ExtractFeatures:
 
         residual = (mag - avg) / err
         stetson_k = np.sum(np.fabs(residual)) \
-            / np.sqrt(np.sum(residual * residual)) / np.sqrt(len(mag))
+                    / np.sqrt(np.sum(residual * residual)) / np.sqrt(len(mag))
 
         return stetson_k
 
@@ -387,7 +387,7 @@ class ExtractFeatures:
         lower_weight_sum = np.sum(lower_weight)
         lower_mag = mag[index]
         lower_weighted_std = np.sum((lower_mag
-            - avg)**2 * lower_weight) / lower_weight_sum
+                                     - avg) ** 2 * lower_weight) / lower_weight_sum
 
         # For higher (brighter) magnitude than average.
         index = np.where(mag <= avg)
@@ -395,7 +395,7 @@ class ExtractFeatures:
         higher_weight_sum = np.sum(higher_weight)
         higher_mag = mag[index]
         higher_weighted_std = np.sum((higher_mag
-            - avg)**2 * higher_weight) / higher_weight_sum
+                                      - avg) ** 2 * higher_weight) / higher_weight_sum
 
         # Return ratio.
         return np.sqrt(lower_weighted_std / higher_weighted_std)
@@ -414,13 +414,13 @@ class ExtractFeatures:
         index = np.where(mag > avg)
         fainter_mag = mag[index]
 
-        lower_sum = np.sum((fainter_mag - avg)**2) / len(fainter_mag)
+        lower_sum = np.sum((fainter_mag - avg) ** 2) / len(fainter_mag)
 
         # For higher (brighter) magnitude than average.
         index = np.where(mag <= avg)
         brighter_mag = mag[index]
 
-        higher_sum = np.sum((avg - brighter_mag)**2) / len(brighter_mag)
+        higher_sum = np.sum((avg - brighter_mag) ** 2) / len(brighter_mag)
 
         # Return ratio.
         return np.sqrt(lower_sum / higher_sum)
