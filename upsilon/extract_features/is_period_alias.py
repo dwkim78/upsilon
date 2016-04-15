@@ -5,8 +5,15 @@ def is_period_alias(period):
     """
     Check if a given period is possibly an alias.
 
-    :param period: A period to test if it is a possible alias or not.
-    :return: True if the given period is in a range of period alias.
+    Parameters
+    ----------
+    period : float
+        A period to test if it is a possible alias or not.
+
+    Returns
+    -------
+    out : boolean
+        True if the given period is in a range of period alias.
     """
 
     # Based on the period vs periodSN plot of EROS-2 dataset (Kim+ 2014).

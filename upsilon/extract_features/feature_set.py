@@ -3,10 +3,15 @@ __author__ = 'kim'
 
 def get_feature_set():
     """
-    Return a list of features' names to be used to train a model
-    and predict a class. Sorted by the names.
+    Return a list of features' names.
 
-    :return: A list of features
+    Features' name that are used to train a model and predict a class.
+    Sorted by the names.
+
+    Returns
+    -------
+    out : list
+        A list of features
     """
 
     features = ['amplitude', 'hl_amp_ratio', 'kurtosis', 'period',
@@ -20,10 +25,15 @@ def get_feature_set():
 
 def get_feature_set_all():
     """
-    Return a list of entire features regardless of being used to
-    train a model and predict a class.
+    Return a list of entire features.
 
-    :return: A list of features.
+    A set of entire features regardless of being used to train a model or
+    predict a class.
+
+    Returns
+    -------
+    out : list
+        A list of features
     """
 
     features = get_feature_set()

@@ -13,12 +13,9 @@ from upsilon.utils.logger import Logger
 
 feature_names_list = get_feature_set()
 
-def run():
-    """
-    Test UPSILoN package.
 
-    :return: None
-    """
+def run():
+    """Test UPSILoN package."""
 
     logger = Logger().getLogger()
 

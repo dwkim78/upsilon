@@ -5,12 +5,19 @@ from upsilon.extract_features.is_period_alias import is_period_alias
 
 def predict(rf_model, features):
     """
-    Return label and probability estimated using the UPSILoN random forests
-    model and the input features.
+    Return label and probability estimated.
 
-    :param rf_model: The UPSILoN random forests model.
-    :param features: A list of features estimated by UPSILoN
-    :return: label (i.e. class) and class probability.
+    Parameters
+    ----------
+    rf_model : sklearn.ensemble.RandomForestClassifier
+        The UPSILoN random forests model.
+    features : (N,) array_like
+        A list of features estimated by UPSILoN.
+
+    Returns
+    -------
+    out : str, float, int
+        A predicted label (i.e. class), class probability, and a flag.
     """
 
     import numpy as np

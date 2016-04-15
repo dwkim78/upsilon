@@ -14,8 +14,15 @@ def load_EROS_lc(filename='lm0010n22323.time'):
     """
     Read an EROS light curve and return its data.
 
-    :param filename: A light-curve filename.
-    :return: Arrays of dates, magnitudes, and magnitudes errors.
+    Parameters
+    ----------
+    filename : str
+        A light-curve filename.
+
+    Returns
+    -------
+    out : (3,) numpy.ndarray
+        Arrays of dates, magnitudes, and magnitudes errors.
     """
 
     module_path = dirname(__file__)
@@ -31,10 +38,15 @@ def load_EROS_lc(filename='lm0010n22323.time'):
 
 def load_rf_model():
     """
-    Return the UPSILoN random forests classifier trained using OGLE
-    and EROS periodic variables (Kim et al. 2015).
+    Return the UPSILoN random forests classifier.
 
-    :return: the UPSILoN random forests classifier.
+    The classifier is trained using OGLE and EROS periodic variables
+    (Kim et al. 2015).
+
+    Returns
+    -------
+    out : sklearn.ensemble.RandomForestClassifier
+        the UPSILoN random forests classifier.
     """
 
     import gzip

@@ -9,11 +9,7 @@ from upsilon.utils.logger import Logger
 
 
 def run():
-    """
-    Test UPSILoN package.
-
-    :return: None
-    """
+    """Test UPSILoN package."""
 
     #logger = Logger('/Users/kim/Temp/test.log').getLogger()
     logger = Logger().getLogger()

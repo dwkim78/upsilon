@@ -7,12 +7,23 @@ def sigma_clipping(date, mag, err, threshold=3, iteration=1):
     """
     Remove any fluctuated data points by magnitudes.
 
-    :param date: An array of dates.
-    :param mag: An array of magnitudes.
-    :param err: An array of magnitude errors.
-    :param threshold: Threshold for sigma-clipping.
-    :param iteration: The number of iteration.
-    :return: Sigma-clipped arrays of date, mag, and mag_error.
+    Parameters
+    ----------
+    date : (N,) array_like
+        An array of dates.
+    mag : (N,) array_like
+        An array of magnitudes.
+    err : (N,) array_like
+        An array of magnitude errors.
+    threshold : float
+        Threshold for sigma-clipping.
+    iteration : int
+        The number of iteration.
+
+    Returns
+    -------
+    out : (3,) array_like
+        Sigma-clipped arrays of date, mag, and mag_error.
     """
 
     # Check length.

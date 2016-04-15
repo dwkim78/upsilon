@@ -20,21 +20,21 @@ feature_names_list_all = get_feature_set_all()
 class ExtractFeatures:
     """
     Extract variability features of a light curve.
+
+    Parameters
+    ----------
+    date : (N,) array_like
+        An array of observed date, in days.
+    mag : (N,) array_like
+        An array of observed magnitude.
+    err : (N,) array_like
+        An array of magnitude error. If None, std(mag) will be used.
+    n_threads : int
+        The number of cores to use to derive periods.
+    min_period : float
+        The minimum period to calculate.
     """
-
     def __init__(self, date, mag, err=None, n_threads=4, min_period=0.03):
-        """
-        Initialize.
-
-        :param date: An array of observed date, in days.
-        :param mag: An array of observed magnitude.
-        :param err: An array of magnitude error. If None, std(mag) will
-        be used.
-        :param n_threads: The number of cores to use to derive periods.
-        :param min_period: The minimum period to calculate.
-        :return: An array of variability features.
-        """
-
         # Set basic values.
         if not isinstance(date, np.ndarray):
             date = np.array(date)
@@ -84,11 +84,7 @@ class ExtractFeatures:
         self.deep_run()
 
     def shallow_run(self):
-        """
-        Derive not-period-based features.
-
-        :return: None
-        """
+        """Derive not-period-based features."""
         # Number of data points
         self.n_points = len(self.date)
 
@@ -136,11 +132,7 @@ class ExtractFeatures:
         self.eta = self.get_eta(self.mag, self.weighted_std)
 
     def deep_run(self):
-        """
-        Derive period-based features.
-
-        :return: None
-        """
+        """Derive period-based features."""
         # Lomb-Scargle period finding.
         self.get_period_LS(self.date, self.mag, self.n_threads, self.min_period)
 
@@ -168,15 +160,22 @@ class ExtractFeatures:
 
     def get_period_LS(self, date, mag, n_threads, min_period):
         """
-        Period finding using the Lomb-Scargle algorithm. Finding
-        two periods. The second period is estimated after whitening
+        Period finding using the Lomb-Scargle algorithm.
+
+        Finding two periods. The second period is estimated after whitening
         the first period. Calculating various other features as well
         using derived periods.
 
-        :param date: An array of observed date, in days.
-        :param mag: An array of observed magnitude.
-        :param n_threads: The number of threads to use.
-        :param min_period: The minimum period to calculate.
+        Parameters
+        ----------
+        date : (N,) array_like
+            An array of observed date, in days.
+        mag : (N,) array_like
+            An array of observed magnitude.
+        n_threads : int
+            The number of threads to use.
+        min_period : float
+            The minimum period to calculate.
         """
 
         # DO NOT CHANGE THESE PARAMETERS.
@@ -268,21 +267,31 @@ class ExtractFeatures:
 
     def get_period_uncertainty(self, fx, fy, jmax, fx_width=100):
         """
-        Get uncertainty of a period. The uncertainty is defined as
-        the half width of the frequencies around the peak,
-        that becomes lower than average + standard deviation of
-        the power spectrum.
+        Get uncertainty of a period.
+
+        The uncertainty is defined as the half width of the frequencies
+        around the peak, that becomes lower than average + standard deviation
+        of the power spectrum.
 
         Since we may not have fine resolution around the peak,
         we do not assume it is gaussian. So, no scaling factor of
         2.355 (= 2 * sqrt(2 * ln2)) is applied.
 
-        :param fx: An array of observed date, in days.
-        :param fy: An array of observed magnitude.
-        :param jmax: An array of observed magnitude.
-        :param fx_width: Width of power spectrum to calculate
-        uncertainty.
-        :return: Period uncertainty.
+        Parameters
+        ----------
+        fx : (N,) array_like
+            An array of frequencies.
+        fy : (N,) array_like
+            An array of amplitudes.
+        jmax : int
+            An index at the peak frequency.
+        fx_width : int
+            Width of power spectrum to calculate uncertainty.
+
+        Returns
+        -------
+        out : float
+            Period uncertainty.
         """
 
         # Get subset
@@ -327,10 +336,16 @@ class ExtractFeatures:
         """
         Residual of Fourier Series.
 
-        :param pars: Fourier series parameters.
-        :param x: An array of date.
-        :param y: An array of true values to fit.
-        :param order: order of Fourier Series.
+        Parameters
+        ----------
+        pars : (N,) array_like
+            Fourier series parameters.
+        x : (N,) array_like
+            An array of date.
+        y : (N,) array_like
+            An array of true values to fit.
+        order : int
+            An order of Fourier Series.
         """
 
         return y - self.fourier_series(pars, x, order)
@@ -339,10 +354,14 @@ class ExtractFeatures:
         """
         Function to fit Fourier Series.
 
-        :param x: An array of date divided by period.
-        It doesn't need to be sorted.
-        :param pars: Fourier series parameters.
-        :param order: An order of Fourier series.
+        Parameters
+        ----------
+        x : (N,) array_like
+            An array of date divided by period. It doesn't need to be sorted.
+        pars : (N,) array_like
+            Fourier series parameters.
+        order : int
+            An order of Fourier series.
         """
 
         sum = pars[0]
@@ -356,10 +375,19 @@ class ExtractFeatures:
         """
         Return Stetson K feature.
 
-        :param mag: An array of magnitude.
-        :param avg: An average value of magnitudes.
-        :param err: An array of magnitude errors.
-        :return: Stetson K value.
+        Parameters
+        ----------
+        mag : (N,) array_like
+            An array of magnitude.
+        avg : float
+            An average value of magnitudes.
+        err : (N,) array_like
+            An array of magnitude errors.
+
+        Returns
+        -------
+        out : float
+            Stetson K value.
         """
 
         residual = (mag - avg) / err
@@ -370,15 +398,26 @@ class ExtractFeatures:
 
     def half_mag_amplitude_ratio(self, mag, avg, weight):
         """
-        Return ratio of amplitude of higher and lower magnitudes
-        than average, considering weights. This ratio, by definition,
-        should be higher for EB than for others.
+        Return ratio of amplitude of higher and lower magnitudes.
 
-        :param mag: An array of magnitudes.
-        :param avg: An average value of magnitudes.
-        :param weight: array of weight.
-        :return: Ratio of amplitude of higher and lower magnitudes
-        than average.
+
+        A ratio of amplitude of higher and lower magnitudes than average,
+        considering weights. This ratio, by definition, should be higher
+        for EB than for others.
+
+        Parameters
+        ----------
+        mag : (N,) array_like
+            An array of magnitudes.
+        avg : float
+            An average value of magnitudes.
+        weight :  (N,) array_like
+            An array of weight.
+
+        Returns
+        -------
+        out : float
+            Ratio of amplitude of higher and lower magnitudes than average.
         """
 
         # For lower (fainter) magnitude than average.
@@ -387,7 +426,8 @@ class ExtractFeatures:
         lower_weight_sum = np.sum(lower_weight)
         lower_mag = mag[index]
         lower_weighted_std = np.sum((lower_mag
-                                     - avg) ** 2 * lower_weight) / lower_weight_sum
+                                     - avg) ** 2 * lower_weight) / \
+                             lower_weight_sum
 
         # For higher (brighter) magnitude than average.
         index = np.where(mag <= avg)
@@ -395,19 +435,32 @@ class ExtractFeatures:
         higher_weight_sum = np.sum(higher_weight)
         higher_mag = mag[index]
         higher_weighted_std = np.sum((higher_mag
-                                      - avg) ** 2 * higher_weight) / higher_weight_sum
+                                      - avg) ** 2 * higher_weight) / \
+                              higher_weight_sum
 
         # Return ratio.
         return np.sqrt(lower_weighted_std / higher_weighted_std)
 
     def half_mag_amplitude_ratio2(self, mag, avg):
         """
-        Return ratio of amplitude of higher and lower magnitudes
-        than average. This ratio, by definition, should be higher
+        Return ratio of amplitude of higher and lower magnitudes.
+
+
+        A ratio of amplitude of higher and lower magnitudes than average,
+        considering weights. This ratio, by definition, should be higher
         for EB than for others.
 
-        :param mag: an array of magnitudes.
-        :param avg: an average of magnitudes.
+        Parameters
+        ----------
+        mag : (N,) array_like
+            An array of magnitudes.
+        avg : float
+            An average value of magnitudes.
+
+        Returns
+        -------
+        out : float
+            Ratio of amplitude of higher and lower magnitudes than average.
         """
 
         # For lower (fainter) magnitude than average.
@@ -429,9 +482,17 @@ class ExtractFeatures:
         """
         Return Eta feature.
 
-        :param mag: An array of magnitudes.
-        :param std: std of magnitudes.
-        :return: Eta
+        Parameters
+        ----------
+        mag : (N,) array_like
+            An array of magnitudes.
+        std : (N,) array_like
+            A standard deviation of magnitudes.
+
+        Returns
+        -------
+        out : float
+            The value of Eta index.
         """
 
         diff = mag[1:] - mag[:len(mag) - 1]
@@ -443,9 +504,17 @@ class ExtractFeatures:
         """
         Return 10% and 90% percentile of slope.
 
-        :param date: An array of phase-folded date. Sorted.
-        :param mag: An array of phase-folded magnitudes. Sorted by date.
-        :return: 10% and 90% percentile values of slope.
+        Parameters
+        ----------
+        date : (N,) array_like
+            An array of phase-folded date. Sorted.
+        mag : (N,) array_like
+            An array of phase-folded magnitudes. Sorted by date.
+
+        Returns
+        -------
+        out : (2,) float
+            10% and 90% percentile values of slope.
         """
 
         date_diff = date[1:] - date[:len(date) - 1]
@@ -468,8 +537,15 @@ class ExtractFeatures:
         """
         Return max - min of cumulative sum.
 
-        :param mag: An array of magnitudes.
-        :return: Max - min of cumulative sum.
+        Parameters
+        ----------
+        mag : (N,) array_like
+            An array of magnitudes.
+
+        Returns
+        -------
+        out : float
+            Max - min of cumulative sum.
         """
 
         c = np.cumsum(mag - self.weighted_mean) / len(mag) / self.weighted_std
@@ -480,7 +556,10 @@ class ExtractFeatures:
         """
         Return all features with its names.
 
-        :return: Feature names, feature values
+        Returns
+        -------
+        out : (2,) list
+            Feature names and their corresponding values
         """
 
         feature_names = []
@@ -511,10 +590,14 @@ class ExtractFeatures:
 
     def get_features(self):
         """
-        Return all features with its names, regardless of being used for
-        train and prediction. Sorted by the names.
+        Return all features with its names.
 
-        :return: Features dictionary
+        Regardless of being used for train and prediction. Sorted by the names.
+
+        Returns
+        -------
+        out : OrderedDict
+            Features dictionary.
         """
 
         '''
@@ -536,10 +619,14 @@ class ExtractFeatures:
 
     def get_features_all(self):
         """
-        Return all features with its names, regardless of being used for
-        train and prediction. Sorted by the names.
+        Return all features with its names.
 
-        :return: Features dictionary
+        Regardless of being used for train and prediction. Sorted by the names.
+
+        Returns
+        -------
+        out : OrderedDict
+            Features dictionary.
         """
 
         features = {}
