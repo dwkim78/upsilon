@@ -5,7 +5,8 @@ from upsilon.extract_features.is_period_alias import is_period_alias
 
 def predict(rf_model, features):
     """
-    Return label and probability estimated using the UPSILoN random forests model and the input features.
+    Return label and probability estimated using the UPSILoN random forests
+    model and the input features.
 
     :param rf_model: The UPSILoN random forests model.
     :param features: A list of features estimated by UPSILoN

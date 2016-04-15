@@ -31,7 +31,8 @@ def load_EROS_lc(filename='lm0010n22323.time'):
 
 def load_rf_model():
     """
-    Return the UPSILoN random forests classifier trained using OGLE and EROS periodic variables (Kim et al. 2015).
+    Return the UPSILoN random forests classifier trained using OGLE
+    and EROS periodic variables (Kim et al. 2015).
 
     :return: the UPSILoN random forests classifier.
     """

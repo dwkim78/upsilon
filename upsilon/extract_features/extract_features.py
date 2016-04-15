@@ -28,7 +28,8 @@ class ExtractFeatures:
 
         :param date: An array of observed date, in days.
         :param mag: An array of observed magnitude.
-        :param err: An array of magnitude error. If None, std(mag) will be used.
+        :param err: An array of magnitude error. If None, std(mag) will
+        be used.
         :param n_threads: The number of cores to use to derive periods.
         :param min_period: The minimum period to calculate.
         :return: An array of variability features.
@@ -77,9 +78,7 @@ class ExtractFeatures:
             self.min_period = min_period
 
     def run(self):
-        """
-        Run feature extraction modules.
-        """
+        """Run feature extraction modules."""
 
         self.shallow_run()
         self.deep_run()
@@ -169,7 +168,10 @@ class ExtractFeatures:
 
     def get_period_LS(self, date, mag, n_threads, min_period):
         """
-        Period finding using the Lomb-Scargle algorithm. Finding two periods. The second period is estimated after whitening the first period. Calculating various other features as well using derived periods.
+        Period finding using the Lomb-Scargle algorithm. Finding
+        two periods. The second period is estimated after whitening
+        the first period. Calculating various other features as well
+        using derived periods.
 
         :param date: An array of observed date, in days.
         :param mag: An array of observed magnitude.
@@ -266,14 +268,20 @@ class ExtractFeatures:
 
     def get_period_uncertainty(self, fx, fy, jmax, fx_width=100):
         """
-        Get uncertainty of a period. The uncertainty is defined as the half width of the frequencies around the peak, that becomes lower than average + standard deviation of the power spectrum.
+        Get uncertainty of a period. The uncertainty is defined as
+        the half width of the frequencies around the peak,
+        that becomes lower than average + standard deviation of
+        the power spectrum.
 
-        Since we may not have fine resolution around the peak, we do not assume it is gaussian. So, no scaling factor of 2.355 (= 2 * sqrt(2 * ln2)) is applied.
+        Since we may not have fine resolution around the peak,
+        we do not assume it is gaussian. So, no scaling factor of
+        2.355 (= 2 * sqrt(2 * ln2)) is applied.
 
         :param fx: An array of observed date, in days.
         :param fy: An array of observed magnitude.
         :param jmax: An array of observed magnitude.
-        :param fx_width: Width of power spectrum to calculate uncertainty.
+        :param fx_width: Width of power spectrum to calculate
+        uncertainty.
         :return: Period uncertainty.
         """
 
@@ -317,7 +325,7 @@ class ExtractFeatures:
 
     def residuals(self, pars, x, y, order):
         """
-        Residual of FourierSeries.
+        Residual of Fourier Series.
 
         :param pars: Fourier series parameters.
         :param x: An array of date.
@@ -331,7 +339,8 @@ class ExtractFeatures:
         """
         Function to fit Fourier Series.
 
-        :param x: An array of date divided by period. It doesn't need to be sorted.
+        :param x: An array of date divided by period.
+        It doesn't need to be sorted.
         :param pars: Fourier series parameters.
         :param order: An order of Fourier series.
         """
@@ -361,12 +370,15 @@ class ExtractFeatures:
 
     def half_mag_amplitude_ratio(self, mag, avg, weight):
         """
-        Return ratio of amplitude of higher and lower magnitudes than average, considering weights. This ratio, by definition, should be higher for EB than for others.
+        Return ratio of amplitude of higher and lower magnitudes
+        than average, considering weights. This ratio, by definition,
+        should be higher for EB than for others.
 
         :param mag: An array of magnitudes.
         :param avg: An average value of magnitudes.
         :param weight: array of weight.
-        :return: Ratio of amplitude of higher and lower magnitudes than average.
+        :return: Ratio of amplitude of higher and lower magnitudes
+        than average.
         """
 
         # For lower (fainter) magnitude than average.
@@ -390,7 +402,9 @@ class ExtractFeatures:
 
     def half_mag_amplitude_ratio2(self, mag, avg):
         """
-        Return ratio of amplitude of higher and lower magnitudes than average. This ratio, by definition, should be higher for EB than for others.
+        Return ratio of amplitude of higher and lower magnitudes
+        than average. This ratio, by definition, should be higher
+        for EB than for others.
 
         :param mag: an array of magnitudes.
         :param avg: an average of magnitudes.
@@ -497,7 +511,8 @@ class ExtractFeatures:
 
     def get_features(self):
         """
-        Return all features with its names, regardless of being used for train and prediction. Sorted by the names.
+        Return all features with its names, regardless of being used for
+        train and prediction. Sorted by the names.
 
         :return: Features dictionary
         """
@@ -521,7 +536,8 @@ class ExtractFeatures:
 
     def get_features_all(self):
         """
-        Return all features with its names, regardless of being used for train and prediction. Sorted by the names.
+        Return all features with its names, regardless of being used for
+        train and prediction. Sorted by the names.
 
         :return: Features dictionary
         """

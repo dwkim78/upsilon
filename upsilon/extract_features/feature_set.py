@@ -3,7 +3,8 @@ __author__ = 'kim'
 
 def get_feature_set():
     """
-    Return a list of features' names to be used to train a model and predict a class. Sorted by the names.
+    Return a list of features' names to be used to train a model
+    and predict a class. Sorted by the names.
 
     :return: A list of features
     """
@@ -19,7 +20,8 @@ def get_feature_set():
 
 def get_feature_set_all():
     """
-    Return a list of entire features regardless of being used to train a model and predict a class.
+    Return a list of entire features regardless of being used to
+    train a model and predict a class.
 
     :return: A list of features.
     """
