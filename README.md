@@ -312,6 +312,9 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
 - provide web-based classifier for a small set of light curves.
 - implementing multilayer classifiers, which might reduce feature extracting time.
 
+### v.1.2.4 (2016/04/15)
+- modify comments/explanation for functions/classes so that is it more legible.
+
 ### v.1.2.3 (2016/02/18)
 - scikit-learn dependency updated to 0.17.   
 
