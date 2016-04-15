@@ -1,7 +1,6 @@
 __author__ = 'kim'
 
 import numpy as np
-from upsilon.datasets.base import load_EROS_lc
 
 
 def sigma_clipping(date, mag, err, threshold=3, iteration=1):

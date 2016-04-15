@@ -16,7 +16,8 @@ from feature_set import get_feature_set_all
 feature_names_list = get_feature_set()
 feature_names_list_all = get_feature_set_all()
 
-class ExtractFeatures():
+
+class ExtractFeatures:
     """
     Extract variability features of a light curve.
     """
@@ -423,7 +424,6 @@ class ExtractFeatures():
         eta = np.sum(diff * diff) / (len(mag) - 1.) / std / std
 
         return eta
-
 
     def slope_percentile(self, date, mag):
         """

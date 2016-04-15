@@ -3,7 +3,7 @@ __author__ = 'kim'
 import logging
 
 
-class Logger():
+class Logger:
     """
     Create logger instance for writing to both console and a local file.
     """

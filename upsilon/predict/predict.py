@@ -2,6 +2,7 @@ __author__ = 'kim'
 
 from upsilon.extract_features.is_period_alias import is_period_alias
 
+
 def predict(rf_model, features):
     """
     Return label and probability estimated using the UPSILoN random forests model and the input features.
