@@ -328,6 +328,9 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
         - flag = 0 if classification is successful,
         - flag = 1 if the period_SNR is lower than 20, or if the period is in the range of period alias. Classification result, thus, could be incorrect.
 
+### v.1.1.6
+- modify comments/explanation for functions/classes so that is more legible.
+
 ### v1.1.5
 - bug fixes, code improvements, etc.
 - Two additional features added, "cusum" and "eta".

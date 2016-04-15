@@ -168,12 +168,7 @@ class ExtractFeatures():
 
     def get_period_LS(self, date, mag, n_threads, min_period):
         """
-        Period finding using the Lomb-Scargle algorithm.
-
-        Finding two periods. The second period is estimated
-        after whitening the first period.
-
-        Calculating various other features as well using derived periods.
+        Period finding using the Lomb-Scargle algorithm. Finding two periods. The second period is estimated after whitening the first period. Calculating various other features as well using derived periods.
 
         :param date: An array of observed date, in days.
         :param mag: An array of observed magnitude.
@@ -270,15 +265,9 @@ class ExtractFeatures():
 
     def get_period_uncertainty(self, fx, fy, jmax, fx_width=100):
         """
-        Get uncertainty of a period.
+        Get uncertainty of a period. The uncertainty is defined as the half width of the frequencies around the peak, that becomes lower than average + standard deviation of the power spectrum.
 
-        The uncertainty is defined as the half width
-        of the frequencies around the peak, that becomes lower than
-        average + standard deviation of the power spectrum.
-
-        Since we may not have fine resolution around the peak,
-        we do not assume it is gaussian. So, no scaling factor
-        of 2.355 (= 2 * sqrt(2 * ln2)) is applied.
+        Since we may not have fine resolution around the peak, we do not assume it is gaussian. So, no scaling factor of 2.355 (= 2 * sqrt(2 * ln2)) is applied.
 
         :param fx: An array of observed date, in days.
         :param fy: An array of observed magnitude.
@@ -371,11 +360,7 @@ class ExtractFeatures():
 
     def half_mag_amplitude_ratio(self, mag, avg, weight):
         """
-        Return ratio of amplitude of higher and lower
-        magnitudes than average, considering weights.
-
-        This ratio, by definition, should be higher for EB
-        than for others.
+        Return ratio of amplitude of higher and lower magnitudes than average, considering weights. This ratio, by definition, should be higher for EB than for others.
 
         :param mag: An array of magnitudes.
         :param avg: An average value of magnitudes.
@@ -404,10 +389,7 @@ class ExtractFeatures():
 
     def half_mag_amplitude_ratio2(self, mag, avg):
         """
-        Return ratio of amplitude of higher and lower
-        magnitudes than average.
-
-        This ratio, by definition, should be higher for EB than for others.
+        Return ratio of amplitude of higher and lower magnitudes than average. This ratio, by definition, should be higher for EB than for others.
 
         :param mag: an array of magnitudes.
         :param avg: an average of magnitudes.
@@ -515,8 +497,7 @@ class ExtractFeatures():
 
     def get_features(self):
         """
-        Return all features with its names, regardless of being used for train and prediction.
-        Sorted by the names.
+        Return all features with its names, regardless of being used for train and prediction. Sorted by the names.
 
         :return: Features dictionary
         """
@@ -540,8 +521,7 @@ class ExtractFeatures():
 
     def get_features_all(self):
         """
-        Return all features with its names, regardless of being used for train and prediction.
-        Sorted by the names.
+        Return all features with its names, regardless of being used for train and prediction. Sorted by the names.
 
         :return: Features dictionary
         """

@@ -67,7 +67,7 @@ def __spread__(y, yy, n, x, m):
     Given an array yy(0:n-1), extrapolate (spread) a value y into
     m actual array elements that best approximate the "fictional"
     (i.e., possible noninteger) array element number x. The weights
-    used are coefficients of the Lagrange interpolating polynomial        
+    used are coefficients of the Lagrange interpolating polynomial
     """
     nfac = [0, 1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
     if m > 10. :

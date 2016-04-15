@@ -9,10 +9,9 @@ class Logger():
     """
     def __init__(self, filepath=None):
         """
-        Initailize. Write logger to either console and/or to a disk.
+        Initialize. Write logger to either console and/or to a disk.
 
-        :param filepath: specify a log filename with the absolute path.
-            If not given, no output is written to a file.
+        :param filepath: specify a log filename with the absolute path. If not given, no output is written to a file.
         :return:
         """
 
