@@ -10,8 +10,8 @@ def get_feature_set():
 
     Returns
     -------
-    out : list
-        A list of features
+    feature_names : list
+        A list of features' names.
     """
 
     features = ['amplitude', 'hl_amp_ratio', 'kurtosis', 'period',
@@ -32,8 +32,8 @@ def get_feature_set_all():
 
     Returns
     -------
-    out : list
-        A list of features
+    feature_names : list
+        A list of features' names.
     """
 
     features = get_feature_set()

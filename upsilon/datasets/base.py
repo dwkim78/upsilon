@@ -16,13 +16,17 @@ def load_EROS_lc(filename='lm0010n22323.time'):
 
     Parameters
     ----------
-    filename : str
+    filename : str, optional
         A light-curve filename.
 
     Returns
     -------
-    out : (3,) numpy.ndarray
-        Arrays of dates, magnitudes, and magnitudes errors.
+    dates : numpy.ndarray
+        An array of dates.
+    magnitudes : numpy.ndarray
+        An array of magnitudes.
+    errors : numpy.ndarray
+        An array of magnitudes errors.
     """
 
     module_path = dirname(__file__)
@@ -45,8 +49,8 @@ def load_rf_model():
 
     Returns
     -------
-    out : sklearn.ensemble.RandomForestClassifier
-        the UPSILoN random forests classifier.
+    clf : sklearn.ensemble.RandomForestClassifier
+        The UPSILoN random forests classifier.
     """
 
     import gzip

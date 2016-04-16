@@ -23,15 +23,15 @@ class ExtractFeatures:
 
     Parameters
     ----------
-    date : (N,) array_like
+    date : array_like
         An array of observed date, in days.
-    mag : (N,) array_like
+    mag : array_like
         An array of observed magnitude.
-    err : (N,) array_like
+    err : array_like, optional
         An array of magnitude error. If None, std(mag) will be used.
-    n_threads : int
+    n_threads : int, optional
         The number of cores to use to derive periods.
-    min_period : float
+    min_period : float, optional
         The minimum period to calculate.
     """
     def __init__(self, date, mag, err=None, n_threads=4, min_period=0.03):
@@ -168,9 +168,9 @@ class ExtractFeatures:
 
         Parameters
         ----------
-        date : (N,) array_like
+        date : array_like
             An array of observed date, in days.
-        mag : (N,) array_like
+        mag : array_like
             An array of observed magnitude.
         n_threads : int
             The number of threads to use.
@@ -279,18 +279,18 @@ class ExtractFeatures:
 
         Parameters
         ----------
-        fx : (N,) array_like
+        fx : array_like
             An array of frequencies.
-        fy : (N,) array_like
+        fy : array_like
             An array of amplitudes.
         jmax : int
             An index at the peak frequency.
-        fx_width : int
+        fx_width : int, optional
             Width of power spectrum to calculate uncertainty.
 
         Returns
         -------
-        out : float
+        p_uncertain : float
             Period uncertainty.
         """
 
@@ -338,11 +338,11 @@ class ExtractFeatures:
 
         Parameters
         ----------
-        pars : (N,) array_like
+        pars : array_like
             Fourier series parameters.
-        x : (N,) array_like
+        x : array_like
             An array of date.
-        y : (N,) array_like
+        y : array_like
             An array of true values to fit.
         order : int
             An order of Fourier Series.
@@ -356,9 +356,9 @@ class ExtractFeatures:
 
         Parameters
         ----------
-        x : (N,) array_like
+        x : array_like
             An array of date divided by period. It doesn't need to be sorted.
-        pars : (N,) array_like
+        pars :  array_like
             Fourier series parameters.
         order : int
             An order of Fourier series.
@@ -377,16 +377,16 @@ class ExtractFeatures:
 
         Parameters
         ----------
-        mag : (N,) array_like
+        mag : array_like
             An array of magnitude.
         avg : float
             An average value of magnitudes.
-        err : (N,) array_like
+        err : array_like
             An array of magnitude errors.
 
         Returns
         -------
-        out : float
+        stetson_k : float
             Stetson K value.
         """
 
@@ -407,16 +407,16 @@ class ExtractFeatures:
 
         Parameters
         ----------
-        mag : (N,) array_like
+        mag : array_like
             An array of magnitudes.
         avg : float
             An average value of magnitudes.
-        weight :  (N,) array_like
+        weight : array_like
             An array of weight.
 
         Returns
         -------
-        out : float
+        hl_ratio : float
             Ratio of amplitude of higher and lower magnitudes than average.
         """
 
@@ -452,14 +452,14 @@ class ExtractFeatures:
 
         Parameters
         ----------
-        mag : (N,) array_like
+        mag : array_like
             An array of magnitudes.
         avg : float
             An average value of magnitudes.
 
         Returns
         -------
-        out : float
+        hl_ratio : float
             Ratio of amplitude of higher and lower magnitudes than average.
         """
 
@@ -484,14 +484,14 @@ class ExtractFeatures:
 
         Parameters
         ----------
-        mag : (N,) array_like
+        mag : array_like
             An array of magnitudes.
-        std : (N,) array_like
+        std : array_like
             A standard deviation of magnitudes.
 
         Returns
         -------
-        out : float
+        eta : float
             The value of Eta index.
         """
 
@@ -506,15 +506,17 @@ class ExtractFeatures:
 
         Parameters
         ----------
-        date : (N,) array_like
+        date : array_like
             An array of phase-folded date. Sorted.
-        mag : (N,) array_like
+        mag : array_like
             An array of phase-folded magnitudes. Sorted by date.
 
         Returns
         -------
-        out : (2,) float
-            10% and 90% percentile values of slope.
+        per_10 : float
+            10% percentile values of slope.
+        per_90 : float
+            90% percentile values of slope.
         """
 
         date_diff = date[1:] - date[:len(date) - 1]
@@ -539,12 +541,12 @@ class ExtractFeatures:
 
         Parameters
         ----------
-        mag : (N,) array_like
+        mag : array_like
             An array of magnitudes.
 
         Returns
         -------
-        out : float
+        mm_cusum : float
             Max - min of cumulative sum.
         """
 
@@ -558,8 +560,10 @@ class ExtractFeatures:
 
         Returns
         -------
-        out : (2,) list
-            Feature names and their corresponding values
+        names : list
+            Feature names.
+        values : list
+            Feature values
         """
 
         feature_names = []
@@ -596,7 +600,7 @@ class ExtractFeatures:
 
         Returns
         -------
-        out : OrderedDict
+        all_features : OrderedDict
             Features dictionary.
         """
 
@@ -625,7 +629,7 @@ class ExtractFeatures:
 
         Returns
         -------
-        out : OrderedDict
+        all_features : OrderedDict
             Features dictionary.
         """
 

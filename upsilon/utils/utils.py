@@ -9,21 +9,25 @@ def sigma_clipping(date, mag, err, threshold=3, iteration=1):
 
     Parameters
     ----------
-    date : (N,) array_like
+    date : array_like
         An array of dates.
-    mag : (N,) array_like
+    mag : array_like
         An array of magnitudes.
-    err : (N,) array_like
+    err : array_like
         An array of magnitude errors.
-    threshold : float
+    threshold : float, optional
         Threshold for sigma-clipping.
-    iteration : int
+    iteration : int, optional
         The number of iteration.
 
     Returns
     -------
-    out : (3,) array_like
-        Sigma-clipped arrays of date, mag, and mag_error.
+    date : array_like
+        Sigma-clipped dates.
+    mag : array_like
+        Sigma-clipped magnitudes.
+    err : array_like
+        Sigma-clipped magnitude errors.
     """
 
     # Check length.

@@ -12,7 +12,7 @@ def is_period_alias(period):
 
     Returns
     -------
-    out : boolean
+    is_alias : boolean
         True if the given period is in a range of period alias.
     """
 

@@ -11,13 +11,17 @@ def predict(rf_model, features):
     ----------
     rf_model : sklearn.ensemble.RandomForestClassifier
         The UPSILoN random forests model.
-    features : (N,) array_like
+    features : array_like
         A list of features estimated by UPSILoN.
 
     Returns
     -------
-    out : str, float, int
-        A predicted label (i.e. class), class probability, and a flag.
+    label : str
+        A predicted label (i.e. class).
+    probability : float
+        Class probability.
+    flag : int
+        Classification flag.
     """
 
     import numpy as np
