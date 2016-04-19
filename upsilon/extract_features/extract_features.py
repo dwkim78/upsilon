@@ -1,5 +1,3 @@
-__author__ = 'kim'
-
 import warnings
 import multiprocessing
 from collections import OrderedDict

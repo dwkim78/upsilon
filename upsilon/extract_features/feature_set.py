@@ -1,6 +1,3 @@
-__author__ = 'kim'
-
-
 def get_feature_set():
     """
     Return a list of features' names.

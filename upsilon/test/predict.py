@@ -1,5 +1,3 @@
-__author__ = 'kim'
-
 import time
 from upsilon.extract_features.extract_features import ExtractFeatures
 from upsilon.datasets.base import load_EROS_lc

@@ -1,6 +1,3 @@
-__author__ = 'kim'
-
-
 def is_period_alias(period):
     """
     Check if a given period is possibly an alias.

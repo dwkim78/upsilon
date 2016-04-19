@@ -1,5 +1,3 @@
-__author__ = 'kim'
-
 from upsilon.extract_features.is_period_alias import is_period_alias
 
 
