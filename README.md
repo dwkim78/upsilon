@@ -1,7 +1,7 @@
 # UPSILoN 1.2.3 
 <div align="center">
 <img src="./upsilon/datasets/images/UPSILoN.png"><br/>
-[ <a href="http://arxiv.org/abs/1512.01611">Kim & Bailer-Jones 2015</a> ]
+[ UPSILoN - <font size="4">&#120650;</font> ]
 </div><br>
 
 
