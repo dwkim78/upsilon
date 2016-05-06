@@ -94,7 +94,7 @@ This code reads a sample light curve of a Cepheid variable, extracts features, a
 yyyy-mm-dd hh:mm:ss,mmm INFO - Classified as CEPH_1O with the class probability 0.92
 ```
 
-If the light curve is not classified as a Cepheid variable, or if the class probability is not 0.92, something might be wrong. In that case, please contact with me.
+If the light curve is not classified as a Cepheid variable, or if the class probability is not 0.92, something might be wrong. In that case, please contact me.
 
 ## 4. Pseudo Code: How to Use UPSILoN? 
 
@@ -313,7 +313,7 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
 - implementing multilayer classifiers, which might reduce feature extracting time.
 
 ### v.1.2.4 (2016/04/15)
-- modify comments/explanation for functions/classes so that is it more legible.
+- convert docstrings to the Numpy style.
 
 ### v.1.2.3 (2016/02/18)
 - scikit-learn dependency updated to 0.17.   
