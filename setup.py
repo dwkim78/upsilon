@@ -12,7 +12,7 @@ setup(
     platforms=['any'],
     packages=find_packages(),
     include_package_data=True,
-    url='https://github.com/mrosseel/upsilon',
+    url='https://github.com/dwkim78/upsilon',
     license='MIT',
     author='Dae-Won Kim',
     author_email='dwkim78@gmail.com',
