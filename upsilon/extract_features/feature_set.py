@@ -50,4 +50,4 @@ def get_feature_set_all():
 
 
 if __name__ == '__main__':
-    print get_feature_set()
+    print(get_feature_set())
