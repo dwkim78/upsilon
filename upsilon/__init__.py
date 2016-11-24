@@ -3,13 +3,13 @@ __author__ = 'kim'
 try:
     import pyfftw
 
-    print '-------------------'
-    print '| pyFFTW detected |'
-    print '-------------------'
+    print('-------------------')
+    print('| pyFFTW detected |')
+    print('-------------------')
 except:
-    print '-------------------------------'
-    print '* WARNING: No pyFFTW detected *'
-    print '-------------------------------'
+    print('-------------------------------')
+    print('* WARNING: No pyFFTW detected *')
+    print('-------------------------------')
 
 from upsilon.utils import utils
 from upsilon.utils.logger import Logger

@@ -16,7 +16,7 @@ setup(
     license='MIT',
     author='Dae-Won Kim',
     author_email='dwkim78@gmail.com',
-    install_requires=['numpy>=1.9', 'scikit-learn>=0.17', 'scipy>=0.15',
+    install_requires=['numpy>=1.9', 'scikit-learn>=0.18.1', 'scipy>=0.15',
         #'pyfftw>=0.9.2',
     ],
     keywords=['astronomy', 'periodic variables', 'light curves',
