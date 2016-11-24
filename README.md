@@ -40,7 +40,7 @@ In principle, UPSILoN can classify any light curves having arbitrary number of d
   
 [Scipy 0.15+](http://scipy.org/)
 
-[scikit-learn 0.17+](http://scikit-learn.org/stable/)
+[scikit-learn 0.18.1+](http://scikit-learn.org/stable/)
 
 [pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/) 
 
@@ -311,6 +311,9 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
 - add additional variability types to the training set, either to classify or exclude them (not determined yet).
 - provide web-based classifier for a small set of light curves.
 - implementing multilayer classifiers, which might reduce feature extracting time.
+
+### v.1.2.5 (2016/11/24)
+- scikit-learn dependency updated to 0.18.1
 
 ### v.1.2.4 (2016/04/15)
 - convert docstrings to the Numpy style.
