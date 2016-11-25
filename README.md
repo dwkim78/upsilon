@@ -1,4 +1,4 @@
-# UPSILoN 1.2.3 
+# UPSILoN 1.2.5
 <div align="center">
 <img src="./upsilon/datasets/images/UPSILoN.png"><br/>
 [ UPSILoN - <font size="4">&#120650;</font> ]
