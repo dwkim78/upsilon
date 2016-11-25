@@ -40,13 +40,13 @@ In principle, UPSILoN can classify any light curves having arbitrary number of d
 
  * Not tested with Python 3.0+
 
-[Numpy 1.9+](http://www.numpy.org/)
-  
-[Scipy 0.15+](http://scipy.org/)
+[Numpy 1.11.2+](http://www.numpy.org/)
+
+[Scipy 0.18.1+](http://scipy.org/)
 
 [scikit-learn 0.18.1+](http://scikit-learn.org/stable/)
 
-[pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/) 
+[pyFFTW 0.10.4+] (http://hgomersall.github.io/pyFFTW/)
 
  * pyFFTW is optional but <b>highly recommended</b> for multi-threads usage for FFT. You will need to install [FFTW] (http://www.fftw.org/) as well prior to installation of pyFFTW.
 
