@@ -6,6 +6,7 @@
 
 
 <b>Note</b>: We released UPSILoN for Python 3. See https://github.com/dwkim78/py3-upsilon
+For the time being, UPSILoN will be released for both Python 2 and 3, but eventually we will move to Python 3.
 
 
 <b>Important Note</b>: If you upgrade to the version >= 1.2.0 from the previous version (i.e. <= 1.1.5), please read [Detailed Usage](#5-details-about-upsilon-usage). There are some changes in the outputs of the predict functions. See [ChangeLog](#changelog) for the summary.
