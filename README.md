@@ -5,6 +5,9 @@
 </div><br>
 
 
+<b>Note</b>: We released UPSILoN for Python 3. See https://github.com/dwkim78/py3-upsilon
+
+
 <b>Important Note</b>: If you upgrade to the version >= 1.2.0 from the previous version (i.e. <= 1.1.5), please read [Detailed Usage](#5-details-about-upsilon-usage). There are some changes in the outputs of the predict functions. See [ChangeLog](#changelog) for the summary.
 
 
@@ -65,7 +68,7 @@ pip install git+https://github.com/dwkim78/upsilon
 
 Since the UPSILoN package contains a Random Forest classifier (~50 MB), downloading the package might take some time.
 
-If you do not want to install/upgrade the dependencies, execute the above commend with the ```--no-deps``` option. UPSILoN possibly works with older version of Python, Numpy, and Scipy, but you must have the latest version of scikit-learn (i.e. 0.17+).
+If you do not want to install/upgrade the dependencies, execute the above commend with the ```--no-deps``` option. UPSILoN possibly works with older version of Python, Numpy, and Scipy, but you must have the latest version of scikit-learn (i.e. 0.18.1+).
 
 
 Alternatively, you can download the UPSILoN package from the Git repository as:
@@ -94,7 +97,7 @@ This code reads a sample light curve of a Cepheid variable, extracts features, a
 yyyy-mm-dd hh:mm:ss,mmm INFO - Classified as CEPH_1O with the class probability 0.91
 ```
 
-If the light curve is not classified as a Cepheid variable, or if the class probability is not 0.92, something might be wrong. In that case, please contact me.
+If the light curve is not classified as a Cepheid variable, or if the class probability is not 0.91, something might be wrong. In that case, please contact me.
 
 ## 4. Pseudo Code: How to Use UPSILoN? 
 
