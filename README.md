@@ -1,8 +1,12 @@
-# UPSILoN 1.2.3 
+# UPSILoN 1.2.5
 <div align="center">
 <img src="./upsilon/datasets/images/UPSILoN.png"><br/>
 [ UPSILoN - <font size="4">&#120650;</font> ]
 </div><br>
+
+
+<b>Note</b>: We released UPSILoN for Python 3. See https://github.com/dwkim78/py3-upsilon
+For the time being, UPSILoN will be released for both Python 2 and 3, but eventually we will move to Python 3.
 
 
 <b>Important Note</b>: If you upgrade to the version >= 1.2.0 from the previous version (i.e. <= 1.1.5), please read [Detailed Usage](#5-details-about-upsilon-usage). There are some changes in the outputs of the predict functions. See [ChangeLog](#changelog) for the summary.
@@ -36,13 +40,13 @@ In principle, UPSILoN can classify any light curves having arbitrary number of d
 
  * Not tested with Python 3.0+
 
-[Numpy 1.9+](http://www.numpy.org/)
-  
-[Scipy 0.15+](http://scipy.org/)
+[Numpy 1.11.2+](http://www.numpy.org/)
 
-[scikit-learn 0.17+](http://scikit-learn.org/stable/)
+[Scipy 0.18.1+](http://scipy.org/)
 
-[pyFFTW 0.9.2+] (http://hgomersall.github.io/pyFFTW/) 
+[scikit-learn 0.18.1+](http://scikit-learn.org/stable/)
+
+[pyFFTW 0.10.4+] (http://hgomersall.github.io/pyFFTW/)
 
  * pyFFTW is optional but <b>highly recommended</b> for multi-threads usage for FFT. You will need to install [FFTW] (http://www.fftw.org/) as well prior to installation of pyFFTW.
 
@@ -65,7 +69,7 @@ pip install git+https://github.com/dwkim78/upsilon
 
 Since the UPSILoN package contains a Random Forest classifier (~50 MB), downloading the package might take some time.
 
-If you do not want to install/upgrade the dependencies, execute the above commend with the ```--no-deps``` option. UPSILoN possibly works with older version of Python, Numpy, and Scipy, but you must have the latest version of scikit-learn (i.e. 0.17+).
+If you do not want to install/upgrade the dependencies, execute the above commend with the ```--no-deps``` option. UPSILoN possibly works with older version of Python, Numpy, and Scipy, but you must have the latest version of scikit-learn (i.e. 0.18.1+).
 
 
 Alternatively, you can download the UPSILoN package from the Git repository as:
@@ -91,10 +95,10 @@ upsilon.test_predict()
 This code reads a sample light curve of a Cepheid variable, extracts features, and classify it. At the end of log messages, you must see the line something like:
 
 ```
-yyyy-mm-dd hh:mm:ss,mmm INFO - Classified as CEPH_1O with the class probability 0.92
+yyyy-mm-dd hh:mm:ss,mmm INFO - Classified as CEPH_1O with the class probability 0.91
 ```
 
-If the light curve is not classified as a Cepheid variable, or if the class probability is not 0.92, something might be wrong. In that case, please contact me.
+If the light curve is not classified as a Cepheid variable, or if the class probability is not 0.91, something might be wrong. In that case, please contact me.
 
 ## 4. Pseudo Code: How to Use UPSILoN? 
 
@@ -311,6 +315,9 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
 - add additional variability types to the training set, either to classify or exclude them (not determined yet).
 - provide web-based classifier for a small set of light curves.
 - implementing multilayer classifiers, which might reduce feature extracting time.
+
+### v.1.2.5 (2016/11/24)
+- scikit-learn dependency updated to 0.18.1
 
 ### v.1.2.4 (2016/04/15)
 - convert docstrings to the Numpy style.

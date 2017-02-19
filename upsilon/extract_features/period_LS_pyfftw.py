@@ -1,4 +1,4 @@
-""" 
+"""
 Fast algorithm for spectral analysis of unevenly sampled data
 -------------------------------------------------------------------------------
 
@@ -26,16 +26,16 @@ needs 'initial guess' and also 'limit_fractions' well defined.
 
 -------------------------------------------------------------------------------
 The Lomb-Scargle method performs spectral analysis on unevenly sampled
-data and is known to be a powerful way to find, and test the 
+data and is known to be a powerful way to find, and test the
 significance of, weak periodic signals. The method has previously been
 thought to be 'slow', requiring of order 10(2)N(2) operations to analyze
 N data points. We show that Fast Fourier Transforms (FFTs) can be used
 in a novel way to make the computation of order 10(2)N log N. Despite
-its use of the FFT, the algorithm is in no way equivalent to 
+its use of the FFT, the algorithm is in no way equivalent to
 conventional FFT periodogram analysis.
 
 Keywords:
-    DATA SAMPLING, FAST FOURIER TRANSFORMATIONS, 
+    DATA SAMPLING, FAST FOURIER TRANSFORMATIONS,
     SPECTRUM ANALYSIS, SIGNAL    PROCESSING
 
 Example:
@@ -45,7 +45,7 @@ Example:
     > y = numpy.sin(x)
     > fx,fy, nout, jmax, prob = lomb.fasper(x,y, 6., 6.)
 
-Reference: 
+Reference:
     Press, W. H. & Rybicki, G. B. 1989
     ApJ vol. 338, p. 277-280.
     Fast algorithm for spectral analysis of unevenly sampled data
@@ -75,17 +75,17 @@ def __spread__(y, yy, n, x, m):
         return
 
     ix = int(x)
-    if x == float(ix): 
+    if x == float(ix):
         yy[ix] = yy[ix]+y
     else:
         ilo = int(x - 0.5*float(m) + 1.0)
-        ilo = min(max(ilo, 1), n - m + 1) 
+        ilo = min(max(ilo, 1), n - m + 1)
         ihi = ilo + m - 1
         nden = nfac[m]
-        
+
         fac = x - ilo
         for j in range(ilo + 1, ihi + 1): fac = fac*(x - j)
-        
+
         yy[ihi] = yy[ihi] + y*fac/(nden*(x - ihi))
         for j in range(ihi - 1, ilo - 1, -1):
             nden = (nden/(j + 1 - ilo))*(j - ihi)
@@ -105,8 +105,8 @@ def fasper(x, y, ofac, hifac, n_threads, MACC=4):
     element in wk2, and prob, an estimate of the significance of that
     maximum against the hypothesis of random noise. A small value of prob
     indicates that a significant periodic signal is present.
-    
-    Reference: 
+
+    Reference:
         Press, W. H. & Rybicki, G. B. 1989
         ApJ vol. 338, p. 277-280.
         Fast algorithm for spectral analysis of unevenly sampled data
@@ -120,7 +120,7 @@ def fasper(x, y, ofac, hifac, n_threads, MACC=4):
                      for which values of the Lomb normalized periodogram will
                      be calculated.
             n_threads : number of threads to use.
-            
+
      Returns:
             Wk1 : An array of Lomb periodogram frequencies.
             Wk2 : An array of corresponding values of the Lomb periodogram.
@@ -139,22 +139,22 @@ def fasper(x, y, ofac, hifac, n_threads, MACC=4):
     if n != len(y):
         print('Incompatible arrays.')
         return
-    
+
     #print x, y, hifac, ofac
-    
-    nout = 0.5*ofac*hifac*n
-    nfreqt = int(ofac*hifac*n*MACC)     #Size the FFT as next power
-    nfreq = 64                         # of 2 above nfreqt.
+
+    nout = int(0.5*ofac*hifac*n)
+    nfreqt = long(ofac*hifac*n*MACC)     #Size the FFT as next power
+    nfreq = 64L                         # of 2 above nfreqt.
 
     while nfreq < nfreqt:
         nfreq = 2*nfreq
 
     ndim = int(2*nfreq)
-    
+
     #Compute the mean, variance
     ave = y.mean()
     ##sample variance because the divisor is N-1
-    var = ((y - y.mean())**2).sum()/(len(y) - 1) 
+    var = ((y - y.mean())**2).sum()/(len(y) - 1)
     # and range of the data.
     xmin = x.min()
     xmax = x.max()
@@ -172,7 +172,7 @@ def fasper(x, y, ofac, hifac, n_threads, MACC=4):
     fndim = ndim
     ck = ((x - xmin)*fac) % fndim
     ckk = (2.0*ck) % fndim
-    
+
     for j in range(0, n):
         __spread__(y[j] - ave, wk1, ndim, ck[j], MACC)
         __spread__(1.0, wk2, ndim, ckk[j], MACC)
@@ -195,9 +195,9 @@ def fasper(x, y, ofac, hifac, n_threads, MACC=4):
     iwk1 = wk1.imag
     rwk2 = wk2.real
     iwk2 = wk2.imag
-    
+
     df = 1.0/(xdif*ofac)
-    
+
     #Compute the Lomb value for each frequency
     hypo2 = 2.0*abs(wk2)
     hc2wt = rwk2/hypo2
@@ -215,34 +215,32 @@ def fasper(x, y, ofac, hifac, n_threads, MACC=4):
     jmax = wk2.argmax()
 
     #Significance estimation
-    #expy = exp(-wk2)                    
-    #effm = 2.0*(nout)/ofac             
+    #expy = exp(-wk2)
+    #effm = 2.0*(nout)/ofac
     #sig = effm*expy
     #ind = (sig > 0.01).nonzero()
     #sig[ind] = 1.0-(1.0-expy[ind])**effm
 
     #Estimate significance of largest peak value
-    expy = exp(-pmax)                    
+    expy = exp(-pmax)
     effm = 2.0*(nout)/ofac
     prob = effm*expy
 
-    if prob > 0.01: 
+    if prob > 0.01:
         prob = 1.0 - (1.0 - expy)**effm
 
     return wk1, wk2, nout, jmax, prob
 
 
 def getSignificance(wk1, wk2, nout, ofac):
-    """ 
+    """
     Returns the peak false alarm probabilities
     Hence the lower is the probability and the more significant is the peak
     """
-    expy = exp(-wk2)                    
-    effm = 2.0*(nout)/ofac             
+    expy = exp(-wk2)
+    effm = 2.0*(nout)/ofac
     sig = effm*expy
     ind = (sig > 0.01).nonzero()
     sig[ind] = 1.0 - (1.0 - expy[ind])**effm
 
     return sig
-
-
