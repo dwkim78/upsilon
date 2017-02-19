@@ -6,10 +6,10 @@ import numpy as np
 import scipy.stats as ss
 from scipy.optimize import leastsq
 
-import period_LS_pyfftw as pLS
+from . import period_LS_pyfftw as pLS
 
-from feature_set import get_feature_set
-from feature_set import get_feature_set_all
+from .feature_set import get_feature_set
+from .feature_set import get_feature_set_all
 
 feature_names_list = get_feature_set()
 feature_names_list_all = get_feature_set_all()
@@ -569,7 +569,7 @@ class ExtractFeatures:
 
         # Get all the names of features.
         all_vars = vars(self)
-        for name in all_vars.keys():
+        for name in list(all_vars.keys()):
             # Omit input variables such as date, mag, err, etc.
             if not (name == 'date' or name == 'mag' or name == 'err'
                     or name == 'n_threads' or name == 'min_period'):
@@ -635,11 +635,11 @@ class ExtractFeatures:
 
         # Get all the names of features.
         all_vars = vars(self)
-        for name in all_vars.keys():
+        for name in list(all_vars.keys()):
             if name in feature_names_list_all:
                 features[name] = all_vars[name]
 
         # Sort by the keys (i.e. feature names).
-        features = OrderedDict(sorted(features.items(), key=lambda t: t[0]))
+        features = OrderedDict(sorted(list(features.items()), key=lambda t: t[0]))
 
         return features

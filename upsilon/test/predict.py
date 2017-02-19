@@ -42,7 +42,7 @@ def run():
         % len(feature_names_list))
 
     features_all = e_features.get_features()
-    for key, value in features_all.iteritems():
+    for key, value in list(features_all.items()):
         if key != 'n_points':
             logger.info('   %s %s: %f' % ('(+)'
                 if key in feature_names_list else '(-)', key, value))

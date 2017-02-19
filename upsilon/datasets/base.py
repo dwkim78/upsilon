@@ -53,12 +53,12 @@ def load_rf_model():
 
     import gzip
     try:
-        import cPickle as pickle
+        import pickle as pickle
     except:
         import pickle
 
     module_path = dirname(__file__)
     file_path = join(module_path, 'models/rf.model.sub.github.gz')
-    clf = pickle.load(gzip.open(file_path, 'rb'))
+    clf = pickle.load(gzip.open(file_path, 'rb'), encoding='latin1')
 
     return clf
