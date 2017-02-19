@@ -144,7 +144,7 @@ def fasper(x, y, ofac, hifac, n_threads, MACC=4):
 
     nout = int(0.5*ofac*hifac*n)
     nfreqt = long(ofac*hifac*n*MACC)     #Size the FFT as next power
-    nfreq = 64L                         # of 2 above nfreqt.
+    nfreq = long(64)                         # of 2 above nfreqt.
 
     while nfreq < nfreqt:
         nfreq = 2*nfreq
