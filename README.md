@@ -36,9 +36,7 @@ In principle, UPSILoN can classify any light curves having arbitrary number of d
 
 
 ## 1. Dependency
-[Python 2.7+](https://www.python.org/) 
-
- * Not tested with Python 3.0+
+[Python 2.7+ or 3.5+](https://www.python.org/)
 
 [Numpy 1.11.2+](http://www.numpy.org/)
 
@@ -315,6 +313,9 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
 - add additional variability types to the training set, either to classify or exclude them (not determined yet).
 - provide web-based classifier for a small set of light curves.
 - implementing multilayer classifiers, which might reduce feature extracting time.
+
+### v.1.2.6 (2017/03/14)
+- Python 3 compatible. Special thanks to Mike Rosseel ([https://github.com/mrosseel](https://github.com/mrosseel)).
 
 ### v.1.2.5 (2016/11/24)
 - scikit-learn dependency updated to 0.18.1

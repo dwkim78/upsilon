@@ -2,6 +2,7 @@
 Base IO code for all datasets
 """
 
+import sys
 import numpy as np
 
 from os.path import dirname
@@ -59,6 +60,12 @@ def load_rf_model():
 
     module_path = dirname(__file__)
     file_path = join(module_path, 'models/rf.model.sub.github.gz')
-    clf = pickle.load(gzip.open(file_path, 'rb'))
+
+    # For Python 3.
+    if sys.version_info.major >= 3:
+        clf = pickle.load(gzip.open(file_path, 'rb'), encoding='latin1')
+    # For Python 2.
+    else:
+        clf = pickle.load(gzip.open(file_path, 'rb'))
 
     return clf

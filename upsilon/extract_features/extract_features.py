@@ -6,10 +6,10 @@ import numpy as np
 import scipy.stats as ss
 from scipy.optimize import leastsq
 
-import period_LS_pyfftw as pLS
+import upsilon.extract_features.period_LS_pyfftw as pLS
 
-from feature_set import get_feature_set
-from feature_set import get_feature_set_all
+from upsilon.extract_features.feature_set import get_feature_set
+from upsilon.extract_features.feature_set import get_feature_set_all
 
 feature_names_list = get_feature_set()
 feature_names_list_all = get_feature_set_all()
