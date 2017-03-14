@@ -23,6 +23,7 @@ def predict(rf_model, features):
     """
 
     import numpy as np
+
     from upsilon.extract_features.feature_set import get_feature_set
     feature_set = get_feature_set()
 
