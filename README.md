@@ -40,9 +40,9 @@ In principle, UPSILoN can classify any light curves having arbitrary number of d
 
 [scikit-learn 0.18.1+](http://scikit-learn.org/stable/)
 
-[pyFFTW 0.10.4+] (http://hgomersall.github.io/pyFFTW/)
+[pyFFTW 0.10.4+](http://hgomersall.github.io/pyFFTW/)
 
- * pyFFTW is optional but <b>highly recommended</b> for multi-threads usage for FFT. You will need to install [FFTW] (http://www.fftw.org/) as well prior to installation of pyFFTW.
+ * pyFFTW is optional but <b>highly recommended</b> for multi-threads usage for FFT. You will need to install [FFTW](http://www.fftw.org/) as well prior to installation of pyFFTW.
 
 These libraries (except pyFFTW) will be automatically installed if your machines do not have them yet. In the case you encounter errors during the installation of the dependencies, try to install them individually. Your machine may not have other necessary libraries that are required by the dependencies.
 
