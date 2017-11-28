@@ -310,6 +310,9 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
 - provide web-based classifier for a small set of light curves.
 - implementing multilayer classifiers, which might reduce feature extracting time.
 
+### v.1.2.7 (2017/11/28)
+- Bug fix for deriving a weight array from a zero-containing error of magnitude array.
+
 ### v.1.2.6 (2017/03/14)
 - Python 3 compatible. Special thanks to Mike Rosseel ([https://github.com/mrosseel](https://github.com/mrosseel)).
 

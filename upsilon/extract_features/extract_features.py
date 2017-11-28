@@ -78,6 +78,8 @@ class ExtractFeatures:
     def run(self):
         """Run feature extraction modules."""
 
+        # shallow_run must be executed prior to deep_run
+        # since shallow_run calculates several values needed for deep_run.
         self.shallow_run()
         self.deep_run()
 
@@ -86,7 +88,14 @@ class ExtractFeatures:
         # Number of data points
         self.n_points = len(self.date)
 
-        # Weight calculation
+        # Weight calculation.
+        # All zero values.
+        if not self.err.any():
+            self.err = np.ones(len(self.mag)) * np.std(self.mag)
+        # Some zero values.
+        elif not self.err.all():
+            np.putmask(self.err, self.err==0, np.median(self.err))
+
         self.weight = 1. / self.err
         self.weighted_sum = np.sum(self.weight)
 

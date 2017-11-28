@@ -49,7 +49,7 @@ def run():
 
     logger.info('Extracted features:')
     features = e_features.get_features_all()
-    for key, value in features.iteritems():
+    for key, value in features.items():
         logger.info('   %s: %f' % (key, value))
 
     logger.info('Finished')
