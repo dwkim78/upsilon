@@ -92,7 +92,7 @@ This code reads a sample light curve of a Cepheid variable, extracts features, a
 yyyy-mm-dd hh:mm:ss,mmm INFO - Classified as CEPH_1O with the class probability 0.96
 ```
 
-If the light curve is not classified as a Cepheid variable, or if the class probability is not 0.91, something might be wrong. In that case, please contact me.
+If the light curve is not classified as a Cepheid variable, or if the class probability is not 0.96, something might be wrong. In that case, please contact me.
 
 ## 4. Pseudo Code: How to Use UPSILoN? 
 
