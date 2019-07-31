@@ -36,7 +36,7 @@ In principle, UPSILoN can classify any light curves having arbitrary number of d
 
 [Numpy 1.11.2+](http://www.numpy.org/)
 
-[Scipy 0.18.1+](http://scipy.org/)
+[Scipy 0.21.3+](http://scipy.org/)
 
 [scikit-learn 0.18.1+](http://scikit-learn.org/stable/)
 
@@ -89,7 +89,7 @@ upsilon.test_predict()
 This code reads a sample light curve of a Cepheid variable, extracts features, and classify it. At the end of log messages, you must see the line something like:
 
 ```
-yyyy-mm-dd hh:mm:ss,mmm INFO - Classified as CEPH_1O with the class probability 0.91
+yyyy-mm-dd hh:mm:ss,mmm INFO - Classified as CEPH_1O with the class probability 0.96
 ```
 
 If the light curve is not classified as a Cepheid variable, or if the class probability is not 0.91, something might be wrong. In that case, please contact me.
@@ -309,6 +309,9 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
 - add additional variability types to the training set, either to classify or exclude them (not determined yet).
 - provide web-based classifier for a small set of light curves.
 - implementing multilayer classifiers, which might reduce feature extracting time.
+
+### v.1.2.8 (2019/07/31)
+- scikit-learn dependency updated to to 0.21.3
 
 ### v.1.2.7 (2017/11/28)
 - Bug fix for deriving a weight array from a zero-containing error of magnitude array.
