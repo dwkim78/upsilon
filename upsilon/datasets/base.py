@@ -10,6 +10,7 @@ from os.path import join
 
 
 def load_EROS_lc(filename='lm0010n22323.time'):
+# def load_EROS_lc(filename='lc_out00026.txt'):
     """
     Read an EROS light curve and return its data.
 
