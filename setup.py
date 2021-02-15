@@ -6,7 +6,7 @@ def readme():
 
 setup(
     name='upsilon',
-    version='1.2.8',
+    version='1.2.9',
     description='Automated Classification of Periodic Variable Stars Using Machine Learning',
     long_description=readme(),
     platforms=['any'],
@@ -16,7 +16,7 @@ setup(
     license='MIT',
     author='Dae-Won Kim',
     author_email='dwkim78@gmail.com',
-    install_requires=['numpy>=1.9', 'scikit-learn>=0.21.3', 'scipy>=0.15',
+    install_requires=['numpy>=1.9', 'scikit-learn>=0.24.1', 'scipy>=0.15',
         #'pyfftw>=0.9.2',
     ],
     keywords=['astronomy', 'periodic variables', 'light curves',
