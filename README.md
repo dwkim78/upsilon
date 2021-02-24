@@ -38,7 +38,7 @@ In principle, UPSILoN can classify any light curves having arbitrary number of d
 
 [Scipy 0.21.3+](http://scipy.org/)
 
-[scikit-learn 0.18.1+](http://scikit-learn.org/stable/)
+[scikit-learn 0.24.1+](http://scikit-learn.org/stable/)
 
 [pyFFTW 0.10.4+](http://hgomersall.github.io/pyFFTW/)
 
@@ -310,11 +310,14 @@ Although UPSILoN could be run at any decent machines, we recommend to run it at 
 - provide web-based classifier for a small set of light curves.
 - implementing multilayer classifiers, which might reduce feature extracting time.
 
+### v.1.2.10 (2021/02/24)
+- Random Forests model updated to scikit-learn 0.24.1
+
 ### v.1.2.9 (2021/02/15)
-- scikit-learn dependency updated to to 0.24.1
+- scikit-learn dependency updated to 0.24.1
 
 ### v.1.2.8 (2019/07/31)
-- scikit-learn dependency updated to to 0.21.3
+- scikit-learn dependency updated to 0.21.3
 
 ### v.1.2.7 (2017/11/28)
 - Bug fix for deriving a weight array from a zero-containing error of magnitude array.
