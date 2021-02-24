@@ -6,7 +6,7 @@ def readme():
 
 setup(
     name='upsilon',
-    version='1.2.19',
+    version='1.2.10',
     description='Automated Classification of Periodic Variable Stars Using Machine Learning',
     long_description=readme(),
     platforms=['any'],
