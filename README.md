@@ -5,7 +5,7 @@
 </div><br>
 
 
-<b>Note</b>: We released UPSILoN-T using deep learning and tranfer learning. Details are given in https://github.com/dwkim78/UPSILoN-T.
+<b>Announcement</b>: We have released a successor of UPSILoN, <b>UPSILoN-T</b> using deep learning and transfer learning. Details are given in https://github.com/dwkim78/UPSILoN-T.
 
 
 <b>Important Note</b>: If you upgrade to the version >= 1.2.0 from the previous version (i.e. <= 1.1.5), please read [Detailed Usage](#5-details-about-upsilon-usage). There are some changes in the outputs of the predict functions. See [ChangeLog](#changelog) for the summary.
